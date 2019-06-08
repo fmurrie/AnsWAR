@@ -173,6 +173,9 @@ public class MarcoVentana extends JFrame
 		panelClasificacion.setName("panelClasificacion");
 		contentPane.add(panelClasificacion);
 		
+		PanelRuleta panelRuleta=new PanelRuleta(contentPane);
+		panelRuleta.setName("panelRuleta");
+		contentPane.add(panelRuleta);
 		
 	}
 	

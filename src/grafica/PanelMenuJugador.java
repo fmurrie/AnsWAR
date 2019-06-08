@@ -29,6 +29,11 @@ public class PanelMenuJugador extends SuperPanel
 		add(label);
 
 		JButton btnJugar = new JButton("Jugar");
+		btnJugar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				desplazarAotroPanel(contentPane,"panelRuleta");
+			}
+		});
 		btnJugar.setBackground(Color.BLACK);
 		btnJugar.setForeground(Color.GREEN);
 		btnJugar.setFont(new Font("Stencil",Font.PLAIN,18));

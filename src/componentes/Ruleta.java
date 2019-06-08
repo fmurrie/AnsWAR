@@ -29,7 +29,7 @@ public class Ruleta
 		this.resultado = resultado;
 	}
 
-	private String getResultado()
+	public String getResultado()
 	{
 		return resultado;
 	}
@@ -48,13 +48,8 @@ public class Ruleta
 	{
 		int i = 0;
 		int j = 0;
-		int cantidadVueltas = generarNumeroEnteroRandom(0,
-				355); /*
-						 * Recibe un numero aleatorio y en base a ese numero empieza a incrementar sus
-						 * contadores y juega con el array de opciones hasta que se llega al numero
-						 * obtenido y el area
-						 */
-		while(j < cantidadVueltas) /* que queda es el resultado */
+		int cantidadVueltas = generarNumeroEnteroRandom(0,355); 
+		while(j < cantidadVueltas)
 		{
 			setResultado(this.areas[i]);
 			i++;
