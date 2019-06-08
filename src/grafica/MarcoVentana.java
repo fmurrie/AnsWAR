@@ -2,7 +2,6 @@ package grafica;
 
 import java.awt.EventQueue;
 import java.awt.Image;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -10,13 +9,13 @@ import java.awt.CardLayout;
 import java.awt.Toolkit;
 import java.awt.Color;
 import java.awt.Component;
-
 import javax.swing.JMenuBar;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JComboBox;
 import java.awt.Font;
+import javax.swing.JMenu;
+
 
 
 public class MarcoVentana extends JFrame
@@ -65,30 +64,62 @@ public class MarcoVentana extends JFrame
 		menuBar.setBackground(Color.BLACK);
 		setJMenuBar(menuBar);
 		
-		JButton btnInicio = new JButton("Inicio");
+		JMenu mnOpciones = new JMenu("Menu");
+		mnOpciones.setForeground(Color.GRAY);
+		mnOpciones.setBackground(Color.BLACK);
+		mnOpciones.setFont(new Font("Stencil", Font.PLAIN, 12));
+		menuBar.add(mnOpciones);
+		
+		JButton btnInicio = new JButton("Inicio                 ");
+		mnOpciones.add(btnInicio);
 		btnInicio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(contentPane.getComponent(0).getName().equals("panelExterior")==false)
-				desplazarAotroPanel(contentPane,"panelExterior");
+				{
+					desplazarAotroPanel(contentPane,"panelExterior");
+				}
+				
 			}
 		});
 		btnInicio.setForeground(Color.WHITE);
 		btnInicio.setBackground(Color.BLACK);
 		btnInicio.setFont(new Font("Stencil", Font.PLAIN, 11));
-		menuBar.add(btnInicio);
 		
-		JButton btnSalir = new JButton("Salir");
+		JButton btnCerrarSesion = new JButton("Cerrar sesion");
+		mnOpciones.add(btnCerrarSesion);
+		btnCerrarSesion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(contentPane.getComponent(0).getName().equals("panelExterior")==false)
+				{
+					desplazarAotroPanel(contentPane,"panelLogin");	
+				}
+			}
+		});
+		btnCerrarSesion.setBackground(Color.BLACK);
+		btnCerrarSesion.setForeground(Color.WHITE);
+		btnCerrarSesion.setFont(new Font("Stencil", Font.PLAIN, 11));
+		
+		JButton btnSalir = new JButton("Salir                 ");
+		mnOpciones.add(btnSalir);
 		btnSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				dispose();
-				
+				dispose();	
 			}
 		});
 		btnSalir.setForeground(Color.WHITE);
 		btnSalir.setBackground(Color.BLACK);
 		btnSalir.setFont(new Font("Stencil", Font.PLAIN, 11));
-		menuBar.add(btnSalir);
+		
+		JMenu mnOpciones_1 = new JMenu("Opciones");
+		mnOpciones_1.setFont(new Font("Stencil", Font.PLAIN, 12));
+		mnOpciones_1.setForeground(Color.GRAY);
+		mnOpciones_1.setBackground(Color.DARK_GRAY);
+		menuBar.add(mnOpciones_1);
+		
+		JButton btnMusica = new JButton("Musica");	
+		mnOpciones_1.add(btnMusica);
+		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5,5,5,5));
 		setContentPane(contentPane);
@@ -138,6 +169,10 @@ public class MarcoVentana extends JFrame
 		panelBuscarJugador.setName("panelBuscarJugador");
 		contentPane.add(panelBuscarJugador);
 		
+		PanelClasificacion panelClasificacion=new PanelClasificacion(contentPane);
+		panelClasificacion.setName("panelClasificacion");
+		contentPane.add(panelClasificacion);
+		
 		
 	}
 	
@@ -159,6 +194,14 @@ public class MarcoVentana extends JFrame
 				
 			i++;
 		}
+	}
+	
+	private void desactivarBotonCuentaEnPanelesSinSesion(JMenu mnCuenta)
+	{
+		if((contentPane.getComponent(0).getName().equals("panelExterior"))||(contentPane.getComponent(0).getName().equals("panelLogin"))||(contentPane.getComponent(0).getName().equals("panelRegistro")))
+			mnCuenta.setEnabled(false);
+		else
+			mnCuenta.setEnabled(true);				
 	}
 	
 }

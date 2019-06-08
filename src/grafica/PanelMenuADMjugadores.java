@@ -29,6 +29,11 @@ public class PanelMenuADMjugadores extends SuperPanel
 		add(label);
 
 		JButton btnVerRank = new JButton("Ver clasificacion");
+		btnVerRank.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				desplazarAotroPanel(contentPane,"panelClasificacion");
+			}
+		});
 		btnVerRank.setBackground(Color.BLACK);
 		btnVerRank.setForeground(Color.GREEN);
 		btnVerRank.setFont(new Font("Stencil",Font.PLAIN,18));

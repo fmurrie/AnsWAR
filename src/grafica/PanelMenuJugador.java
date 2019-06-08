@@ -35,6 +35,11 @@ public class PanelMenuJugador extends SuperPanel
 		add(btnJugar);
 
 		JButton btnClasificacion = new JButton("Ver clasificacion");
+		btnClasificacion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				desplazarAotroPanel(contentPane,"panelClasificacion");
+			}
+		});
 		btnClasificacion.setForeground(Color.GREEN);
 		btnClasificacion.setFont(new Font("Stencil",Font.PLAIN,18));
 		btnClasificacion.setBackground(Color.BLACK);
