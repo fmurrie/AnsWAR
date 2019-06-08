@@ -9,6 +9,14 @@ import javax.swing.border.EmptyBorder;
 import java.awt.CardLayout;
 import java.awt.Toolkit;
 import java.awt.Color;
+import java.awt.Component;
+
+import javax.swing.JMenuBar;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JComboBox;
+import java.awt.Font;
 
 
 public class MarcoVentana extends JFrame
@@ -52,6 +60,35 @@ public class MarcoVentana extends JFrame
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100,100,1000,600);
+		
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBackground(Color.BLACK);
+		setJMenuBar(menuBar);
+		
+		JButton btnInicio = new JButton("Inicio");
+		btnInicio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(contentPane.getComponent(0).getName().equals("panelExterior")==false)
+				desplazarAotroPanel(contentPane,"panelExterior");
+			}
+		});
+		btnInicio.setForeground(Color.WHITE);
+		btnInicio.setBackground(Color.BLACK);
+		btnInicio.setFont(new Font("Stencil", Font.PLAIN, 11));
+		menuBar.add(btnInicio);
+		
+		JButton btnSalir = new JButton("Salir");
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				dispose();
+				
+			}
+		});
+		btnSalir.setForeground(Color.WHITE);
+		btnSalir.setBackground(Color.BLACK);
+		btnSalir.setFont(new Font("Stencil", Font.PLAIN, 11));
+		menuBar.add(btnSalir);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5,5,5,5));
 		setContentPane(contentPane);
@@ -89,8 +126,39 @@ public class MarcoVentana extends JFrame
 		panelCargarPreguntas.setName("panelCargarPreguntas");
 		contentPane.add(panelCargarPreguntas);
 		
+		PanelBuscarPregunta panelBuscarPregunta=new PanelBuscarPregunta(contentPane);
+		panelBuscarPregunta.setName("panelBuscarPregunta");
+		contentPane.add(panelBuscarPregunta);
+		
+		PanelVerPreguntas panelVerPreguntas=new PanelVerPreguntas(contentPane);
+		panelVerPreguntas.setName("panelVerPreguntas");
+		contentPane.add(panelVerPreguntas);
+		
+		PanelBuscarJugador panelBuscarJugador=new PanelBuscarJugador(contentPane);
+		panelBuscarJugador.setName("panelBuscarJugador");
+		contentPane.add(panelBuscarJugador);
+		
 		
 	}
 	
+	private void desplazarAotroPanel(JPanel contentPane, String panelAmostrar)
+	{
+		boolean busqueda = false;
+		Component auxiliar = new JPanel();
+		Component auxiliar2=contentPane.getComponent(0);
+		int i = 0;
+		while(busqueda == false)
+		{
+			auxiliar = contentPane.getComponent(i);
+			if(panelAmostrar.equalsIgnoreCase(auxiliar.getName()))
+			{
+				contentPane.add(auxiliar,0);
+				contentPane.add(auxiliar2,i);
+				busqueda=true;
+			}
+				
+			i++;
+		}
+	}
 	
 }

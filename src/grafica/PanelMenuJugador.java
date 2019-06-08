@@ -41,13 +41,13 @@ public class PanelMenuJugador extends SuperPanel
 		add(btnClasificacion);
 		
 		JButton btnPerfil = new JButton("Mi perfil");
-		btnPerfil.setForeground(Color.GREEN);
+		btnPerfil.setForeground(Color.BLUE);
 		btnPerfil.setBackground(Color.BLACK);
 		btnPerfil.setFont(new Font("Stencil", Font.PLAIN, 18));
 		add(btnPerfil);
 		
 		JButton btnConfiguracion = new JButton("Configuracion");
-		btnConfiguracion.setForeground(Color.GREEN);
+		btnConfiguracion.setForeground(Color.WHITE);
 		btnConfiguracion.setBackground(Color.BLACK);
 		btnConfiguracion.setFont(new Font("Stencil", Font.PLAIN, 18));
 		add(btnConfiguracion);

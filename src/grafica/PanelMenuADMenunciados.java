@@ -25,7 +25,7 @@ public class PanelMenuADMenunciados extends SuperPanel
 
 		JLabel label = new JLabel("");
 		label.setHorizontalAlignment(SwingConstants.CENTER);
-		label.setIcon(new ImageIcon("src/imagenes/AnswarTitulo.png"));
+		label.setIcon(new ImageIcon("src/imagenes/AnswarTituloMenuLogin.png"));
 		add(label);
 
 		JButton btnCargarPreguntas = new JButton("Cargar enunciado");
@@ -40,14 +40,41 @@ public class PanelMenuADMenunciados extends SuperPanel
 		btnCargarPreguntas.setForeground(Color.GREEN);
 		btnCargarPreguntas.setFont(new Font("Stencil",Font.PLAIN,18));
 		add(btnCargarPreguntas);
-
+		
+		JButton btnListarEnunciados = new JButton("Ver preguntas");
+		btnListarEnunciados.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				desplazarAotroPanel(contentPane,"panelVerPreguntas");
+			}
+		});
+		btnListarEnunciados.setBackground(Color.BLACK);
+		btnListarEnunciados.setForeground(Color.GREEN);
+		btnListarEnunciados.setFont(new Font("Stencil",Font.PLAIN,18));
+		add(btnListarEnunciados);
+		
 		JButton btnA = new JButton("Editar enunciado");
+		btnA.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				desplazarAotroPanel(contentPane,"panelBuscarPregunta");
+			}
+		});
 		btnA.setForeground(Color.ORANGE);
 		btnA.setFont(new Font("Stencil",Font.PLAIN,18));
 		btnA.setBackground(Color.BLACK);
 		add(btnA);
 		
 		JButton btnElimicarEnunciado = new JButton("Eliminar enunciado");
+		btnElimicarEnunciado.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				desplazarAotroPanel(contentPane,"panelBuscarPregunta");
+			}
+		});
 		btnElimicarEnunciado.setForeground(Color.RED);
 		btnElimicarEnunciado.setBackground(Color.BLACK);
 		btnElimicarEnunciado.setFont(new Font("Stencil", Font.PLAIN, 18));

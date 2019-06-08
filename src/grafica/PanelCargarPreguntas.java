@@ -6,11 +6,17 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.JComboBox;
+import javax.swing.JRadioButton;
+import javax.swing.JToggleButton;
+import javax.swing.JRadioButtonMenuItem;
+import javax.swing.JCheckBox;
 
 
 public class PanelCargarPreguntas extends SuperPanel
@@ -20,10 +26,44 @@ public class PanelCargarPreguntas extends SuperPanel
 	 */
 	public PanelCargarPreguntas(JPanel contentPane)
 	{
-		setLayout(new GridLayout(6,1,0,0));
+		setLayout(new GridLayout(18,1,0,0));
 		setBackground(Color.BLACK);
-
 		
+		JLabel lblDisciplina = new JLabel("     Disciplina");
+		lblDisciplina.setFont(new Font("Stencil", Font.PLAIN, 18));
+		lblDisciplina.setForeground(Color.WHITE);
+		add(lblDisciplina);
+		
+		JLabel label_3 = new JLabel("");
+		add(label_3);
+		
+		ButtonGroup grupoRdionBotomns=new ButtonGroup();
+		JRadioButtonMenuItem rdbtnGeografia = new JRadioButtonMenuItem("Geografia");
+		rdbtnGeografia.setSelected(true);
+		JRadioButtonMenuItem rdbtnHistoria = new JRadioButtonMenuItem("Historia");
+		JRadioButtonMenuItem rdbtnDeporte = new JRadioButtonMenuItem("Deporte");
+		JRadioButtonMenuItem rdbtnEntretenimiento = new JRadioButtonMenuItem("Entretenimiento");
+		JRadioButtonMenuItem rdbtnArte = new JRadioButtonMenuItem("Arte");
+		JRadioButtonMenuItem rdbtnCiencia = new JRadioButtonMenuItem("Ciencia");
+		grupoRdionBotomns.add(rdbtnGeografia);
+		grupoRdionBotomns.add(rdbtnHistoria);
+		grupoRdionBotomns.add(rdbtnDeporte);
+		grupoRdionBotomns.add(rdbtnEntretenimiento);
+		grupoRdionBotomns.add(rdbtnArte);
+		grupoRdionBotomns.add(rdbtnCiencia);
+		add(rdbtnGeografia);
+		add(rdbtnHistoria);
+		add(rdbtnDeporte);
+		add(rdbtnEntretenimiento);
+		add(rdbtnArte);
+		add(rdbtnCiencia);
+		
+		JLabel label_4 = new JLabel("");
+		add(label_4);
+		
+		JLabel label_5 = new JLabel("");
+		add(label_5);
+
 		JLabel lblPregunta = new JLabel("     Pregunta: ");
 		lblPregunta.setBackground(Color.BLACK);
 		lblPregunta.setForeground(Color.WHITE);
@@ -38,6 +78,12 @@ public class PanelCargarPreguntas extends SuperPanel
 		textField.setBackground(Color.LIGHT_GRAY);
 		add(textField);
 		textField.setColumns(10);
+		
+		JLabel label_6 = new JLabel("");
+		add(label_6);
+		
+		JLabel label_7 = new JLabel("");
+		add(label_7);
 
 		JLabel lblOpcionA = new JLabel("     Opcion A:");
 		lblOpcionA.setBackground(Color.BLACK);
@@ -97,7 +143,50 @@ public class PanelCargarPreguntas extends SuperPanel
 		textField_3.setFont(new Font("Tahoma",Font.PLAIN,16));
 		textField_3.setBackground(Color.LIGHT_GRAY);
 		add(textField_3);
+		
+		JLabel label_8 = new JLabel("");
+		add(label_8);
+		
+		JLabel label_9 = new JLabel("");
+		add(label_9);
 
+		JLabel lblRespuesta = new JLabel("     Respuesta");
+		lblRespuesta.setForeground(Color.WHITE);
+		lblRespuesta.setFont(new Font("Stencil", Font.PLAIN, 18));
+		add(lblRespuesta);
+		ButtonGroup grupoCheckBotomns=new ButtonGroup();
+		JCheckBox chckbxA = new JCheckBox("A");
+		chckbxA.setSelected(true);
+		JCheckBox chckbxB = new JCheckBox("B");
+		JCheckBox chckbxC = new JCheckBox("C");
+		JCheckBox chckbxD = new JCheckBox("D");
+		grupoCheckBotomns.add(chckbxA);
+		grupoCheckBotomns.add(chckbxB);
+		grupoCheckBotomns.add(chckbxC);
+		grupoCheckBotomns.add(chckbxD);
+		add(chckbxA);
+		
+		JLabel label = new JLabel("");
+		add(label);
+		
+		add(chckbxB);
+		
+		JLabel label_1 = new JLabel("");
+		add(label_1);
+		
+		add(chckbxC);
+		
+		JLabel label_2 = new JLabel("");
+		add(label_2);
+		
+		add(chckbxD);
+		
+		JLabel label_10 = new JLabel("");
+		add(label_10);
+		
+		JLabel label_11 = new JLabel("");
+		add(label_11);
+		
 		JButton btnVolver = new JButton("Volver");
 		btnVolver.addActionListener(new ActionListener()
 		{

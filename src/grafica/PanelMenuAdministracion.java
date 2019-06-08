@@ -33,7 +33,7 @@ public class PanelMenuAdministracion extends SuperPanel
 			}
 		});
 		btnADMPreguntas.setBackground(Color.BLACK);
-		btnADMPreguntas.setForeground(Color.GREEN);
+		btnADMPreguntas.setForeground(Color.WHITE);
 		btnADMPreguntas.setFont(new Font("Stencil",Font.PLAIN,18));
 		add(btnADMPreguntas);
 
@@ -43,7 +43,7 @@ public class PanelMenuAdministracion extends SuperPanel
 				desplazarAotroPanel(contentPane,"panelMenuADMjugadores");
 			}
 		});
-		btnADMJugadores.setForeground(Color.GREEN);
+		btnADMJugadores.setForeground(Color.WHITE);
 		btnADMJugadores.setFont(new Font("Stencil",Font.PLAIN,18));
 		btnADMJugadores.setBackground(Color.BLACK);
 		add(btnADMJugadores);
