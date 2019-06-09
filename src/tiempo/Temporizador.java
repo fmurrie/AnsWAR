@@ -3,19 +3,24 @@ package tiempo;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javax.swing.JComponent;
+import javax.swing.JTextField;
+
 public class Temporizador
 {
 	private int hour = 0;
-	private int minute = 1;
+	private int minute = 2;
 	private int second = 1;
 	private Timer timer;
 	private boolean isTimerRunning;
 	private Display display;
+	private JTextField componente;
 
-	public Temporizador()
+	public Temporizador(JTextField componente)
 	{
 		timer = new Timer();
 		display = new Display();
+		this.componente=componente;
 	}
 
 	TimerTask task = new TimerTask()
@@ -48,9 +53,7 @@ public class Temporizador
 				}
 			}
 			if(isTimerRunning)
-				display.printTime(hour,minute,second);
-			else
-				System.out.println("Se acabo el tiempo!"); // <---------------------pasar a string sacar print
+				display.printTime(hour,minute,second,componente);
 		}
 	}; // fin timertask
 
