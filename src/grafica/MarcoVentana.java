@@ -180,15 +180,6 @@ public class MarcoVentana extends JFrame implements IRelacionFrameYPaneles
 		PanelPartida panelPartida = new PanelPartida(contentPane);
 		panelPartida.setName("panelPartida");
 		contentPane.add(panelPartida);
-		
-		PanelRuleta panelRuleta=new PanelRuleta(contentPane);
-		panelRuleta.setName("panelRuleta");
-		contentPane.add(panelRuleta);
-		
-		PanelParaResponder panelParaResponder=new PanelParaResponder(contentPane);
-		panelParaResponder.setName("panelParaResponder");
-		contentPane.add(panelParaResponder);
-		 
 
 	}
 
@@ -210,31 +201,30 @@ public class MarcoVentana extends JFrame implements IRelacionFrameYPaneles
 
 			i++;
 		}
-		restaurarValoresRuleta(contentPane);
-		
+		restaurarValoresPanelPartida(contentPane);
 	}
-	
-	public void restaurarValoresRuleta(JPanel contentPane)
+
+	public void restaurarValoresPanelPartida(JPanel contentPane)
 	{
-		if(contentPane.getComponent(0).getName().equalsIgnoreCase("panelRuleta"))
+		if(contentPane.getComponent(0).getName().equalsIgnoreCase("panelPartida"))
 		{
-			PanelRuleta panelRuleta=new PanelRuleta(contentPane);
-			panelRuleta.setName("panelRuleta");
+			PanelPartida panelPartida = new PanelPartida(contentPane);
+			panelPartida.setName("panelPartida");
 			contentPane.remove(0);
-			contentPane.add(panelRuleta,0);
-		}		
+			contentPane.add(panelPartida,0);
+		}
 	}
-	
-	public int buscarPanelPorNombreYdevolverPos(JPanel contentPane,String nombrePanel)
+
+	public int buscarPanelPorNombreYdevolverPos(JPanel contentPane, String nombrePanel)
 	{
-		boolean encontro=false;
-		int i=0;
-		
-		while(encontro=false)
+		boolean encontro = false;
+		int i = 0;
+
+		while(encontro = false)
 		{
 			if(contentPane.getComponent(i).getName().equals(nombrePanel))
 			{
-				encontro=true;
+				encontro = true;
 			}
 			i++;
 		}

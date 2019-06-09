@@ -24,30 +24,52 @@ public abstract class SuperPanel extends JPanel implements IRelacionFrameYPanele
 
 			i++;
 		}
-		restaurarValoresRuleta(contentPane);
+		restaurarValoresPanelPartida(contentPane);
 	}
-	
+
 	public void restaurarValoresRuleta(JPanel contentPane)
 	{
 		if(contentPane.getComponent(0).getName().equalsIgnoreCase("panelRuleta"))
 		{
-			PanelRuleta panelRuleta=new PanelRuleta(contentPane);
+			PanelRuleta panelRuleta = new PanelRuleta(contentPane);
 			panelRuleta.setName("panelRuleta");
 			contentPane.remove(0);
 			contentPane.add(panelRuleta,0);
-		}		
+		}
 	}
-	
-	public int buscarPanelPorNombreYdevolverPos(JPanel contentPane,String nombrePanel)
+
+	public void restaurarValoresPanelParaResponder(JPanel contentPane)
 	{
-		boolean encontro=false;
-		int i=0;
-		
-		while(encontro=false)
+		if(contentPane.getComponent(0).getName().equalsIgnoreCase("panelParaResponder"))
+		{
+			PanelParaResponder panelParaResponder = new PanelParaResponder(contentPane);
+			panelParaResponder.setName("panelParaResponder");
+			contentPane.remove(0);
+			contentPane.add(panelParaResponder,0);
+		}
+	}
+
+	public void restaurarValoresPanelPartida(JPanel contentPane)
+	{
+		if(contentPane.getComponent(0).getName().equalsIgnoreCase("panelPartida"))
+		{
+			PanelPartida panelPartida = new PanelPartida(contentPane);
+			panelPartida.setName("panelPartida");
+			contentPane.remove(0);
+			contentPane.add(panelPartida,0);
+		}
+	}
+
+	public int buscarPanelPorNombreYdevolverPos(JPanel contentPane, String nombrePanel)
+	{
+		boolean encontro = false;
+		int i = 0;
+
+		while(encontro = false)
 		{
 			if(contentPane.getComponent(i).getName().equals(nombrePanel))
 			{
-				encontro=true;
+				encontro = true;
 			}
 			i++;
 		}

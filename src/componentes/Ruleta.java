@@ -48,7 +48,7 @@ public class Ruleta
 	{
 		int i = 0;
 		int j = 0;
-		int cantidadVueltas = generarNumeroEnteroRandom(0,355); 
+		int cantidadVueltas = generarNumeroEnteroRandom(0,355);
 		while(j < cantidadVueltas)
 		{
 			setResultado(this.areas[i]);

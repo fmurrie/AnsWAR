@@ -3,6 +3,7 @@ package grafica;
 import javax.swing.JPanel;
 import java.awt.GridLayout;
 import java.awt.Color;
+import java.awt.Component;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JLabel;
@@ -23,16 +24,18 @@ import javax.swing.JTextField;
 
 public class PanelRuleta extends SuperPanel
 {
+
 	private Ruleta ruletaDeSuerte = new Ruleta();
 	private JTextField resultado = new JTextField();
 	private ButtonGroup grupoTogleBotones = new ButtonGroup();
 	private JToggleButton tglbtnGirar = new JToggleButton("Girar");
 	private JToggleButton tglbtnDetener = new JToggleButton("Detener");
+	private JButton btnPartida = new JButton("Ir a la pregunta");
 
 	/**
 	 * Create the panel.
 	 */
-	public PanelRuleta(JPanel contentPane)
+	public PanelRuleta(JPanel contenidoPartida)
 	{
 		setBackground(Color.BLACK);
 		setLayout(new GridLayout(0,3,0,0));
@@ -67,6 +70,7 @@ public class PanelRuleta extends SuperPanel
 			{
 				ruletaDeSuerte.girarRuleta();
 				tglbtnDetener.setEnabled(true);
+				tglbtnGirar.setEnabled(false);
 			}
 		});
 		tglbtnGirar.setBackground(Color.BLACK);
@@ -78,8 +82,10 @@ public class PanelRuleta extends SuperPanel
 			public void actionPerformed(ActionEvent arg0)
 			{
 				tglbtnGirar.setEnabled(false);
+				btnPartida.setEnabled(true);
 				resultado.setText(ruletaDeSuerte.getResultado());
 				add(resultado);
+				tglbtnDetener.setEnabled(false);
 			}
 		});
 		tglbtnDetener.setEnabled(false);
@@ -141,12 +147,15 @@ public class PanelRuleta extends SuperPanel
 		JLabel label_13 = new JLabel("");
 		add(label_13);
 
-		JButton btnPartida = new JButton("Ir a la pregunta");
+		btnPartida.setEnabled(false);
 		btnPartida.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				desplazarAotroPanel(contentPane,"panelParaResponder");
+				desplazarAotroPanel(contenidoPartida,"panelParaResponder");
+				restaurarValoresPanelParaResponder(contenidoPartida);
+				revalidate();
+				repaint();
 			}
 		});
 		btnPartida.setForeground(Color.ORANGE);
@@ -155,6 +164,5 @@ public class PanelRuleta extends SuperPanel
 		add(btnPartida);
 
 	}
-	
 
 }
