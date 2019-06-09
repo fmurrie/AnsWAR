@@ -29,9 +29,11 @@ public class PanelMenuJugador extends SuperPanel
 		add(label);
 
 		JButton btnJugar = new JButton("Jugar");
-		btnJugar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				desplazarAotroPanel(contentPane,"panelRuleta");
+		btnJugar.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				desplazarAotroPanel(contentPane,"panelPartida");
 			}
 		});
 		btnJugar.setBackground(Color.BLACK);
@@ -40,8 +42,10 @@ public class PanelMenuJugador extends SuperPanel
 		add(btnJugar);
 
 		JButton btnClasificacion = new JButton("Ver clasificacion");
-		btnClasificacion.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnClasificacion.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
 				desplazarAotroPanel(contentPane,"panelClasificacion");
 			}
 		});
@@ -49,17 +53,17 @@ public class PanelMenuJugador extends SuperPanel
 		btnClasificacion.setFont(new Font("Stencil",Font.PLAIN,18));
 		btnClasificacion.setBackground(Color.BLACK);
 		add(btnClasificacion);
-		
+
 		JButton btnPerfil = new JButton("Mi perfil");
 		btnPerfil.setForeground(Color.BLUE);
 		btnPerfil.setBackground(Color.BLACK);
-		btnPerfil.setFont(new Font("Stencil", Font.PLAIN, 18));
+		btnPerfil.setFont(new Font("Stencil",Font.PLAIN,18));
 		add(btnPerfil);
-		
+
 		JButton btnConfiguracion = new JButton("Configuracion");
 		btnConfiguracion.setForeground(Color.WHITE);
 		btnConfiguracion.setBackground(Color.BLACK);
-		btnConfiguracion.setFont(new Font("Stencil", Font.PLAIN, 18));
+		btnConfiguracion.setFont(new Font("Stencil",Font.PLAIN,18));
 		add(btnConfiguracion);
 
 	}

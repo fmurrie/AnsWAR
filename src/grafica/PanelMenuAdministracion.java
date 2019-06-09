@@ -1,4 +1,5 @@
 package grafica;
+
 import javax.swing.JPanel;
 import java.awt.GridLayout;
 import java.awt.Color;
@@ -27,8 +28,10 @@ public class PanelMenuAdministracion extends SuperPanel
 		add(label);
 
 		JButton btnADMPreguntas = new JButton("Administrar enunciados");
-		btnADMPreguntas.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnADMPreguntas.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
 				desplazarAotroPanel(contentPane,"panelMenuADMenunciados");
 			}
 		});
@@ -38,8 +41,10 @@ public class PanelMenuAdministracion extends SuperPanel
 		add(btnADMPreguntas);
 
 		JButton btnADMJugadores = new JButton("Administrar jugadores");
-		btnADMJugadores.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnADMJugadores.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
 				desplazarAotroPanel(contentPane,"panelMenuADMjugadores");
 			}
 		});

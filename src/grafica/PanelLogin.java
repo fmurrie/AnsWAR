@@ -25,7 +25,7 @@ public class PanelLogin extends SuperPanel
 	{
 		setLayout(new GridLayout(7,1,0,0));
 		setBackground(Color.BLACK);
-		
+
 		JLabel label = new JLabel("");
 		label.setBackground(Color.BLACK);
 		label.setHorizontalAlignment(SwingConstants.CENTER);
@@ -68,7 +68,7 @@ public class PanelLogin extends SuperPanel
 			public void actionPerformed(ActionEvent e)
 			{
 				desplazarAotroPanel(contentPane,"panelMenuAdministracion");
-				//desplazarAotroPanel(contentPane,"panelMenuJugador");
+				// desplazarAotroPanel(contentPane,"panelMenuJugador");
 			}
 		});
 		btnIngresar.setBackground(Color.BLACK);
@@ -90,6 +90,5 @@ public class PanelLogin extends SuperPanel
 		add(btnVolver);
 
 	}
-
 
 }

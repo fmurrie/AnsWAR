@@ -16,9 +16,7 @@ import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.JMenu;
 
-
-
-public class MarcoVentana extends JFrame
+public class MarcoVentana extends JFrame implements IRelacionFrameYPaneles
 {
 
 	private JPanel contentPane;
@@ -53,73 +51,79 @@ public class MarcoVentana extends JFrame
 	{
 		setBackground(Color.BLACK);
 		setTitle("AnsWAR");
-		Toolkit pantalla=Toolkit.getDefaultToolkit();
-		Image miIcono=pantalla.getImage("src/imagenes/IconoAnswar.png");
+		Toolkit pantalla = Toolkit.getDefaultToolkit();
+		Image miIcono = pantalla.getImage("src/imagenes/IconoAnswar.png");
 		setIconImage(miIcono);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100,100,1000,600);
-		
+
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBackground(Color.BLACK);
 		setJMenuBar(menuBar);
-		
+
 		JMenu mnOpciones = new JMenu("Menu");
 		mnOpciones.setForeground(Color.GRAY);
 		mnOpciones.setBackground(Color.BLACK);
-		mnOpciones.setFont(new Font("Stencil", Font.PLAIN, 12));
+		mnOpciones.setFont(new Font("Stencil",Font.PLAIN,12));
 		menuBar.add(mnOpciones);
-		
+
 		JButton btnInicio = new JButton("Inicio                 ");
 		mnOpciones.add(btnInicio);
-		btnInicio.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(contentPane.getComponent(0).getName().equals("panelExterior")==false)
+		btnInicio.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				if(contentPane.getComponent(0).getName().equals("panelExterior") == false)
 				{
 					desplazarAotroPanel(contentPane,"panelExterior");
 				}
-				
+
 			}
 		});
 		btnInicio.setForeground(Color.WHITE);
 		btnInicio.setBackground(Color.BLACK);
-		btnInicio.setFont(new Font("Stencil", Font.PLAIN, 11));
-		
+		btnInicio.setFont(new Font("Stencil",Font.PLAIN,11));
+
 		JButton btnCerrarSesion = new JButton("Cerrar sesion");
 		mnOpciones.add(btnCerrarSesion);
-		btnCerrarSesion.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(contentPane.getComponent(0).getName().equals("panelExterior")==false)
+		btnCerrarSesion.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				if(contentPane.getComponent(0).getName().equals("panelExterior") == false)
 				{
-					desplazarAotroPanel(contentPane,"panelLogin");	
+					desplazarAotroPanel(contentPane,"panelLogin");
 				}
 			}
 		});
 		btnCerrarSesion.setBackground(Color.BLACK);
 		btnCerrarSesion.setForeground(Color.WHITE);
-		btnCerrarSesion.setFont(new Font("Stencil", Font.PLAIN, 11));
-		
+		btnCerrarSesion.setFont(new Font("Stencil",Font.PLAIN,11));
+
 		JButton btnSalir = new JButton("Salir                 ");
 		mnOpciones.add(btnSalir);
-		btnSalir.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnSalir.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
 				setVisible(false);
-				dispose();	
+				dispose();
 			}
 		});
 		btnSalir.setForeground(Color.WHITE);
 		btnSalir.setBackground(Color.BLACK);
-		btnSalir.setFont(new Font("Stencil", Font.PLAIN, 11));
-		
+		btnSalir.setFont(new Font("Stencil",Font.PLAIN,11));
+
 		JMenu mnOpciones_1 = new JMenu("Opciones");
-		mnOpciones_1.setFont(new Font("Stencil", Font.PLAIN, 12));
+		mnOpciones_1.setFont(new Font("Stencil",Font.PLAIN,12));
 		mnOpciones_1.setForeground(Color.GRAY);
 		mnOpciones_1.setBackground(Color.DARK_GRAY);
 		menuBar.add(mnOpciones_1);
-		
-		JButton btnMusica = new JButton("Musica");	
+
+		JButton btnMusica = new JButton("Musica");
 		mnOpciones_1.add(btnMusica);
-		
+
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5,5,5,5));
 		setContentPane(contentPane);
@@ -140,50 +144,59 @@ public class MarcoVentana extends JFrame
 		PanelMenuAdministracion panelMenuAdministracion = new PanelMenuAdministracion(contentPane);
 		panelMenuAdministracion.setName("panelMenuAdministracion");
 		contentPane.add(panelMenuAdministracion);
-		
-		PanelMenuADMenunciados panelMenuADMenunciados=new PanelMenuADMenunciados(contentPane);
+
+		PanelMenuADMenunciados panelMenuADMenunciados = new PanelMenuADMenunciados(contentPane);
 		panelMenuADMenunciados.setName("panelMenuADMenunciados");
 		contentPane.add(panelMenuADMenunciados);
-		
-		PanelMenuADMjugadores panelMenuADMjugadores=new PanelMenuADMjugadores(contentPane);
+
+		PanelMenuADMjugadores panelMenuADMjugadores = new PanelMenuADMjugadores(contentPane);
 		panelMenuADMjugadores.setName("panelMenuADMjugadores");
 		contentPane.add(panelMenuADMjugadores);
-		
-		PanelMenuJugador panelMenuJugador=new PanelMenuJugador(contentPane);
+
+		PanelMenuJugador panelMenuJugador = new PanelMenuJugador(contentPane);
 		panelMenuJugador.setName("panelMenuJugador");
 		contentPane.add(panelMenuJugador);
-		
-		PanelCargarPreguntas panelCargarPreguntas=new PanelCargarPreguntas(contentPane);
+
+		PanelCargarPreguntas panelCargarPreguntas = new PanelCargarPreguntas(contentPane);
 		panelCargarPreguntas.setName("panelCargarPreguntas");
 		contentPane.add(panelCargarPreguntas);
-		
-		PanelBuscarPregunta panelBuscarPregunta=new PanelBuscarPregunta(contentPane);
+
+		PanelBuscarPregunta panelBuscarPregunta = new PanelBuscarPregunta(contentPane);
 		panelBuscarPregunta.setName("panelBuscarPregunta");
 		contentPane.add(panelBuscarPregunta);
-		
-		PanelVerPreguntas panelVerPreguntas=new PanelVerPreguntas(contentPane);
+
+		PanelVerPreguntas panelVerPreguntas = new PanelVerPreguntas(contentPane);
 		panelVerPreguntas.setName("panelVerPreguntas");
 		contentPane.add(panelVerPreguntas);
-		
-		PanelBuscarJugador panelBuscarJugador=new PanelBuscarJugador(contentPane);
+
+		PanelBuscarJugador panelBuscarJugador = new PanelBuscarJugador(contentPane);
 		panelBuscarJugador.setName("panelBuscarJugador");
 		contentPane.add(panelBuscarJugador);
-		
-		PanelClasificacion panelClasificacion=new PanelClasificacion(contentPane);
+
+		PanelClasificacion panelClasificacion = new PanelClasificacion(contentPane);
 		panelClasificacion.setName("panelClasificacion");
 		contentPane.add(panelClasificacion);
+
+		PanelPartida panelPartida = new PanelPartida(contentPane);
+		panelPartida.setName("panelPartida");
+		contentPane.add(panelPartida);
 		
 		PanelRuleta panelRuleta=new PanelRuleta(contentPane);
 		panelRuleta.setName("panelRuleta");
 		contentPane.add(panelRuleta);
 		
+		PanelParaResponder panelParaResponder=new PanelParaResponder(contentPane);
+		panelParaResponder.setName("panelParaResponder");
+		contentPane.add(panelParaResponder);
+		 
+
 	}
-	
-	private void desplazarAotroPanel(JPanel contentPane, String panelAmostrar)
+
+	public void desplazarAotroPanel(JPanel contentPane, String panelAmostrar)
 	{
 		boolean busqueda = false;
 		Component auxiliar = new JPanel();
-		Component auxiliar2=contentPane.getComponent(0);
+		Component auxiliar2 = contentPane.getComponent(0);
 		int i = 0;
 		while(busqueda == false)
 		{
@@ -192,19 +205,40 @@ public class MarcoVentana extends JFrame
 			{
 				contentPane.add(auxiliar,0);
 				contentPane.add(auxiliar2,i);
-				busqueda=true;
+				busqueda = true;
 			}
-				
+
 			i++;
 		}
+		restaurarValoresRuleta(contentPane);
+		
 	}
 	
-	private void desactivarBotonCuentaEnPanelesSinSesion(JMenu mnCuenta)
+	public void restaurarValoresRuleta(JPanel contentPane)
 	{
-		if((contentPane.getComponent(0).getName().equals("panelExterior"))||(contentPane.getComponent(0).getName().equals("panelLogin"))||(contentPane.getComponent(0).getName().equals("panelRegistro")))
-			mnCuenta.setEnabled(false);
-		else
-			mnCuenta.setEnabled(true);				
+		if(contentPane.getComponent(0).getName().equalsIgnoreCase("panelRuleta"))
+		{
+			PanelRuleta panelRuleta=new PanelRuleta(contentPane);
+			panelRuleta.setName("panelRuleta");
+			contentPane.remove(0);
+			contentPane.add(panelRuleta,0);
+		}		
 	}
 	
+	public int buscarPanelPorNombreYdevolverPos(JPanel contentPane,String nombrePanel)
+	{
+		boolean encontro=false;
+		int i=0;
+		
+		while(encontro=false)
+		{
+			if(contentPane.getComponent(i).getName().equals(nombrePanel))
+			{
+				encontro=true;
+			}
+			i++;
+		}
+		return i;
+	}
+
 }

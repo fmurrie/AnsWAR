@@ -22,13 +22,13 @@ public class PanelClasificacion extends SuperPanel
 	public PanelClasificacion(JPanel contentPane)
 	{
 		setBackground(Color.BLACK);
-		setLayout(new GridLayout(0, 4, 0, 0));
-		
+		setLayout(new GridLayout(0,4,0,0));
+
 		JLabel lblClasificarPor = new JLabel("Clasificar por:");
 		lblClasificarPor.setForeground(Color.WHITE);
-		lblClasificarPor.setFont(new Font("Stencil", Font.PLAIN, 18));
+		lblClasificarPor.setFont(new Font("Stencil",Font.PLAIN,18));
 		add(lblClasificarPor);
-		ButtonGroup grupoRdionBotomns=new ButtonGroup();
+		ButtonGroup grupoRdionBotomns = new ButtonGroup();
 		JRadioButtonMenuItem btnPuntaje = new JRadioButtonMenuItem("Puntaje");
 		btnPuntaje.setSelected(true);
 		JRadioButtonMenuItem btnPreguntasAcertadas = new JRadioButtonMenuItem("Preguntas acertadas");
@@ -39,25 +39,28 @@ public class PanelClasificacion extends SuperPanel
 		add(btnPuntaje);
 		add(btnPreguntasAcertadas);
 		add(btnNumPartidasJugadas);
-		
+
 		JButton btnVolver = new JButton("Volver");
-		btnVolver.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				desplazarAotroPanel(contentPane,"panelMenuJugador");          //aca depende a que menu volvera segun si es la sesion de un adm o un jugador
+		btnVolver.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				desplazarAotroPanel(contentPane,"panelMenuJugador"); // aca depende a que menu volvera segun si es la
+																		// sesion de un adm o un jugador
 				desplazarAotroPanel(contentPane,"PanelMenuADMjugadores");
 			}
 		});
 		btnVolver.setBackground(Color.BLACK);
 		btnVolver.setForeground(Color.CYAN);
-		btnVolver.setFont(new Font("Stencil", Font.PLAIN, 18));
+		btnVolver.setFont(new Font("Stencil",Font.PLAIN,18));
 		add(btnVolver);
-		
+
 		JButton btnClasificar = new JButton("Clasificar");
 		btnClasificar.setForeground(Color.GREEN);
-		btnClasificar.setFont(new Font("Stencil", Font.PLAIN, 18));
+		btnClasificar.setFont(new Font("Stencil",Font.PLAIN,18));
 		btnClasificar.setBackground(Color.BLACK);
 		add(btnClasificar);
-		
+
 		JLabel label_2 = new JLabel("");
 		add(label_2);
 	}

@@ -29,8 +29,10 @@ public class PanelMenuADMjugadores extends SuperPanel
 		add(label);
 
 		JButton btnVerRank = new JButton("Ver clasificacion");
-		btnVerRank.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnVerRank.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
 				desplazarAotroPanel(contentPane,"panelClasificacion");
 			}
 		});
@@ -40,8 +42,10 @@ public class PanelMenuADMjugadores extends SuperPanel
 		add(btnVerRank);
 
 		JButton btnEditJugador = new JButton("Editar jugador");
-		btnEditJugador.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnEditJugador.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
 				desplazarAotroPanel(contentPane,"panelBuscarJugador");
 			}
 		});
@@ -49,27 +53,31 @@ public class PanelMenuADMjugadores extends SuperPanel
 		btnEditJugador.setFont(new Font("Stencil",Font.PLAIN,18));
 		btnEditJugador.setBackground(Color.BLACK);
 		add(btnEditJugador);
-		
+
 		JButton btnElimicarJugador = new JButton("Eliminar jugador");
-		btnElimicarJugador.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnElimicarJugador.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
 				desplazarAotroPanel(contentPane,"panelBuscarJugador");
 			}
 		});
 		btnElimicarJugador.setForeground(Color.RED);
 		btnElimicarJugador.setBackground(Color.BLACK);
-		btnElimicarJugador.setFont(new Font("Stencil", Font.PLAIN, 18));
+		btnElimicarJugador.setFont(new Font("Stencil",Font.PLAIN,18));
 		add(btnElimicarJugador);
-		
+
 		JButton btnVolver = new JButton("Volver");
-		btnVolver.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnVolver.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
 				desplazarAotroPanel(contentPane,"panelMenuAdministracion");
 			}
 		});
 		btnVolver.setForeground(Color.CYAN);
 		btnVolver.setBackground(Color.BLACK);
-		btnVolver.setFont(new Font("Stencil", Font.PLAIN, 18));
+		btnVolver.setFont(new Font("Stencil",Font.PLAIN,18));
 		add(btnVolver);
 
 	}
