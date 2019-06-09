@@ -84,65 +84,65 @@ public class PanelPartida extends SuperPanel
 		lblEstado.setBackground(Color.BLACK);
 		lblEstado.setForeground(Color.WHITE);
 		lblEstado.setFont(new Font("Stencil",Font.PLAIN,18));
-		
-				panel.add(lblEstado);
-		
-				panel.add(label_1);
+
+		panel.add(lblEstado);
+
+		panel.add(label_1);
 		textFieldTiempo.setText("00:02:00");
 		textFieldTiempo.setEditable(false);
 		textFieldTiempo.setFont(new Font("Stencil",Font.PLAIN,16));
 		textFieldTiempo.setColumns(10);
-		
-				panel.add(textFieldTiempo);
+
+		panel.add(textFieldTiempo);
 		txtPreguntasAcertadas.setEditable(false);
 		txtPreguntasAcertadas.setText("Preguntas acertadas: ");
 		txtPreguntasAcertadas.setFont(new Font("Stencil",Font.PLAIN,16));
 		txtPreguntasAcertadas.setColumns(10);
-		
-				panel.add(txtPreguntasAcertadas);
+
+		panel.add(txtPreguntasAcertadas);
 		textFieldJugador.setEditable(false);
 		textFieldJugador.setFont(new Font("Stencil",Font.PLAIN,16));
 		textFieldJugador.setText("Jugador:  ");
 		textFieldJugador.setColumns(10);
-		
-				panel.add(textFieldJugador);
-		
-				textFieldPuntaje.setEditable(false);
-				textFieldPuntaje.setFont(new Font("Stencil",Font.PLAIN,16));
-				textFieldPuntaje.setText("Puntaje: ");
-				textFieldPuntaje.setColumns(10);
-				
-						panel.add(textFieldPuntaje);
-				
-				panel.add(label_3);
-				
-				panel.add(label_4);
-				
-				panel.add(label_5);
-				
-				panel.add(label_6);
-		
-				panel.add(btnIniciarPartida);
-				btnIniciarPartida.setForeground(Color.GREEN);
-				btnIniciarPartida.setBackground(Color.BLACK);
-				btnIniciarPartida.setFont(new Font("Stencil",Font.PLAIN,18));
-				btnIniciarPartida.addActionListener(new ActionListener()
-				{
-					public void actionPerformed(ActionEvent e)
-					{
-						actualizarEstadosPartida();
-						btnIniciarPartida.setEnabled(false);
-						panelRuleta.setName("panelRuleta");
-						panelParaResponder.setName("panelParaResponder");
-						contenidoPartida.add(panelRuleta);
-						contenidoPartida.add(panelParaResponder);
-						contenidoPartida.setBackground(Color.BLACK);
-						add(contenidoPartida);
-						revalidate();
-						repaint();
 
-					}
-				});
+		panel.add(textFieldJugador);
+
+		textFieldPuntaje.setEditable(false);
+		textFieldPuntaje.setFont(new Font("Stencil",Font.PLAIN,16));
+		textFieldPuntaje.setText("Puntaje: ");
+		textFieldPuntaje.setColumns(10);
+
+		panel.add(textFieldPuntaje);
+
+		panel.add(label_3);
+
+		panel.add(label_4);
+
+		panel.add(label_5);
+
+		panel.add(label_6);
+
+		panel.add(btnIniciarPartida);
+		btnIniciarPartida.setForeground(Color.GREEN);
+		btnIniciarPartida.setBackground(Color.BLACK);
+		btnIniciarPartida.setFont(new Font("Stencil",Font.PLAIN,18));
+		btnIniciarPartida.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				actualizarEstadosPartida();
+				btnIniciarPartida.setEnabled(false);
+				panelRuleta.setName("panelRuleta");
+				panelParaResponder.setName("panelParaResponder");
+				contenidoPartida.add(panelRuleta);
+				contenidoPartida.add(panelParaResponder);
+				contenidoPartida.setBackground(Color.BLACK);
+				add(contenidoPartida);
+				revalidate();
+				repaint();
+
+			}
+		});
 
 		panel.add(btnAbandonarPartida);
 		btnAbandonarPartida.setBackground(Color.BLACK);
@@ -161,7 +161,7 @@ public class PanelPartida extends SuperPanel
 		});
 
 	}
-	
+
 	private void actualizarEstadosPartida()
 	{
 		reloj.start(100,1000);

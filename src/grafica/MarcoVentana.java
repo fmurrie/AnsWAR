@@ -4,7 +4,12 @@ import java.awt.EventQueue;
 import java.awt.Image;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JToggleButton;
 import javax.swing.border.EmptyBorder;
+
+import audio.Sonido;
+import javazoom.jl.decoder.JavaLayerException;
+
 import java.awt.CardLayout;
 import java.awt.Toolkit;
 import java.awt.Color;
@@ -12,6 +17,7 @@ import java.awt.Component;
 import javax.swing.JMenuBar;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.JMenu;
@@ -20,6 +26,7 @@ public class MarcoVentana extends JFrame implements IRelacionFrameYPaneles
 {
 
 	private JPanel contentPane;
+	private Sonido sound;
 
 	/**
 	 * Launch the application.
@@ -49,6 +56,7 @@ public class MarcoVentana extends JFrame implements IRelacionFrameYPaneles
 	 */
 	public MarcoVentana()
 	{
+		iniciarSonido();
 		setBackground(Color.BLACK);
 		setTitle("AnsWAR");
 		Toolkit pantalla = Toolkit.getDefaultToolkit();
@@ -120,9 +128,20 @@ public class MarcoVentana extends JFrame implements IRelacionFrameYPaneles
 		mnOpciones_1.setForeground(Color.GRAY);
 		mnOpciones_1.setBackground(Color.DARK_GRAY);
 		menuBar.add(mnOpciones_1);
-
-		JButton btnMusica = new JButton("Musica");
+		
+		JToggleButton btnMusica = new JToggleButton("Sonido");
 		mnOpciones_1.add(btnMusica);
+		btnMusica.setBackground(Color.BLACK);
+		btnMusica.setFont(new Font("Stencil",Font.PLAIN,12));
+		btnMusica.setForeground(Color.GRAY);
+		btnMusica.setSelected(true);
+		btnMusica.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0)
+			{
+					
+			}
+		});
 
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5,5,5,5));
@@ -230,5 +249,22 @@ public class MarcoVentana extends JFrame implements IRelacionFrameYPaneles
 		}
 		return i;
 	}
+	
+
+	public void iniciarSonido()
+	{
+		try
+		{
+			this.sound = new Sonido("src/audio/musicaAnswar.mp3");
+		}catch(FileNotFoundException e1)
+		{
+			e1.printStackTrace();
+		}catch(JavaLayerException e1)
+		{
+			e1.printStackTrace();
+		}
+		this.sound.correr();	
+	}
+
 
 }

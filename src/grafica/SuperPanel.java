@@ -1,7 +1,12 @@
 package grafica;
 
 import java.awt.Component;
+import java.io.FileNotFoundException;
+
 import javax.swing.JPanel;
+
+import audio.Sonido;
+import javazoom.jl.decoder.JavaLayerException;
 
 public abstract class SuperPanel extends JPanel implements IRelacionFrameYPaneles
 {
@@ -75,5 +80,6 @@ public abstract class SuperPanel extends JPanel implements IRelacionFrameYPanele
 		}
 		return i;
 	}
+	
 
 }

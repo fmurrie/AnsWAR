@@ -77,141 +77,141 @@ public class PanelParaResponder extends SuperPanel implements IRelacionPanelesRu
 		textField5sec.setEditable(false);
 		textField5sec.setColumns(10);
 		GridBagConstraints gbc_textField5sec = new GridBagConstraints();
-		gbc_textField5sec.insets = new Insets(0, 0, 5, 0);
+		gbc_textField5sec.insets = new Insets(0,0,5,0);
 		gbc_textField5sec.fill = GridBagConstraints.BOTH;
 		gbc_textField5sec.gridx = 2;
 		gbc_textField5sec.gridy = 2;
 		add(textField5sec,gbc_textField5sec);
 
 		grupoRdionBotomns = new ButtonGroup();
-				
-						opcionD.setForeground(Color.WHITE);
-						opcionD.setFont(new Font("Stencil",Font.PLAIN,16));
-						opcionD.setBackground(Color.BLACK);
-						opcionD.addActionListener(new ActionListener()
-						{
-							public void actionPerformed(ActionEvent arg0)
-							{
-								opcionA.setEnabled(false);
-								opcionB.setEnabled(false);
-								opcionC.setEnabled(false);
-								moverseEntreRuletaYResponder(contenidoPartida);
-							}
-						});
-						
-								opcionC.setForeground(Color.WHITE);
-								opcionC.setFont(new Font("Stencil",Font.PLAIN,16));
-								opcionC.setBackground(Color.BLACK);
-								opcionC.addActionListener(new ActionListener()
-								{
-									public void actionPerformed(ActionEvent arg0)
-									{
 
-										opcionA.setEnabled(false);
-										opcionB.setEnabled(false);
-										opcionD.setEnabled(false);
-										moverseEntreRuletaYResponder(contenidoPartida);
-									}
-								});
-								
-										opcionB.setForeground(Color.WHITE);
-										opcionB.setFont(new Font("Stencil",Font.PLAIN,16));
-										opcionB.setBackground(Color.BLACK);
-										opcionB.addActionListener(new ActionListener()
-										{
-											public void actionPerformed(ActionEvent arg0)
-											{
+		opcionD.setForeground(Color.WHITE);
+		opcionD.setFont(new Font("Stencil",Font.PLAIN,16));
+		opcionD.setBackground(Color.BLACK);
+		opcionD.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0)
+			{
+				opcionA.setEnabled(false);
+				opcionB.setEnabled(false);
+				opcionC.setEnabled(false);
+				moverseEntreRuletaYResponder(contenidoPartida);
+			}
+		});
 
-												opcionA.setEnabled(false);
-												opcionC.setEnabled(false);
-												opcionD.setEnabled(false);
-												moverseEntreRuletaYResponder(contenidoPartida);
+		opcionC.setForeground(Color.WHITE);
+		opcionC.setFont(new Font("Stencil",Font.PLAIN,16));
+		opcionC.setBackground(Color.BLACK);
+		opcionC.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0)
+			{
 
-											}
-										});
-										
-												opcionA.setForeground(Color.WHITE);
-												opcionA.setFont(new Font("Stencil",Font.PLAIN,16));
-												opcionA.setBackground(Color.BLACK);
-												opcionA.addActionListener(new ActionListener()
-												{
-													public void actionPerformed(ActionEvent arg0)
-													{
+				opcionA.setEnabled(false);
+				opcionB.setEnabled(false);
+				opcionD.setEnabled(false);
+				moverseEntreRuletaYResponder(contenidoPartida);
+			}
+		});
 
-														opcionB.setEnabled(false);
-														opcionC.setEnabled(false);
-														opcionD.setEnabled(false);
-														moverseEntreRuletaYResponder(contenidoPartida);
+		opcionB.setForeground(Color.WHITE);
+		opcionB.setFont(new Font("Stencil",Font.PLAIN,16));
+		opcionB.setBackground(Color.BLACK);
+		opcionB.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0)
+			{
 
-													}
-												});
-														
-														GridBagConstraints gbc_lblA = new GridBagConstraints();
-														gbc_lblA.insets = new Insets(0, 0, 5, 5);
-														gbc_lblA.gridx = 1;
-														gbc_lblA.gridy = 3;
-														lblA.setBackground(Color.BLACK);
-														lblA.setHorizontalAlignment(SwingConstants.CENTER);
-														lblA.setForeground(Color.WHITE);
-														lblA.setFont(new Font("Stencil", Font.PLAIN, 16));
-														add(lblA, gbc_lblA);
-												
-														grupoRdionBotomns.add(opcionA);
-														GridBagConstraints gbc_opcionA = new GridBagConstraints();
-														gbc_opcionA.fill = GridBagConstraints.BOTH;
-														gbc_opcionA.insets = new Insets(0, 0, 5, 0);
-														gbc_opcionA.gridx = 2;
-														gbc_opcionA.gridy = 3;
-														add(opcionA,gbc_opcionA);
-										
-										GridBagConstraints gbc_lblB = new GridBagConstraints();
-										gbc_lblB.insets = new Insets(0, 0, 5, 5);
-										gbc_lblB.gridx = 1;
-										gbc_lblB.gridy = 4;
-										lblB.setFont(new Font("Stencil", Font.PLAIN, 16));
-										lblB.setBackground(Color.BLACK);
-										lblB.setForeground(Color.WHITE);
-										lblB.setHorizontalAlignment(SwingConstants.CENTER);
-										add(lblB, gbc_lblB);
-										grupoRdionBotomns.add(opcionB);
-										GridBagConstraints gbc_opcionB = new GridBagConstraints();
-										gbc_opcionB.fill = GridBagConstraints.BOTH;
-										gbc_opcionB.insets = new Insets(0,0,5,0);
-										gbc_opcionB.gridx = 2;
-										gbc_opcionB.gridy = 4;
-										add(opcionB,gbc_opcionB);
-								
-								GridBagConstraints gbc_lblC = new GridBagConstraints();
-								gbc_lblC.insets = new Insets(0, 0, 5, 5);
-								gbc_lblC.gridx = 1;
-								gbc_lblC.gridy = 5;
-								lblC.setBackground(Color.BLACK);
-								lblC.setForeground(Color.WHITE);
-								lblC.setFont(new Font("Stencil", Font.PLAIN, 16));
-								add(lblC, gbc_lblC);
-								grupoRdionBotomns.add(opcionC);
-								GridBagConstraints gbc_opcionC = new GridBagConstraints();
-								gbc_opcionC.fill = GridBagConstraints.BOTH;
-								gbc_opcionC.insets = new Insets(0,0,5,0);
-								gbc_opcionC.gridx = 2;
-								gbc_opcionC.gridy = 5;
-								add(opcionC,gbc_opcionC);
-						
-						GridBagConstraints gbc_lblD = new GridBagConstraints();
-						gbc_lblD.insets = new Insets(0, 0, 0, 5);
-						gbc_lblD.gridx = 1;
-						gbc_lblD.gridy = 6;
-						lblD.setForeground(Color.WHITE);
-						lblD.setFont(new Font("Stencil", Font.PLAIN, 18));
-						lblD.setHorizontalAlignment(SwingConstants.CENTER);
-						lblD.setBackground(Color.BLACK);
-						add(lblD, gbc_lblD);
-						grupoRdionBotomns.add(opcionD);
-						GridBagConstraints gbc_opcionD = new GridBagConstraints();
-						gbc_opcionD.fill = GridBagConstraints.BOTH;
-						gbc_opcionD.gridx = 2;
-						gbc_opcionD.gridy = 6;
-						add(opcionD,gbc_opcionD);
+				opcionA.setEnabled(false);
+				opcionC.setEnabled(false);
+				opcionD.setEnabled(false);
+				moverseEntreRuletaYResponder(contenidoPartida);
+
+			}
+		});
+
+		opcionA.setForeground(Color.WHITE);
+		opcionA.setFont(new Font("Stencil",Font.PLAIN,16));
+		opcionA.setBackground(Color.BLACK);
+		opcionA.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0)
+			{
+
+				opcionB.setEnabled(false);
+				opcionC.setEnabled(false);
+				opcionD.setEnabled(false);
+				moverseEntreRuletaYResponder(contenidoPartida);
+
+			}
+		});
+
+		GridBagConstraints gbc_lblA = new GridBagConstraints();
+		gbc_lblA.insets = new Insets(0,0,5,5);
+		gbc_lblA.gridx = 1;
+		gbc_lblA.gridy = 3;
+		lblA.setBackground(Color.BLACK);
+		lblA.setHorizontalAlignment(SwingConstants.CENTER);
+		lblA.setForeground(Color.WHITE);
+		lblA.setFont(new Font("Stencil",Font.PLAIN,16));
+		add(lblA,gbc_lblA);
+
+		grupoRdionBotomns.add(opcionA);
+		GridBagConstraints gbc_opcionA = new GridBagConstraints();
+		gbc_opcionA.fill = GridBagConstraints.BOTH;
+		gbc_opcionA.insets = new Insets(0,0,5,0);
+		gbc_opcionA.gridx = 2;
+		gbc_opcionA.gridy = 3;
+		add(opcionA,gbc_opcionA);
+
+		GridBagConstraints gbc_lblB = new GridBagConstraints();
+		gbc_lblB.insets = new Insets(0,0,5,5);
+		gbc_lblB.gridx = 1;
+		gbc_lblB.gridy = 4;
+		lblB.setFont(new Font("Stencil",Font.PLAIN,16));
+		lblB.setBackground(Color.BLACK);
+		lblB.setForeground(Color.WHITE);
+		lblB.setHorizontalAlignment(SwingConstants.CENTER);
+		add(lblB,gbc_lblB);
+		grupoRdionBotomns.add(opcionB);
+		GridBagConstraints gbc_opcionB = new GridBagConstraints();
+		gbc_opcionB.fill = GridBagConstraints.BOTH;
+		gbc_opcionB.insets = new Insets(0,0,5,0);
+		gbc_opcionB.gridx = 2;
+		gbc_opcionB.gridy = 4;
+		add(opcionB,gbc_opcionB);
+
+		GridBagConstraints gbc_lblC = new GridBagConstraints();
+		gbc_lblC.insets = new Insets(0,0,5,5);
+		gbc_lblC.gridx = 1;
+		gbc_lblC.gridy = 5;
+		lblC.setBackground(Color.BLACK);
+		lblC.setForeground(Color.WHITE);
+		lblC.setFont(new Font("Stencil",Font.PLAIN,16));
+		add(lblC,gbc_lblC);
+		grupoRdionBotomns.add(opcionC);
+		GridBagConstraints gbc_opcionC = new GridBagConstraints();
+		gbc_opcionC.fill = GridBagConstraints.BOTH;
+		gbc_opcionC.insets = new Insets(0,0,5,0);
+		gbc_opcionC.gridx = 2;
+		gbc_opcionC.gridy = 5;
+		add(opcionC,gbc_opcionC);
+
+		GridBagConstraints gbc_lblD = new GridBagConstraints();
+		gbc_lblD.insets = new Insets(0,0,0,5);
+		gbc_lblD.gridx = 1;
+		gbc_lblD.gridy = 6;
+		lblD.setForeground(Color.WHITE);
+		lblD.setFont(new Font("Stencil",Font.PLAIN,18));
+		lblD.setHorizontalAlignment(SwingConstants.CENTER);
+		lblD.setBackground(Color.BLACK);
+		add(lblD,gbc_lblD);
+		grupoRdionBotomns.add(opcionD);
+		GridBagConstraints gbc_opcionD = new GridBagConstraints();
+		gbc_opcionD.fill = GridBagConstraints.BOTH;
+		gbc_opcionD.gridx = 2;
+		gbc_opcionD.gridy = 6;
+		add(opcionD,gbc_opcionD);
 
 	}
 
