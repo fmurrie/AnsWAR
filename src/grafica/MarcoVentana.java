@@ -26,7 +26,6 @@ public class MarcoVentana extends JFrame implements IRelacionFrameYPaneles
 {
 
 	private JPanel contentPane;
-	private Sonido sound;
 
 	/**
 	 * Launch the application.
@@ -56,7 +55,8 @@ public class MarcoVentana extends JFrame implements IRelacionFrameYPaneles
 	 */
 	public MarcoVentana()
 	{
-		iniciarSonido();
+		reproducirSonido("src/audio/musicaAnswar.mp3");
+
 		setBackground(Color.BLACK);
 		setTitle("AnsWAR");
 		Toolkit pantalla = Toolkit.getDefaultToolkit();
@@ -250,20 +250,16 @@ public class MarcoVentana extends JFrame implements IRelacionFrameYPaneles
 		return i;
 	}
 	
-
-	public void iniciarSonido()
+	private void reproducirSonido(String ruta)
 	{
 		try
 		{
-			this.sound = new Sonido("src/audio/musicaAnswar.mp3");
-		}catch(FileNotFoundException e1)
-		{
-			e1.printStackTrace();
-		}catch(JavaLayerException e1)
+			Sonido sound= new Sonido(ruta);
+			sound.start();
+		}catch(FileNotFoundException | JavaLayerException e1)
 		{
 			e1.printStackTrace();
 		}
-		this.sound.correr();	
 	}
 
 
