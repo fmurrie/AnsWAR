@@ -62,8 +62,8 @@ public class PanelPartida<T extends Jugador> extends SuperPanel
 	private final JLabel label_5 = new JLabel("");
 	private final JLabel label_6 = new JLabel("");
 	
-	private T jugador=(T) new JugadorInvitado("yo"); //esto es temporal despues debe ser borrado
-	//private T jugador=(T) super.getCuentaActiva();//ESTO ES LO QUE DEBERIA IR
+	//private T jugador=(T) new JugadorInvitado("yo"); //esto es temporal despues debe ser borrado
+	private Jugador jugador;
 	private static long puntosDePartida=0;
 	private static int preguntasAcertadasDePartida=0;
 
@@ -72,6 +72,7 @@ public class PanelPartida<T extends Jugador> extends SuperPanel
 	 */
 	public PanelPartida(SuperPanel contentPane)
 	{
+		jugador=(Jugador) contentPane.getCuentaActiva();
 		setBackground(Color.BLACK);
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]

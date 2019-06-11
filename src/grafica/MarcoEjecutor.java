@@ -12,6 +12,7 @@ import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 import personas.Admin;
 import personas.Cuenta;
+import personas.*;
 import personas.JugadorPermanente;
 
 import java.awt.CardLayout;
@@ -42,7 +43,7 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 	
 	public MarcoEjecutor()
 	{
-		//reproducirSonido("src/audio/musicaAnswar.mp3");
+		reproducirSonido("src/audio/musicaAnswar.mp3");
 		
 		setBackground(Color.BLACK);
 		setTitle("AnsWAR");
@@ -71,6 +72,7 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 			{
 				if(contentPane.getComponent(0).getName().equals("panelExterior") == false)
 				{
+					contentPane.restaurarLosTextFieldCuentaActiva();
 					desplazarAotroPanel(contentPane,"panelExterior");
 				}
 
@@ -88,6 +90,7 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 			{
 				if(contentPane.getComponent(0).getName().equals("panelExterior") == false)
 				{
+					contentPane.restaurarLosTextFieldCuentaActiva();
 					desplazarAotroPanel(contentPane,"panelLogin");
 				}
 			}
@@ -117,7 +120,7 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 		menuBar.add(mnOpciones_1);
 		
 		contentPane = new SuperPanel();
-		contentPane.setCuentaActiva(new Admin("fmurrie","123","42471508","felie@gmail.com")); //esta linea la necesito para que el programa ande, luego debe ser borrada
+		contentPane.setCuentaActiva(new JugadorInvitado());
 		contentPane.setBorder(new EmptyBorder(5,5,5,5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new CardLayout(0,0));

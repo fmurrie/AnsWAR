@@ -1,7 +1,6 @@
 package audio;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.*;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 

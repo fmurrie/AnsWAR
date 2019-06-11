@@ -6,6 +6,7 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 import personas.Admin;
+import personas.JugadorPermanente;
 
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
@@ -70,10 +71,11 @@ public class PanelLogin extends SuperPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				contentPane.actualizarLosTextFieldParaLaCuentaActiva();
+				contentPane.setCuentaActivaYactualizarTextFields(contentPane.getCuentaActiva()); //despues modificarlo y borrar este comentario
+				
 				if(contentPane.getCuentaActiva() instanceof Admin)
 					desplazarAotroPanel(contentPane,"panelMenuAdministracion");
-				else
+				if(contentPane.getCuentaActiva() instanceof JugadorPermanente)
 					desplazarAotroPanel(contentPane,"panelMenuJugador");
 			}
 		});

@@ -13,6 +13,8 @@ import javax.swing.SwingConstants;
 import audio.Sonido;
 import javazoom.jl.decoder.JavaLayerException;
 import personas.Cuenta;
+import personas.Jugador;
+import personas.JugadorInvitado;
 import personas.JugadorPermanente;
 
 public class SuperPanel<T extends Cuenta> extends JPanel implements IRelacionFrameYPaneles
@@ -31,6 +33,14 @@ public class SuperPanel<T extends Cuenta> extends JPanel implements IRelacionFra
 	public void setCuentaActiva(T cuentaActiva)
 	{
 		this.cuentaActiva=cuentaActiva;
+		restaurarLosTextFieldCuentaActiva();
+	}
+	
+	public void setCuentaActivaYactualizarTextFields(T cuentaActiva)
+	{
+		this.cuentaActiva=cuentaActiva;
+		
+		actualizarTextFieldCuentaActiva();	
 	}
 	
 	public T getCuentaActiva()
@@ -129,7 +139,16 @@ public class SuperPanel<T extends Cuenta> extends JPanel implements IRelacionFra
 		return i;
 	}
 	
-	public void actualizarLosTextFieldParaLaCuentaActiva()
+	private void actualizarTextFieldCuentaActiva()
+	{
+		if(cuentaActiva instanceof JugadorInvitado)
+			actualizarLosTextFieldParaInvitado();
+		else
+			actualizarLosTextFieldParaJugadorYAdmin();
+	}
+	
+	
+	private void actualizarLosTextFieldParaJugadorYAdmin()
 	{
 		txtId.setText("ID: "+getCuentaActiva().getId());
 		txtId.setEnabled(false);
@@ -149,5 +168,44 @@ public class SuperPanel<T extends Cuenta> extends JPanel implements IRelacionFra
 		txtUsuario.setColumns(10);
 	}
 	
+	private void actualizarLosTextFieldParaInvitado()
+	{
+		txtId.setText("");
+		txtId.setEnabled(false);
+		txtId.setBackground(Color.BLACK);
+		txtId.setForeground(Color.WHITE);
+		txtId.setFont(new Font("Stencil", Font.PLAIN, 11));
+		txtId.setEditable(false);
+		txtId.setColumns(10);
+		
+
+		txtUsuario.setText("");
+		txtUsuario.setEditable(false);
+		txtUsuario.setEnabled(false);
+		txtUsuario.setFont(new Font("Stencil", Font.PLAIN, 11));
+		txtUsuario.setForeground(Color.WHITE);
+		txtUsuario.setBackground(Color.BLACK);
+		txtUsuario.setColumns(10);
+	}
+	
+	public void restaurarLosTextFieldCuentaActiva()
+	{
+		txtId.setText("");
+		txtId.setEnabled(false);
+		txtId.setBackground(Color.BLACK);
+		txtId.setForeground(Color.WHITE);
+		txtId.setFont(new Font("Stencil", Font.PLAIN, 11));
+		txtId.setEditable(false);
+		txtId.setColumns(10);
+		
+
+		txtUsuario.setText("");
+		txtUsuario.setEditable(false);
+		txtUsuario.setEnabled(false);
+		txtUsuario.setFont(new Font("Stencil", Font.PLAIN, 11));
+		txtUsuario.setForeground(Color.WHITE);
+		txtUsuario.setBackground(Color.BLACK);
+		txtUsuario.setColumns(10);
+	}
 
 }
