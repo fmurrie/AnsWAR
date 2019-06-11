@@ -18,7 +18,7 @@ public class PanelMenuADMenunciados extends SuperPanel
 	/**
 	 * Create the panel.
 	 */
-	public PanelMenuADMenunciados(JPanel contentPane)
+	public PanelMenuADMenunciados(SuperPanel contentPane)
 	{
 		setBackground(Color.BLACK);
 		setLayout(new GridLayout(0,1,0,0));

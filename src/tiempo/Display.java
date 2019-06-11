@@ -11,9 +11,8 @@ public class Display
 		fullHour += (hour > 9) ? ":" + hour : "0" + hour;
 		fullHour += (minute > 9) ? ":" + minute : ":0" + minute;
 		fullHour += (second > 9) ? ":" + second : ":0" + second;
-
-		//System.out.println(fullHour);
-		componente.setText(fullHour);
+		
+		componente.setText("Tiempo: "+fullHour);
 		componente.revalidate();
 		componente.repaint();
 	}

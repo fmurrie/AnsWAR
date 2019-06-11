@@ -23,7 +23,7 @@ public class PanelCargarPreguntas extends SuperPanel
 	/**
 	 * Create the panel.
 	 */
-	public PanelCargarPreguntas(JPanel contentPane)
+	public PanelCargarPreguntas(SuperPanel contentPane)
 	{
 		setLayout(new GridLayout(18,1,0,0));
 		setBackground(Color.BLACK);

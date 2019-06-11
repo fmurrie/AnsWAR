@@ -19,7 +19,7 @@ public class PanelClasificacion extends SuperPanel
 	/**
 	 * Create the panel.
 	 */
-	public PanelClasificacion(JPanel contentPane)
+	public PanelClasificacion(SuperPanel contentPane)
 	{
 		setBackground(Color.BLACK);
 		setLayout(new GridLayout(0,4,0,0));

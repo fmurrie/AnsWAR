@@ -7,11 +7,30 @@ import javax.swing.JPanel;
 
 import audio.Sonido;
 import javazoom.jl.decoder.JavaLayerException;
+import personas.Cuenta;
+import personas.JugadorPermanente;
 
-public abstract class SuperPanel extends JPanel implements IRelacionFrameYPaneles
+public class SuperPanel<T extends Cuenta> extends JPanel implements IRelacionFrameYPaneles
 {
 
-	public void desplazarAotroPanel(JPanel contentPane, String panelAmostrar)
+	private T cuentaActiva;// cuenta que inicio sesion para todos los paneles
+	
+	public SuperPanel()
+	{
+		 
+	}
+	
+	public void setCuentaActiva(T cuentaActiva)
+	{
+		this.cuentaActiva=cuentaActiva;
+	}
+	
+	public T getCuentaActiva()
+	{
+		return cuentaActiva;
+	}
+	
+	public void desplazarAotroPanel(SuperPanel contentPane, String panelAmostrar)
 	{
 		boolean busqueda = false;
 		Component auxiliar = new JPanel();
@@ -32,7 +51,7 @@ public abstract class SuperPanel extends JPanel implements IRelacionFrameYPanele
 		restaurarValoresPanelPartida(contentPane);
 	}
 
-	public void restaurarValoresRuleta(JPanel contentPane)
+	public void restaurarValoresRuleta(SuperPanel contentPane)
 	{
 		if(contentPane.getComponent(0).getName().equalsIgnoreCase("panelRuleta"))
 		{
@@ -43,7 +62,7 @@ public abstract class SuperPanel extends JPanel implements IRelacionFrameYPanele
 		}
 	}
 
-	public void restaurarValoresPanelParaResponder(JPanel contentPane)
+	public void restaurarValoresPanelParaResponder(SuperPanel contentPane)
 	{
 		if(contentPane.getComponent(0).getName().equalsIgnoreCase("panelParaResponder"))
 		{
@@ -54,7 +73,7 @@ public abstract class SuperPanel extends JPanel implements IRelacionFrameYPanele
 		}
 	}
 
-	public void restaurarValoresPanelPartida(JPanel contentPane)
+	public void restaurarValoresPanelPartida(SuperPanel contentPane)
 	{
 		if(contentPane.getComponent(0).getName().equalsIgnoreCase("panelPartida"))
 		{
@@ -65,7 +84,7 @@ public abstract class SuperPanel extends JPanel implements IRelacionFrameYPanele
 		}
 	}
 
-	public int buscarPanelPorNombreYdevolverPos(JPanel contentPane, String nombrePanel)
+	public int buscarPanelPorNombreYdevolverPos(SuperPanel contentPane, String nombrePanel)
 	{
 		boolean encontro = false;
 		int i = 0;

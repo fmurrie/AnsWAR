@@ -38,7 +38,7 @@ public class PanelRuleta extends SuperPanel
 	/**
 	 * Create the panel.
 	 */
-	public PanelRuleta(JPanel contenidoPartida)
+	public PanelRuleta(SuperPanel contenidoPartida)
 	{
 		setBackground(Color.BLACK);
 		GridBagLayout gridBagLayout = new GridBagLayout();

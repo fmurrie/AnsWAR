@@ -58,12 +58,12 @@ public abstract class Jugador extends Cuenta
 
 	// Getters y Setters:
 
-	protected String getNickname()
+	public String getNickname()
 	{
 		return nickname;
 	}
 
-	private long getPuntaje()
+	public long getPuntaje()
 	{
 		return puntaje;
 	}
@@ -73,12 +73,12 @@ public abstract class Jugador extends Cuenta
 		return rangoClasificacion;
 	}
 
-	private int getNumPartidasJugadas()
+	public int getNumPartidasJugadas()
 	{
 		return numPartidasJugadas;
 	}
 
-	private int getNumPreguntasAcertadas()
+	public int getNumPreguntasAcertadas()
 	{
 		return numPreguntasAcertadas;
 	}

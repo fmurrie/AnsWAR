@@ -10,6 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JToggleButton;
 import javax.swing.SwingConstants;
+
+import tiempo.Temporizador;
+
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.ImageIcon;
@@ -34,7 +37,7 @@ public class PanelParaResponder extends SuperPanel implements IRelacionPanelesRu
 	/**
 	 * Create the panel.
 	 */
-	public PanelParaResponder(JPanel contenidoPartida)
+	public PanelParaResponder(SuperPanel contenidoPartida)
 	{
 		setBackground(Color.BLACK);
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -215,7 +218,7 @@ public class PanelParaResponder extends SuperPanel implements IRelacionPanelesRu
 
 	}
 
-	public void moverseEntreRuletaYResponder(JPanel contenidoPartida)
+	public void moverseEntreRuletaYResponder(SuperPanel contenidoPartida)
 	{
 		try
 		{

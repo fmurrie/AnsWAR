@@ -35,12 +35,12 @@ public abstract class Cuenta
 
 	// Getters y Setters:
 
-	protected String getId()
+	public String getId()
 	{
 		return id;
 	}
 
-	protected String getUsuario()
+	public String getUsuario()
 	{
 		return usuario;
 	}

@@ -9,6 +9,8 @@ import javax.swing.border.EmptyBorder;
 
 import audio.Sonido;
 import javazoom.jl.decoder.JavaLayerException;
+import personas.Cuenta;
+import personas.JugadorPermanente;
 
 import java.awt.CardLayout;
 import java.awt.Toolkit;
@@ -21,42 +23,24 @@ import java.io.FileNotFoundException;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.JMenu;
+import javax.swing.SwingConstants;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import javax.swing.JProgressBar;
 
-public class MarcoVentana extends JFrame implements IRelacionFrameYPaneles
+public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 {
-
-	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args)
-	{
-		EventQueue.invokeLater(new Runnable()
-		{
-			public void run()
-			{
-				try
-				{
-					MarcoVentana frame = new MarcoVentana();
-					frame.setResizable(false);
-					frame.setLocationRelativeTo(null);
-					frame.setVisible(true);
-				}catch(Exception e)
-				{
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
-	public MarcoVentana()
+	
+	private SuperPanel contentPane;
+	
+	public MarcoEjecutor()
 	{
 		reproducirSonido("src/audio/musicaAnswar.mp3");
-
+		
 		setBackground(Color.BLACK);
 		setTitle("AnsWAR");
 		Toolkit pantalla = Toolkit.getDefaultToolkit();
@@ -129,21 +113,36 @@ public class MarcoVentana extends JFrame implements IRelacionFrameYPaneles
 		mnOpciones_1.setBackground(Color.DARK_GRAY);
 		menuBar.add(mnOpciones_1);
 		
-		JToggleButton btnMusica = new JToggleButton("Sonido");
-		mnOpciones_1.add(btnMusica);
-		btnMusica.setBackground(Color.BLACK);
-		btnMusica.setFont(new Font("Stencil",Font.PLAIN,12));
-		btnMusica.setForeground(Color.GRAY);
-		btnMusica.setSelected(true);
-		btnMusica.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent arg0)
-			{
-					
-			}
-		});
+		JMenu mnCuenta = new JMenu("Cuenta");
+		mnCuenta.setForeground(Color.GRAY);
+		mnCuenta.setBackground(Color.BLACK);
+		mnCuenta.setHorizontalAlignment(SwingConstants.CENTER);
+		mnCuenta.setFont(new Font("Stencil", Font.PLAIN, 12));
+		menuBar.add(mnCuenta);
+		
+		JTextField txtId = new JTextField();
+		txtId.setEnabled(false);
+		txtId.setBackground(Color.BLACK);
+		txtId.setForeground(Color.WHITE);
+		txtId.setFont(new Font("Stencil", Font.PLAIN, 11));
+		txtId.setEditable(false);
+		txtId.setText("ID: ");
+		mnCuenta.add(txtId);
+		txtId.setColumns(10);
+		
+		JTextField txtUsuario = new JTextField();
+		txtUsuario.setEditable(false);
+		txtUsuario.setEnabled(false);
+		txtUsuario.setFont(new Font("Stencil", Font.PLAIN, 11));
+		txtUsuario.setForeground(Color.WHITE);
+		txtUsuario.setBackground(Color.BLACK);
+		txtUsuario.setText("Usuario: ");
+		txtUsuario.setSize(500,300);
+		mnCuenta.add(txtUsuario);
+		txtUsuario.setColumns(10);
+		
 
-		contentPane = new JPanel();
+		contentPane = new SuperPanel();
 		contentPane.setBorder(new EmptyBorder(5,5,5,5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new CardLayout(0,0));
@@ -202,7 +201,7 @@ public class MarcoVentana extends JFrame implements IRelacionFrameYPaneles
 
 	}
 
-	public void desplazarAotroPanel(JPanel contentPane, String panelAmostrar)
+	public void desplazarAotroPanel(SuperPanel contentPane, String panelAmostrar)
 	{
 		boolean busqueda = false;
 		Component auxiliar = new JPanel();
@@ -223,7 +222,7 @@ public class MarcoVentana extends JFrame implements IRelacionFrameYPaneles
 		restaurarValoresPanelPartida(contentPane);
 	}
 
-	public void restaurarValoresPanelPartida(JPanel contentPane)
+	private void restaurarValoresPanelPartida(SuperPanel contentPane)
 	{
 		if(contentPane.getComponent(0).getName().equalsIgnoreCase("panelPartida"))
 		{
@@ -234,7 +233,7 @@ public class MarcoVentana extends JFrame implements IRelacionFrameYPaneles
 		}
 	}
 
-	public int buscarPanelPorNombreYdevolverPos(JPanel contentPane, String nombrePanel)
+	public int buscarPanelPorNombreYdevolverPos(SuperPanel contentPane, String nombrePanel)
 	{
 		boolean encontro = false;
 		int i = 0;
@@ -250,7 +249,7 @@ public class MarcoVentana extends JFrame implements IRelacionFrameYPaneles
 		return i;
 	}
 	
-	private void reproducirSonido(String ruta)
+	public void reproducirSonido(String ruta)
 	{
 		try
 		{
@@ -261,6 +260,7 @@ public class MarcoVentana extends JFrame implements IRelacionFrameYPaneles
 			e1.printStackTrace();
 		}
 	}
+	
 
 
 }

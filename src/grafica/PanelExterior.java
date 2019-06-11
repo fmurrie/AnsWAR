@@ -9,6 +9,9 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
+
+import personas.JugadorInvitado;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -18,7 +21,7 @@ public class PanelExterior extends SuperPanel
 	/**
 	 * Create the panel.
 	 */
-	public PanelExterior(JPanel contentPane)
+	public PanelExterior(SuperPanel contentPane)
 	{
 		setLayout(new GridLayout(4,1,0,0));
 		setBackground(Color.BLACK);

@@ -14,10 +14,16 @@ public class JugadorInvitado extends Jugador
 	{
 		super();
 	}
-
+	
 	public JugadorInvitado(String usuario,String clave,String dni,String correo,String nickInvitador)
 	{
 		super(usuario,clave,dni,correo);
+		super.setNickname(generarNicknameTemporalRandom());
+		setNickInvitador(nickInvitador);
+	}
+
+	public JugadorInvitado(String nickInvitador)
+	{
 		super.setNickname(generarNicknameTemporalRandom());
 		setNickInvitador(nickInvitador);
 	}

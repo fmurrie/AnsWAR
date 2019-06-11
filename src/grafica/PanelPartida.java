@@ -13,10 +13,14 @@ import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 
+import audio.Sonido;
+import javazoom.jl.decoder.JavaLayerException;
 import personas.Jugador;
+import personas.JugadorInvitado;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.JMenuBar;
@@ -28,33 +32,45 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JTextField;
 
-public class PanelPartida extends SuperPanel
+public class PanelPartida<T extends Jugador> extends SuperPanel
 {
-	private JPanel contenidoPartida = new JPanel();
-	private PanelParaResponder panelParaResponder = new PanelParaResponder(contenidoPartida);
-	private PanelRuleta panelRuleta = new PanelRuleta(contenidoPartida);
+	private SuperPanel contenidoPartida = new SuperPanel();
 	private JPanel panel = new JPanel();
+	
 	private ButtonGroup grupoBotonesMenuPartida = new ButtonGroup();
 	JButton btnIniciarPartida = new JButton("Iniciar partida");
 	JButton btnAbandonarPartida = new JButton("Abandonar partida");
+	
 	private final JLabel lblEstado = new JLabel("Estado:");
 	private final JLabel label_1 = new JLabel("");
+	
 	private final JTextField textFieldTiempo = new JTextField();
 	private final JTextField textFieldPuntaje = new JTextField();
 	private final JTextField textFieldJugador = new JTextField();
 	private final JTextField txtPreguntasAcertadas = new JTextField();
+	
 	private final JLabel label = new JLabel("");
 	private final JLabel label_2 = new JLabel("");
+	
 	private Temporizador reloj = new Temporizador(textFieldTiempo);
+	
+	private PanelRuleta panelRuleta = new PanelRuleta(contenidoPartida);
+	private PanelParaResponder panelParaResponder = new PanelParaResponder(contenidoPartida);
+	
 	private final JLabel label_3 = new JLabel("");
 	private final JLabel label_4 = new JLabel("");
 	private final JLabel label_5 = new JLabel("");
 	private final JLabel label_6 = new JLabel("");
+	
+	private T jugador=(T) new JugadorInvitado("yo"); //esto es temporal despues debe ser borrado
+	//private T jugador=(T) super.getCuentaActiva();//ESTO ES LO QUE DEBERIA IR
+	private static long puntosDePartida=0;
+	private static int preguntasAcertadasDePartida=0;
 
 	/**
 	 * Create the panel.
 	 */
-	public PanelPartida(JPanel contentPane)
+	public PanelPartida(SuperPanel contentPane)
 	{
 		setBackground(Color.BLACK);
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -84,32 +100,30 @@ public class PanelPartida extends SuperPanel
 		lblEstado.setBackground(Color.BLACK);
 		lblEstado.setForeground(Color.WHITE);
 		lblEstado.setFont(new Font("Stencil",Font.PLAIN,18));
-
 		panel.add(lblEstado);
-
 		panel.add(label_1);
-		textFieldTiempo.setText("00:02:00");
+		
+		textFieldTiempo.setText("Tiempo: "+reloj.devolverTiempoInicial());
 		textFieldTiempo.setEditable(false);
 		textFieldTiempo.setFont(new Font("Stencil",Font.PLAIN,16));
 		textFieldTiempo.setColumns(10);
-
 		panel.add(textFieldTiempo);
+		
+		actualizarEstadoPreguntasAcertadasDePartida();
 		txtPreguntasAcertadas.setEditable(false);
-		txtPreguntasAcertadas.setText("Preguntas acertadas: ");
 		txtPreguntasAcertadas.setFont(new Font("Stencil",Font.PLAIN,16));
 		txtPreguntasAcertadas.setColumns(10);
-
 		panel.add(txtPreguntasAcertadas);
+		
+		actualizarEstadoJugadorDePartida();
 		textFieldJugador.setEditable(false);
 		textFieldJugador.setFont(new Font("Stencil",Font.PLAIN,16));
-		textFieldJugador.setText("Jugador:  ");
 		textFieldJugador.setColumns(10);
-
 		panel.add(textFieldJugador);
 
+		actualizarEstadoPuntosDePartida();
 		textFieldPuntaje.setEditable(false);
 		textFieldPuntaje.setFont(new Font("Stencil",Font.PLAIN,16));
-		textFieldPuntaje.setText("Puntaje: ");
 		textFieldPuntaje.setColumns(10);
 
 		panel.add(textFieldPuntaje);
@@ -150,7 +164,6 @@ public class PanelPartida extends SuperPanel
 		btnAbandonarPartida.setForeground(Color.RED);
 
 		panel.add(label);
-
 		panel.add(label_2);
 		btnAbandonarPartida.addActionListener(new ActionListener()
 		{
@@ -162,9 +175,35 @@ public class PanelPartida extends SuperPanel
 
 	}
 
+	public void setJugador(T jugador)
+	{
+		this.jugador=jugador;
+	}
+	
 	private void actualizarEstadosPartida()
+	{
+		actualizarEstadoTiempo();	
+	}
+	
+	private void actualizarEstadoTiempo()
 	{
 		reloj.start(100,1000);
 	}
+	
+	private void actualizarEstadoPuntosDePartida()
+	{
+		this.textFieldPuntaje.setText("Puntaje: "+this.puntosDePartida);
+	}
+	
+	private void actualizarEstadoPreguntasAcertadasDePartida()
+	{
+		this.txtPreguntasAcertadas.setText("Preguntas acertadas: "+this.preguntasAcertadasDePartida);
+	}
+	
+	private void actualizarEstadoJugadorDePartida()
+	{
+		textFieldJugador.setText("Jugador: "+this.jugador.getNickname());
+	}
+	
 
 }

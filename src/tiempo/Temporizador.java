@@ -9,8 +9,8 @@ import javax.swing.JTextField;
 public class Temporizador
 {
 	private int hour = 0;
-	private int minute = 2;
-	private int second = 1;
+	private int minute = 3;
+	private int second = 0;
 	private Timer timer;
 	private boolean isTimerRunning;
 	private Display display;
@@ -54,12 +54,26 @@ public class Temporizador
 			}
 			if(isTimerRunning)
 				display.printTime(hour,minute,second,componente);
+				
+			
+				
 		}
 	}; // fin timertask
 
 	public void start(int timeout, int interval)
 	{
 		timer.schedule(task,timeout,interval);
+	}
+	
+	public String devolverTiempoInicial()
+	{
+		String dato="";
+
+		dato += (hour > 9) ? ":" + hour : "0" + hour;
+		dato += (minute > 9) ? ":" + minute : ":0" + minute;
+		dato += (second > 9) ? ":" + second : ":0" + second;
+		
+		return dato;
 	}
 
 }

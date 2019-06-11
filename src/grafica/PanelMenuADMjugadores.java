@@ -18,7 +18,7 @@ public class PanelMenuADMjugadores extends SuperPanel
 	/**
 	 * Create the panel.
 	 */
-	public PanelMenuADMjugadores(JPanel contentPane)
+	public PanelMenuADMjugadores(SuperPanel contentPane)
 	{
 		setBackground(Color.BLACK);
 		setLayout(new GridLayout(0,1,0,0));

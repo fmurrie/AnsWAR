@@ -19,7 +19,7 @@ public class PanelRegistro extends SuperPanel
 	/**
 	 * Create the panel.
 	 */
-	public PanelRegistro(JPanel contentPane)
+	public PanelRegistro(SuperPanel contentPane)
 	{
 		setLayout(new GridLayout(6,1,0,0));
 		setBackground(Color.BLACK);

@@ -20,7 +20,7 @@ public class PanelBuscarJugador extends SuperPanel
 	/**
 	 * Create the panel.
 	 */
-	public PanelBuscarJugador(JPanel contentPane)
+	public PanelBuscarJugador(SuperPanel contentPane)
 	{
 		setBackground(Color.BLACK);
 		setLayout(new GridLayout(0,1,0,0));

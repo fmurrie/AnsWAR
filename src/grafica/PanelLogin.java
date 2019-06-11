@@ -21,7 +21,7 @@ public class PanelLogin extends SuperPanel
 	/**
 	 * Create the panel.
 	 */
-	public PanelLogin(JPanel contentPane)
+	public PanelLogin(SuperPanel contentPane)
 	{
 		setLayout(new GridLayout(7,1,0,0));
 		setBackground(Color.BLACK);

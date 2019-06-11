@@ -19,7 +19,7 @@ public class PanelBuscarPregunta extends SuperPanel
 	/**
 	 * Create the panel.
 	 */
-	public PanelBuscarPregunta(JPanel contentPane)
+	public PanelBuscarPregunta(SuperPanel contentPane)
 	{
 		setBackground(Color.BLACK);
 		setLayout(new GridLayout(0,1,0,0));

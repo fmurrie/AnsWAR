@@ -17,7 +17,7 @@ public class PanelMenuAdministracion extends SuperPanel
 	/**
 	 * Create the panel.
 	 */
-	public PanelMenuAdministracion(JPanel contentPane)
+	public PanelMenuAdministracion(SuperPanel contentPane)
 	{
 		setBackground(Color.BLACK);
 		setLayout(new GridLayout(0,1,0,0));

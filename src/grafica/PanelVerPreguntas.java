@@ -18,7 +18,7 @@ public class PanelVerPreguntas extends SuperPanel
 	/**
 	 * Create the panel.
 	 */
-	public PanelVerPreguntas(JPanel contentPane)
+	public PanelVerPreguntas(SuperPanel contentPane)
 	{
 		setLayout(new GridLayout(4,1,0,0));
 		setBackground(Color.BLACK);
