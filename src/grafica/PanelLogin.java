@@ -6,6 +6,7 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 import personas.Admin;
+import personas.*;
 import personas.JugadorPermanente;
 
 import javax.swing.JTextField;
@@ -19,8 +20,9 @@ import java.awt.event.ActionEvent;
 
 public class PanelLogin extends SuperPanel
 {
-	private JTextField textField;
+	private JTextField usuarioField;
 	private JPasswordField passwordField;
+	private Cuenta cuentaLogger;
 
 	/**
 	 * Create the panel.
@@ -45,12 +47,12 @@ public class PanelLogin extends SuperPanel
 		lblUsuario.setOpaque(true);
 		add(lblUsuario);
 
-		textField = new JTextField();
-		textField.setFont(new Font("Tahoma",Font.PLAIN,16));
-		textField.setBackground(Color.LIGHT_GRAY);
-		textField.setHorizontalAlignment(SwingConstants.CENTER);
-		add(textField);
-		textField.setColumns(10);
+		usuarioField = new JTextField();
+		usuarioField.setFont(new Font("Tahoma",Font.PLAIN,16));
+		usuarioField.setBackground(Color.LIGHT_GRAY);
+		usuarioField.setHorizontalAlignment(SwingConstants.CENTER);
+		add(usuarioField);
+		usuarioField.setColumns(10);
 
 		JLabel lblContrasea = new JLabel("Contrase\u00F1a");
 		lblContrasea.setBackground(Color.BLACK);
@@ -71,12 +73,7 @@ public class PanelLogin extends SuperPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				contentPane.setCuentaActivaYactualizarTextFields(contentPane.getCuentaActiva()); //despues modificarlo y borrar este comentario
-				
-				if(contentPane.getCuentaActiva() instanceof Admin)
-					desplazarAotroPanel(contentPane,"panelMenuAdministracion");
-				if(contentPane.getCuentaActiva() instanceof JugadorPermanente)
-					desplazarAotroPanel(contentPane,"panelMenuJugador");
+				iniciarSesionSegunElacceso(contentPane);
 			}
 		});
 		btnIngresar.setBackground(Color.BLACK);
@@ -97,6 +94,34 @@ public class PanelLogin extends SuperPanel
 		btnVolver.setBackground(Color.BLACK);
 		add(btnVolver);
 
+	}
+	
+	private void accesoAdministrador(SuperPanel contentPane)
+	{
+		String auxParaElususario=usuarioField.getText();
+		String auxParaLaClave= String.valueOf(passwordField.getPassword());
+		
+		if((auxParaElususario.equalsIgnoreCase("Administrador"))&&(auxParaLaClave.equals("answar")))
+		{	
+			contentPane.setCuentaActivaYactualizarTextFields(new Admin(auxParaElususario,auxParaLaClave));
+		}	
+	}
+	
+	private void accesoJugadorPermanente(SuperPanel contentPane)
+	{
+		String auxParaElususario=usuarioField.getText();
+		String auxParaLaClave= String.valueOf(passwordField.getPassword());
+		
+	}
+	
+	private void iniciarSesionSegunElacceso(SuperPanel contentPane)
+	{
+		accesoAdministrador(contentPane);
+		accesoJugadorPermanente(contentPane);
+		if(contentPane.getCuentaActiva() instanceof Admin)
+			desplazarAotroPanel(contentPane,"panelMenuAdministracion");
+		if(contentPane.getCuentaActiva() instanceof JugadorPermanente)
+			desplazarAotroPanel(contentPane,"panelMenuJugador");	
 	}
 
 }

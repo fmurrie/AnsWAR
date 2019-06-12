@@ -22,6 +22,15 @@ public abstract class Cuenta
 		setDni("");
 		setCorreo("");
 	}
+	
+	public Cuenta(String usuario,String clave)
+	{
+		setId();
+		setUsuario(usuario);
+		setClave(clave);
+		setDni("");
+		setCorreo("");
+	}
 
 	public Cuenta(String usuario,String clave,String dni,String correo)
 	{

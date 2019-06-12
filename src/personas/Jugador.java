@@ -45,17 +45,6 @@ public abstract class Jugador extends Cuenta
 
 	}
 
-	public Jugador(String usuario,String clave,String dni,String correo)
-	{
-		super(usuario,clave,dni,correo);
-		setNickname("");
-		setPuntaje(0);
-		setRangoClasificacion(-1);
-		setNumPartidasJugadas(0);
-		setNumPreguntasAcertadas(0);
-
-	}
-
 	// Getters y Setters:
 
 	public String getNickname()

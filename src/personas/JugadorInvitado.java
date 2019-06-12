@@ -9,13 +9,6 @@ public class JugadorInvitado extends Jugador
 
 	// Constructores:
 
-	
-	public JugadorInvitado(String usuario,String clave,String dni,String correo)
-	{
-		super(usuario,clave,dni,correo);
-		super.setNickname(generarNicknameTemporalRandom());
-	}
-
 	public JugadorInvitado()
 	{
 		super.setNickname(generarNicknameTemporalRandom());

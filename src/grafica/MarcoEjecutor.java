@@ -23,7 +23,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.JMenu;
@@ -43,7 +43,7 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 	
 	public MarcoEjecutor()
 	{
-		reproducirSonido("src/audio/musicaAnswar.mp3");
+		//reproducirSonido("src/audio/musicaAnswar.mp3");
 		
 		setBackground(Color.BLACK);
 		setTitle("AnsWAR");
