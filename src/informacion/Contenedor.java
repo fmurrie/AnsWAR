@@ -28,19 +28,24 @@ public class Contenedor<T>
 	
 	//Metodos varios:
 	
+	public int cantidad()
+	{
+		return this.elementos.size();
+	}
+	
 	public void agregar(T param)
 	{
-		elementos.add(param);
+		this.elementos.add(param);
 	}
 
 	public void eliminar(T param)
 	{
-		elementos.remove(param);
+		this.elementos.remove(param);
 	}
 
 	public String listar()
 	{
-		Iterator<T> it = elementos.iterator();
+		Iterator<T> it = this.elementos.iterator();
 		StringBuilder sb = new StringBuilder();
 
 		while(it.hasNext())
@@ -53,7 +58,7 @@ public class Contenedor<T>
 
 	public boolean verificarExistencia(T param)
 	{
-		Iterator<T> it = elementos.iterator();
+		Iterator<T> it = this.elementos.iterator();
 		boolean encontrado = false;
 		while(it.hasNext())
 		{
@@ -65,5 +70,49 @@ public class Contenedor<T>
 		}
 		return encontrado;
 	}
+	
+	public T obtenerObjeto(int index)
+	{
+		Iterator<T> it = this.elementos.iterator();
+		int i=0;
+		T obj= it.next();
+		while(i<=index)
+		{
+			obj = it.next();
+			i++;
+		}
+		return  obj;
+	}
 
+	public int obtenerPosicionObjeto(T param)
+	{
+		Iterator<T> it = this.elementos.iterator();
+		boolean encontrado = false;
+		int i=0;
+		while((it.hasNext())&&(encontrado==false))
+		{
+			T obj = it.next();
+			if(obj.equals(param))
+			{
+				encontrado = true;
+			}
+			i++;
+		}
+		if(encontrado==false)
+			i=-1;
+		return i;
+	}
+	
+	public void reemplazarObjetoDeUnaPosicion(T param,int index)
+	{
+		Iterator<T> it = this.elementos.iterator();
+		int i=0;
+		T obj= it.next();
+		while(i<=index)
+		{
+			obj = it.next();
+			i++;
+		}
+		obj=param;
+	}
 }

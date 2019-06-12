@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import audio.Sonido;
+import informacion.BaseDeDatos;
 import javazoom.jl.decoder.JavaLayerException;
 import personas.Cuenta;
 import personas.Jugador;
@@ -21,14 +22,17 @@ public class SuperPanel<T extends Cuenta> extends JPanel implements IRelacionFra
 {
 
 	private T cuentaActiva; // cuenta que inicio sesion para todos los paneles
+	private BaseDeDatos data;
 	private JTextField txtId = new JTextField();
 	private JTextField txtUsuario = new JTextField();
 
 	
 	public SuperPanel()
 	{
-		
+		setData(new BaseDeDatos());
 	}
+	
+	//Getters y Setters:
 	
 	public void setCuentaActiva(T cuentaActiva)
 	{
@@ -48,7 +52,6 @@ public class SuperPanel<T extends Cuenta> extends JPanel implements IRelacionFra
 		return cuentaActiva;
 	}
 
-
 	public JTextField getTxtId()
 	{
 		return txtId;
@@ -59,6 +62,11 @@ public class SuperPanel<T extends Cuenta> extends JPanel implements IRelacionFra
 		return txtUsuario;
 	}
 
+	public BaseDeDatos getData()
+	{
+		return data;
+	}
+	
 	public void setTxtId(JTextField txtId)
 	{
 		this.txtId = txtId;
@@ -68,6 +76,13 @@ public class SuperPanel<T extends Cuenta> extends JPanel implements IRelacionFra
 	{
 		this.txtUsuario = txtUsuario;
 	}
+
+	private void setData(BaseDeDatos data)
+	{
+		this.data = data;
+	}
+	
+	//Metodos varios:
 
 	public void desplazarAotroPanel(SuperPanel contentPane, String panelAmostrar)
 	{

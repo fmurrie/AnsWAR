@@ -16,7 +16,7 @@ public abstract class Cuenta
 
 	public Cuenta()
 	{
-		setId();
+		setId(generarIdRandom(123456,999999));
 		setUsuario("");
 		setClave("");
 		setDni("");
@@ -25,7 +25,7 @@ public abstract class Cuenta
 	
 	public Cuenta(String usuario,String clave)
 	{
-		setId();
+		setId("");
 		setUsuario(usuario);
 		setClave(clave);
 		setDni("");
@@ -34,7 +34,7 @@ public abstract class Cuenta
 
 	public Cuenta(String usuario,String clave,String dni,String correo)
 	{
-		setId();
+		setId(generarIdRandom(123456,999999));
 		setUsuario(usuario);
 		setClave(clave);
 		setDni(dni);
@@ -69,10 +69,10 @@ public abstract class Cuenta
 		return correo;
 	}
 
-	public void setId()
+	public void setId(String id)
 	{
 
-		this.id = generarIdRandom(123456,999999);
+		this.id = id;
 	}
 
 	private void setUsuario(String usuario)

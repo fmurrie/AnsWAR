@@ -96,28 +96,30 @@ public class PanelLogin extends SuperPanel
 
 	}
 	
-	private void accesoAdministrador(SuperPanel contentPane)
+	private void accesoAdministrador(SuperPanel contentPane,String usuario,String clave)
 	{
-		String auxParaElususario=usuarioField.getText();
-		String auxParaLaClave= String.valueOf(passwordField.getPassword());
-		
-		if((auxParaElususario.equalsIgnoreCase("Administrador"))&&(auxParaLaClave.equals("answar")))
+		if((usuario.equalsIgnoreCase("Administrador"))&&(clave.equals("answar")))
 		{	
-			contentPane.setCuentaActivaYactualizarTextFields(new Admin(auxParaElususario,auxParaLaClave));
+			contentPane.setCuentaActivaYactualizarTextFields(new Admin(usuario,clave));
 		}	
 	}
 	
-	private void accesoJugadorPermanente(SuperPanel contentPane)
+	private void accesoJugadorPermanente(SuperPanel contentPane,String usuario,String clave)
 	{
-		String auxParaElususario=usuarioField.getText();
-		String auxParaLaClave= String.valueOf(passwordField.getPassword());
 		
 	}
 	
 	private void iniciarSesionSegunElacceso(SuperPanel contentPane)
 	{
-		accesoAdministrador(contentPane);
-		accesoJugadorPermanente(contentPane);
+		String auxParaElusuario=usuarioField.getText();
+		String auxParaLaClave= String.valueOf(passwordField.getPassword());
+		
+		usuarioField.setText("");
+		passwordField.setText("");
+		
+		accesoAdministrador(contentPane,auxParaElusuario,auxParaLaClave);
+		accesoJugadorPermanente(contentPane,auxParaElusuario,auxParaLaClave);
+		
 		if(contentPane.getCuentaActiva() instanceof Admin)
 			desplazarAotroPanel(contentPane,"panelMenuAdministracion");
 		if(contentPane.getCuentaActiva() instanceof JugadorPermanente)
