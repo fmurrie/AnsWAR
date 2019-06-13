@@ -10,11 +10,19 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+
+import personas.*;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class PanelRegistro extends SuperPanel
 {
+	private JTextField usuarioField = new JTextField();
+	private JPasswordField passwordField = new JPasswordField();
+	private JTextField dniField = new JTextField();
+	private JTextField correoField = new JTextField();
+	private JTextField nicknameField = new JTextField();
 
 	/**
 	 * Create the panel.
@@ -32,12 +40,12 @@ public class PanelRegistro extends SuperPanel
 		lblUsuario.setOpaque(true);
 		add(lblUsuario);
 
-		JTextField textField = new JTextField();
-		textField.setHorizontalAlignment(SwingConstants.CENTER);
-		textField.setFont(new Font("Tahoma",Font.PLAIN,16));
-		textField.setBackground(Color.LIGHT_GRAY);
-		add(textField);
-		textField.setColumns(10);
+		
+		usuarioField.setHorizontalAlignment(SwingConstants.CENTER);
+		usuarioField.setFont(new Font("Tahoma",Font.PLAIN,16));
+		usuarioField.setBackground(Color.LIGHT_GRAY);
+		add(usuarioField);
+		usuarioField.setColumns(10);
 
 		JLabel lblContrasea = new JLabel("     Contrase\u00F1a:");
 		lblContrasea.setBackground(Color.BLACK);
@@ -47,7 +55,7 @@ public class PanelRegistro extends SuperPanel
 		lblContrasea.setOpaque(true);
 		add(lblContrasea);
 
-		JPasswordField passwordField = new JPasswordField();
+		
 		passwordField.setHorizontalAlignment(SwingConstants.CENTER);
 		passwordField.setFont(new Font("Tahoma",Font.PLAIN,16));
 		passwordField.setBackground(Color.LIGHT_GRAY);
@@ -61,12 +69,12 @@ public class PanelRegistro extends SuperPanel
 		lblDni.setOpaque(true);
 		add(lblDni);
 
-		JTextField textField_2 = new JTextField();
-		textField_2.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_2.setFont(new Font("Tahoma",Font.PLAIN,16));
-		textField_2.setBackground(Color.LIGHT_GRAY);
-		add(textField_2);
-		textField_2.setColumns(10);
+		
+		dniField.setHorizontalAlignment(SwingConstants.CENTER);
+		dniField.setFont(new Font("Tahoma",Font.PLAIN,16));
+		dniField.setBackground(Color.LIGHT_GRAY);
+		add(dniField);
+		dniField.setColumns(10);
 
 		JLabel lblDireccionDeCorreo = new JLabel("     Direccion de correo:");
 		lblDireccionDeCorreo.setBackground(Color.BLACK);
@@ -76,12 +84,12 @@ public class PanelRegistro extends SuperPanel
 		lblDireccionDeCorreo.setOpaque(true);
 		add(lblDireccionDeCorreo);
 
-		JTextField textField_1 = new JTextField();
-		textField_1.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_1.setFont(new Font("Tahoma",Font.PLAIN,16));
-		textField_1.setBackground(Color.LIGHT_GRAY);
-		add(textField_1);
-		textField_1.setColumns(10);
+		
+		correoField.setHorizontalAlignment(SwingConstants.CENTER);
+		correoField.setFont(new Font("Tahoma",Font.PLAIN,16));
+		correoField.setBackground(Color.LIGHT_GRAY);
+		add(correoField);
+		correoField.setColumns(10);
 
 		JLabel lblNickname = new JLabel("     Nickname:");
 		lblNickname.setBackground(Color.BLACK);
@@ -91,17 +99,18 @@ public class PanelRegistro extends SuperPanel
 		lblNickname.setOpaque(true);
 		add(lblNickname);
 
-		JTextField textField_3 = new JTextField();
-		textField_3.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_3.setFont(new Font("Tahoma",Font.PLAIN,16));
-		textField_3.setBackground(Color.LIGHT_GRAY);
-		add(textField_3);
+		
+		nicknameField.setHorizontalAlignment(SwingConstants.CENTER);
+		nicknameField.setFont(new Font("Tahoma",Font.PLAIN,16));
+		nicknameField.setBackground(Color.LIGHT_GRAY);
+		add(nicknameField);
 
 		JButton btnVolver = new JButton("Volver");
 		btnVolver.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
 			{
+				vaciarTextoTextFields();
 				desplazarAotroPanel(contentPane,"panelExterior");
 			}
 		});
@@ -111,11 +120,50 @@ public class PanelRegistro extends SuperPanel
 		add(btnVolver);
 
 		JButton btnRegistrarse = new JButton("Registrarse");
+		btnRegistrarse.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				registrarCuenta(contentPane);
+			}
+		});
 		btnRegistrarse.setForeground(Color.GREEN);
 		btnRegistrarse.setFont(new Font("Stencil",Font.PLAIN,18));
 		btnRegistrarse.setBackground(Color.BLACK);
 		add(btnRegistrarse);
 
+	}
+
+	
+	//Metodos varios:
+	
+	private void registrarCuenta(SuperPanel contentPane)
+	{
+		String auxUsuario=this.usuarioField.getText();
+		String auxClave=String.valueOf(this.passwordField.getPassword());;
+		String auxDni=this.dniField.getText();
+		String auxCorreo=this.correoField.getText();
+		String auxNickname=this.nicknameField.getText();
+		
+		vaciarTextoTextFields();
+		
+		JugadorPermanente aux=new JugadorPermanente(auxUsuario,auxClave,auxDni,auxCorreo,auxNickname);
+		
+		contentPane.getData().registrarCuenta("cuentas.dat",aux);
+		
+		contentPane.setCuentaActivaYactualizarTextFields(aux);
+		
+		desplazarAotroPanel(contentPane,"panelMenuJugador");
+	
+	}
+	
+	private void vaciarTextoTextFields()
+	{
+		this.usuarioField.setText("");
+		this.passwordField.setText("");
+		this.dniField.setText("");
+		this.correoField.setText("");
+		this.nicknameField.setText("");
 	}
 
 }

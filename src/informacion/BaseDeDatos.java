@@ -95,15 +95,18 @@ public class BaseDeDatos
 		{
 			ObjectOutputStream archiCuentas= new ObjectOutputStream(new FileOutputStream(nombreArchivo));
 			int i=0;
-			while(i<getColeccionCuentas().cantidad())
+			while(i<=getColeccionCuentas().cantidad())
 			{
-				Cuenta aux=(Cuenta)this.coleccionCuentas.obtenerObjeto(i);
+				Cuenta aux=this.coleccionCuentas.obtenerObjeto(i);
+				
 				if(aux!=null)
 					archiCuentas.writeObject(aux);
+				i++;
+				
 			}
 			
 			archiCuentas.close();
-			
+			System.out.println("llegue aca");
 		}catch(FileNotFoundException e)
 		{
 			e.printStackTrace();

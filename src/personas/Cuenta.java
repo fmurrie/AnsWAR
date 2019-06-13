@@ -1,8 +1,9 @@
 package personas;
 
+import java.io.*;
 import java.util.concurrent.ThreadLocalRandom;
 
-public abstract class Cuenta
+public abstract class Cuenta implements Serializable
 {
 	// Atributos:
 

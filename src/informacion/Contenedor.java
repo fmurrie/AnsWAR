@@ -74,14 +74,18 @@ public class Contenedor<T>
 	public T obtenerObjeto(int index)
 	{
 		Iterator<T> it = this.elementos.iterator();
+		T encontrado=null;
 		int i=0;
-		T obj= it.next();
-		while(i<=index)
+		while(it.hasNext())
 		{
-			obj = it.next();
+			T obj = it.next();
+			if(i==index)
+			{
+				encontrado = obj;
+			}
 			i++;
 		}
-		return  obj;
+		return encontrado;
 	}
 
 	public int obtenerPosicionObjeto(T param)

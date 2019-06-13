@@ -22,14 +22,14 @@ public class SuperPanel<T extends Cuenta> extends JPanel implements IRelacionFra
 {
 
 	private T cuentaActiva; // cuenta que inicio sesion para todos los paneles
-	private BaseDeDatos data;
+	private BaseDeDatos data=new BaseDeDatos();
 	private JTextField txtId = new JTextField();
 	private JTextField txtUsuario = new JTextField();
 
 	
 	public SuperPanel()
 	{
-		setData(new BaseDeDatos());
+		
 	}
 	
 	//Getters y Setters:
@@ -81,6 +81,7 @@ public class SuperPanel<T extends Cuenta> extends JPanel implements IRelacionFra
 	{
 		this.data = data;
 	}
+	
 	
 	//Metodos varios:
 
