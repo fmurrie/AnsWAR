@@ -62,6 +62,7 @@ public class PanelExterior extends SuperPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
+				contentPane.setCuentaActiva(new JugadorInvitado());
 				desplazarAotroPanel(contentPane,"panelMenuJugador");
 			}
 		});

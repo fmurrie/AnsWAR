@@ -72,6 +72,7 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 			{
 				if(contentPane.getComponent(0).getName().equals("panelExterior") == false)
 				{
+					contentPane.setCuentaActiva(new JugadorInvitado());
 					contentPane.restaurarLosTextFieldCuentaActiva();
 					desplazarAotroPanel(contentPane,"panelExterior");
 				}
@@ -90,6 +91,7 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 			{
 				if(contentPane.getComponent(0).getName().equals("panelExterior") == false)
 				{
+					contentPane.setCuentaActiva(new JugadorInvitado());
 					contentPane.restaurarLosTextFieldCuentaActiva();
 					desplazarAotroPanel(contentPane,"panelLogin");
 				}

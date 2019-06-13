@@ -135,5 +135,13 @@ public abstract class Cuenta implements Serializable
 		String idString = Long.toString(idNumero);
 		return idString;
 	}
+	
+	public boolean compararCuentasPorUsuarioYclave(String usuario,String clave)
+	{
+		boolean existe=false;
+		if((this.getClave().equals(usuario))&&(this.getUsuario().equals(clave)))
+			existe=true;
+		return existe;
+	}
 
 }

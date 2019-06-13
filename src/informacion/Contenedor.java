@@ -1,38 +1,39 @@
 package informacion;
+
 import java.util.HashSet;
 import java.util.Iterator;
 
 public class Contenedor<T>
 {
-	//Atributos:
+	// Atributos:
 	private HashSet<T> elementos;
-	
-	//Constructores:
+
+	// Constructores:
 
 	public Contenedor()
 	{
 		setElementos(new HashSet<T>());
 	}
 
-	//Getters y Setters:
-	
+	// Getters y Setters:
+
 	private HashSet<T> getElementos()
 	{
 		return elementos;
 	}
-	
+
 	private void setElementos(HashSet<T> elementos)
 	{
 		this.elementos = elementos;
 	}
-	
-	//Metodos varios:
-	
+
+	// Metodos varios:
+
 	public int cantidad()
 	{
 		return this.elementos.size();
 	}
-	
+
 	public void agregar(T param)
 	{
 		this.elementos.add(param);
@@ -70,16 +71,16 @@ public class Contenedor<T>
 		}
 		return encontrado;
 	}
-	
+
 	public T obtenerObjeto(int index)
 	{
 		Iterator<T> it = this.elementos.iterator();
-		T encontrado=null;
-		int i=0;
+		T encontrado = null;
+		int i = 0;
 		while(it.hasNext())
 		{
 			T obj = it.next();
-			if(i==index)
+			if(i == index)
 			{
 				encontrado = obj;
 			}
@@ -92,8 +93,8 @@ public class Contenedor<T>
 	{
 		Iterator<T> it = this.elementos.iterator();
 		boolean encontrado = false;
-		int i=0;
-		while((it.hasNext())&&(encontrado==false))
+		int i = 0;
+		while((it.hasNext()) && (encontrado == false))
 		{
 			T obj = it.next();
 			if(obj.equals(param))
@@ -102,21 +103,21 @@ public class Contenedor<T>
 			}
 			i++;
 		}
-		if(encontrado==false)
-			i=-1;
+		if(encontrado == false)
+			i = -1;
 		return i;
 	}
-	
-	public void reemplazarObjetoDeUnaPosicion(T param,int index)
+
+	public void reemplazarObjetoDeUnaPosicion(T param, int index)
 	{
 		Iterator<T> it = this.elementos.iterator();
-		int i=0;
-		T obj= it.next();
-		while(i<=index)
+		int i = 0;
+		T obj = it.next();
+		while(i <= index)
 		{
 			obj = it.next();
 			i++;
 		}
-		obj=param;
+		obj = param;
 	}
 }

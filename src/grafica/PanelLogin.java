@@ -73,7 +73,10 @@ public class PanelLogin extends SuperPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				iniciarSesionSegunElacceso(contentPane);
+				String auxParaElusuario = usuarioField.getText();
+				String auxParaLaClave = String.valueOf(passwordField.getPassword());
+				if((!auxParaElusuario.equals(""))&&(!auxParaLaClave.equals("")))
+					iniciarSesionSegunElacceso(contentPane);
 			}
 		});
 		btnIngresar.setBackground(Color.BLACK);
@@ -95,35 +98,43 @@ public class PanelLogin extends SuperPanel
 		add(btnVolver);
 
 	}
-	
-	private void accesoAdministrador(SuperPanel contentPane,String usuario,String clave)
+
+	private Cuenta accesoParaTodos(SuperPanel contentPane, String usuario, String clave)
 	{
-		if((usuario.equalsIgnoreCase("Administrador"))&&(clave.equals("answar")))
-		{	
-			contentPane.setCuentaActivaYactualizarTextFields(new Admin(usuario,clave));
-		}	
-	}
-	
-	private void accesoJugadorPermanente(SuperPanel contentPane,String usuario,String clave)
-	{
+		Cuenta obj = null;
 		
+		if((usuario.equalsIgnoreCase("Administrador")) && (clave.equals("answar")))
+		{
+			obj = new Admin(usuario,clave);
+		}
+		else
+		{
+			obj = contentPane.getData().loggearCuenta("cuentas.dat",usuario,clave);
+		}
+	 
+		return obj;
 	}
-	
+
 	private void iniciarSesionSegunElacceso(SuperPanel contentPane)
 	{
-		String auxParaElusuario=usuarioField.getText();
-		String auxParaLaClave= String.valueOf(passwordField.getPassword());
-		
+		String auxParaElusuario = usuarioField.getText();
+		String auxParaLaClave = String.valueOf(passwordField.getPassword());
 		usuarioField.setText("");
 		passwordField.setText("");
-		
-		accesoAdministrador(contentPane,auxParaElusuario,auxParaLaClave);
-		accesoJugadorPermanente(contentPane,auxParaElusuario,auxParaLaClave);
-		
-		if(contentPane.getCuentaActiva() instanceof Admin)
-			desplazarAotroPanel(contentPane,"panelMenuAdministracion");
-		if(contentPane.getCuentaActiva() instanceof JugadorPermanente)
-			desplazarAotroPanel(contentPane,"panelMenuJugador");	
+		Cuenta obj = null;
+
+
+		obj = accesoParaTodos(contentPane,auxParaElusuario,auxParaLaClave);
+	
+		if(obj != null)
+		{
+			contentPane.setCuentaActivaYactualizarTextFields(obj);
+			
+			if(contentPane.getCuentaActiva() instanceof Admin)
+				desplazarAotroPanel(contentPane,"panelMenuAdministracion");
+			if(contentPane.getCuentaActiva() instanceof Jugador)
+				desplazarAotroPanel(contentPane,"panelMenuJugador");
+		}
 	}
 
 }

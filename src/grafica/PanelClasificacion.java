@@ -3,6 +3,8 @@ package grafica;
 import javax.swing.JPanel;
 import javax.swing.JRadioButtonMenuItem;
 
+import personas.Admin;
+
 import java.awt.GridLayout;
 
 import javax.swing.ButtonGroup;
@@ -45,9 +47,10 @@ public class PanelClasificacion extends SuperPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				desplazarAotroPanel(contentPane,"panelMenuJugador"); // aca depende a que menu volvera segun si es la
-																		// sesion de un adm o un jugador
-				desplazarAotroPanel(contentPane,"PanelMenuADMjugadores");
+				if(contentPane.getCuentaActiva() instanceof Admin)
+					desplazarAotroPanel(contentPane,"PanelMenuADMjugadores");
+				else
+					desplazarAotroPanel(contentPane,"panelMenuJugador"); 	
 			}
 		});
 		btnVolver.setBackground(Color.BLACK);
