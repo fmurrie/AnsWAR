@@ -61,6 +61,14 @@ public class PanelMenuJugador extends SuperPanel
 		add(btnPerfil);
 
 		JButton btnConfiguracion = new JButton("Configuracion");
+		btnConfiguracion.addActionListener(new ActionListener()																													
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				contentPane.actualizarTextFieldPanelConfiguracionJugador(contentPane);
+				desplazarAotroPanel(contentPane,"panelConfiguracionJugador");
+			}
+		});
 		btnConfiguracion.setForeground(Color.WHITE);
 		btnConfiguracion.setBackground(Color.BLACK);
 		btnConfiguracion.setFont(new Font("Stencil",Font.PLAIN,18));

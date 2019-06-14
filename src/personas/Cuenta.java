@@ -55,17 +55,17 @@ public abstract class Cuenta implements Serializable
 		return usuario;
 	}
 
-	private String getClave()
+	public String getClave()
 	{
 		return clave;
 	}
 
-	protected String getDni()
+	public String getDni()
 	{
 		return dni;
 	}
 
-	private String getCorreo()
+	public String getCorreo()
 	{
 		return correo;
 	}

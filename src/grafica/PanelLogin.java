@@ -76,7 +76,7 @@ public class PanelLogin extends SuperPanel
 				String auxParaElusuario = usuarioField.getText();
 				String auxParaLaClave = String.valueOf(passwordField.getPassword());
 				if((!auxParaElusuario.equals(""))&&(!auxParaLaClave.equals("")))
-					iniciarSesionSegunElacceso(contentPane);
+					iniciarSesionSegunElacceso(contentPane,auxParaElusuario,auxParaLaClave);
 			}
 		});
 		btnIngresar.setBackground(Color.BLACK);
@@ -115,10 +115,8 @@ public class PanelLogin extends SuperPanel
 		return obj;
 	}
 
-	private void iniciarSesionSegunElacceso(SuperPanel contentPane)
+	private void iniciarSesionSegunElacceso(SuperPanel contentPane,String auxParaElusuario,String auxParaLaClave)
 	{
-		String auxParaElusuario = usuarioField.getText();
-		String auxParaLaClave = String.valueOf(passwordField.getPassword());
 		usuarioField.setText("");
 		passwordField.setText("");
 		Cuenta obj = null;
@@ -132,7 +130,7 @@ public class PanelLogin extends SuperPanel
 			
 			if(contentPane.getCuentaActiva() instanceof Admin)
 				desplazarAotroPanel(contentPane,"panelMenuAdministracion");
-			if(contentPane.getCuentaActiva() instanceof Jugador)
+			if(contentPane.getCuentaActiva() instanceof JugadorPermanente)
 				desplazarAotroPanel(contentPane,"panelMenuJugador");
 		}
 	}

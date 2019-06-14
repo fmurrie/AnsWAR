@@ -144,7 +144,7 @@ public class SuperPanel<T extends Cuenta> extends JPanel implements IRelacionFra
 		boolean encontro = false;
 		int i = 0;
 
-		while(encontro = false)
+		while(encontro == false)
 		{
 			if(contentPane.getComponent(i).getName().equals(nombrePanel))
 			{
@@ -153,6 +153,24 @@ public class SuperPanel<T extends Cuenta> extends JPanel implements IRelacionFra
 			i++;
 		}
 		return i;
+	}
+	
+	public Component obtenerPanelPorNombreYdevolverPos(SuperPanel contentPane, String nombrePanel)
+	{
+		boolean encontro = false;
+		Component aux=null;
+		int i = 0;
+
+		while(encontro == false)
+		{
+			if(contentPane.getComponent(i).getName().equals(nombrePanel))
+			{
+				aux=contentPane.getComponent(i);
+				encontro = true;
+			}
+			i++;
+		}
+		return aux;
 	}
 	
 	private void actualizarTextFieldCuentaActiva()
@@ -223,5 +241,12 @@ public class SuperPanel<T extends Cuenta> extends JPanel implements IRelacionFra
 		txtUsuario.setBackground(Color.BLACK);
 		txtUsuario.setColumns(10);
 	}
+	
+	public void actualizarTextFieldPanelConfiguracionJugador(SuperPanel contentPane)
+	{
+		Component aux=obtenerPanelPorNombreYdevolverPos(contentPane,"panelConfiguracionJugador");
+		((PanelConfiguracionJugador)aux).actualizarTextoTextFields(contentPane);
+	}
 
+	
 }
