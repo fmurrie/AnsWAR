@@ -11,5 +11,8 @@ public interface IRelacionFrameYPaneles
 	public abstract int buscarPanelPorNombreYdevolverPos(SuperPanel contentPane, String nombrePanel);
 
 	public abstract Component obtenerPanelPorNombreYdevolverPos(SuperPanel contentPane, String nombrePanel);
+	
+	public abstract void eliminarUnPanel(SuperPanel contentPane,String nombrePanel);
+	
 
 }

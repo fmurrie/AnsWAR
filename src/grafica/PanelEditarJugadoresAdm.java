@@ -18,6 +18,7 @@ import personas.JugadorPermanente;
 
 public class PanelEditarJugadoresAdm extends SuperPanel
 {
+	private JugadorPermanente jugadorInterferido=new JugadorPermanente();
 	private JTextField nicknameField = new JTextField();
 	private JTextField puntajeField = new JTextField();
 	private JTextField partidasJugadasField = new JTextField();
@@ -26,7 +27,7 @@ public class PanelEditarJugadoresAdm extends SuperPanel
 	/**
 	 * Create the panel.
 	 */
-	public PanelEditarJugadoresAdm(SuperPanel contentPane,JugadorPermanente jugadorAeditar)
+	public PanelEditarJugadoresAdm(SuperPanel contentPane)
 	{
 		setLayout(new GridLayout(6,1,0,0));
 		setBackground(Color.BLACK);
@@ -39,7 +40,6 @@ public class PanelEditarJugadoresAdm extends SuperPanel
 		lblNickname.setOpaque(true);
 		add(lblNickname);
 
-		nicknameField.setText(jugadorAeditar.getNickname());
 		nicknameField.setHorizontalAlignment(SwingConstants.CENTER);
 		nicknameField.setFont(new Font("Tahoma",Font.PLAIN,16));
 		nicknameField.setBackground(Color.LIGHT_GRAY);
@@ -53,7 +53,6 @@ public class PanelEditarJugadoresAdm extends SuperPanel
 		lblPuntaje.setOpaque(true);
 		add(lblPuntaje);
 
-		puntajeField.setText(Long.toString(jugadorAeditar.getPuntaje()));
 		puntajeField.setHorizontalAlignment(SwingConstants.CENTER);
 		puntajeField.setFont(new Font("Tahoma",Font.PLAIN,16));
 		puntajeField.setBackground(Color.LIGHT_GRAY);
@@ -68,7 +67,6 @@ public class PanelEditarJugadoresAdm extends SuperPanel
 		lblPartJugadas.setOpaque(true);
 		add(lblPartJugadas);
 
-		partidasJugadasField.setText(Integer.toString(jugadorAeditar.getNumPartidasJugadas()));
 		partidasJugadasField.setHorizontalAlignment(SwingConstants.CENTER);
 		partidasJugadasField.setFont(new Font("Tahoma",Font.PLAIN,16));
 		partidasJugadasField.setBackground(Color.LIGHT_GRAY);
@@ -83,47 +81,76 @@ public class PanelEditarJugadoresAdm extends SuperPanel
 		lblPregAcertadas.setOpaque(true);
 		add(lblPregAcertadas);
 
-		preguntasAcertadasField.setText(Integer.toString(jugadorAeditar.getNumPreguntasAcertadas()));
 		preguntasAcertadasField.setHorizontalAlignment(SwingConstants.CENTER);
 		preguntasAcertadasField.setFont(new Font("Tahoma",Font.PLAIN,16));
 		preguntasAcertadasField.setBackground(Color.LIGHT_GRAY);
 		add(preguntasAcertadasField);
-
-
-
-		JButton btnVolver = new JButton("Volver");
-		btnVolver.addActionListener(new ActionListener()
+		
+		actualizarTextFieldConJugadorInterferido();
+				JButton btnModificar = new JButton("Modificar");
+				btnModificar.addActionListener(new ActionListener()
+				{
+					public void actionPerformed(ActionEvent e)
+					{
+						modificarCuenta(contentPane);
+						desplazarAotroPanel(contentPane,"panelInspeccionarJugadores");
+					}
+				});
+				
+				JLabel label = new JLabel("");
+				add(label);
+				btnModificar.setForeground(Color.GREEN);
+				btnModificar.setFont(new Font("Stencil",Font.PLAIN,18));
+				btnModificar.setBackground(Color.BLACK);
+				add(btnModificar);
+				
+		
+		
+				JButton btnVolver = new JButton("Volver");
+				btnVolver.addActionListener(new ActionListener()
+				{
+					public void actionPerformed(ActionEvent e)
+					{	
+						desplazarAotroPanel(contentPane,"panelInspeccionarJugadores");
+					}
+				});
+				btnVolver.setForeground(Color.CYAN);
+				btnVolver.setBackground(Color.BLACK);
+				btnVolver.setFont(new Font("Stencil",Font.PLAIN,18));
+				add(btnVolver);
+		
+		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
 			{
+				contentPane.getData().eliminarJugadorDeLaLista("jugadores.dat",jugadorInterferido);
 				desplazarAotroPanel(contentPane,"panelInspeccionarJugadores");
 			}
 		});
-		btnVolver.setForeground(Color.CYAN);
-		btnVolver.setBackground(Color.BLACK);
-		btnVolver.setFont(new Font("Stencil",Font.PLAIN,18));
-		add(btnVolver);
-
-		JButton btnModificar = new JButton("Modificar");
-		btnModificar.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent e)
-			{
-				modificarCuenta(contentPane,jugadorAeditar);
-			}
-		});
-		btnModificar.setForeground(Color.GREEN);
-		btnModificar.setFont(new Font("Stencil",Font.PLAIN,18));
-		btnModificar.setBackground(Color.BLACK);
-		add(btnModificar);
+		btnEliminar.setForeground(Color.RED);
+		btnEliminar.setFont(new Font("Stencil",Font.PLAIN,18));
+		btnEliminar.setBackground(Color.BLACK);
+		add(btnEliminar);
 
 	}
 
 	// Metodos varios:
 
-	private void modificarCuenta(SuperPanel contentPane,JugadorPermanente jugadorAeditar)
+	public void setJugadorInterferidoYactualizarTextFields(JugadorPermanente jugadorInterferido)
 	{
-		JugadorPermanente aux = jugadorAeditar;
+		this.jugadorInterferido=jugadorInterferido;
+		actualizarTextFieldConJugadorInterferido();
+	}
+	
+	public JugadorPermanente getJugadorInterferido()
+	{
+		return jugadorInterferido;
+	}
+	
+	private void modificarCuenta(SuperPanel contentPane)
+	{
+		JugadorPermanente aux = this.jugadorInterferido;
 		String auxId = aux.getId();
 		String auxUsuario = aux.getUsuario();
 		String auxDni = aux.getDni();
@@ -144,9 +171,16 @@ public class PanelEditarJugadoresAdm extends SuperPanel
 		if(aux2 != null)
 		{
 			contentPane.getData().modificarCuenta("jugadores.dat",aux,aux2);
-
 		}
 
+	}
+	
+	public void actualizarTextFieldConJugadorInterferido()
+	{
+		nicknameField.setText(jugadorInterferido.getNickname());
+		puntajeField.setText(Long.toString(jugadorInterferido.getPuntaje()));
+		partidasJugadasField.setText(Integer.toString(jugadorInterferido.getNumPartidasJugadas()));
+		preguntasAcertadasField.setText(Integer.toString(jugadorInterferido.getNumPreguntasAcertadas()));
 	}
 
 }

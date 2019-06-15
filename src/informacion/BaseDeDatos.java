@@ -93,6 +93,16 @@ public class BaseDeDatos
 			copiarCuentasDeColeccionAlArchivo(nombreArchivo);
 		}
 	}
+	
+	public void eliminarJugadorDeLaLista(String nombreArchivo,JugadorPermanente obj)
+	{
+		for(int i = 0;i < this.coleccionJugadores.cantidad();i++)
+		{
+			if(obj.getId().equals(coleccionJugadores.obtenerObjeto(i).getId()))
+				this.coleccionJugadores.eliminar(coleccionJugadores.obtenerObjeto(i));
+		}
+		copiarCuentasDeColeccionAlArchivo(nombreArchivo);
+	}
 
 	public String retornarColeccionJugadoresParaMostrar()
 	{

@@ -81,9 +81,4 @@ public class Contenedor<T>
 			elementos.set(pos,objRemplazo);
 	}
 
-	public void eliminarElemento(T param)
-	{
-		this.elementos.remove(param);
-	}
-
 }

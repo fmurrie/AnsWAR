@@ -198,6 +198,12 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 		panelInspeccionarJugadores.setName("panelInspeccionarJugadores");
 		contentPane.add(panelInspeccionarJugadores);
 		
+		PanelEditarJugadoresAdm panelEditarJugadoresAdm=new PanelEditarJugadoresAdm(contentPane);
+		panelEditarJugadoresAdm.setName("panelEditarJugadoresAdm");
+		contentPane.add(panelEditarJugadoresAdm);
+		
+		
+		
 	}
 
 	public void desplazarAotroPanel(SuperPanel contentPane, String panelAmostrar)
@@ -264,6 +270,23 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 			i++;
 		}
 		return aux;
+	}
+	
+	@Override
+	public void eliminarUnPanel(SuperPanel contentPane, String nombrePanel)
+	{
+		boolean encontro = false;
+		int i = 0;
+
+		while(encontro == false)
+		{
+			if(contentPane.getComponent(i).getName().equals(nombrePanel))
+			{
+				contentPane.remove(i);
+				encontro = true;
+			}
+			i++;
+		}
 	}
 
 	public void reproducirSonido(String rutaCancion)

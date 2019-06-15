@@ -41,32 +41,6 @@ public class PanelMenuADMjugadores extends SuperPanel
 		btnVerRank.setFont(new Font("Stencil",Font.PLAIN,18));
 		add(btnVerRank);
 
-		JButton btnEditJugador = new JButton("Editar jugador");
-		btnEditJugador.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent e)
-			{
-				desplazarAotroPanel(contentPane,"panelBuscarJugador");
-			}
-		});
-		btnEditJugador.setForeground(Color.ORANGE);
-		btnEditJugador.setFont(new Font("Stencil",Font.PLAIN,18));
-		btnEditJugador.setBackground(Color.BLACK);
-		add(btnEditJugador);
-
-		JButton btnElimicarJugador = new JButton("Eliminar jugador");
-		btnElimicarJugador.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent e)
-			{
-				desplazarAotroPanel(contentPane,"panelBuscarJugador");
-			}
-		});
-		btnElimicarJugador.setForeground(Color.RED);
-		btnElimicarJugador.setBackground(Color.BLACK);
-		btnElimicarJugador.setFont(new Font("Stencil",Font.PLAIN,18));
-		add(btnElimicarJugador);
-
 		JButton btnVolver = new JButton("Volver");
 		btnVolver.addActionListener(new ActionListener()
 		{
