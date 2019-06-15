@@ -61,7 +61,7 @@ public class PanelMenuJugador extends SuperPanel
 		add(btnPerfil);
 
 		JButton btnConfiguracion = new JButton("Configuracion");
-		btnConfiguracion.addActionListener(new ActionListener()																													
+		btnConfiguracion.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
 			{

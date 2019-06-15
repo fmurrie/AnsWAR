@@ -28,12 +28,12 @@ public class PanelMenuADMjugadores extends SuperPanel
 		label.setIcon(new ImageIcon("src/imagenes/AnswarTitulo.png"));
 		add(label);
 
-		JButton btnVerRank = new JButton("Ver clasificacion");
+		JButton btnVerRank = new JButton("Inspeccionar jugadores");
 		btnVerRank.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				desplazarAotroPanel(contentPane,"panelClasificacion");
+				desplazarAotroPanel(contentPane,"panelInspeccionarJugadores");
 			}
 		});
 		btnVerRank.setBackground(Color.BLACK);

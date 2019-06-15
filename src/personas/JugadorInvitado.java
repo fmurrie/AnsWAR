@@ -6,7 +6,6 @@ public class JugadorInvitado extends Jugador
 {
 	// Atributos:
 
-
 	// Constructores:
 
 	public JugadorInvitado()
@@ -16,10 +15,7 @@ public class JugadorInvitado extends Jugador
 
 	// Getters y Setters:
 
-
-
 	// Metodos extra:
-
 
 	private String generarNicknameTemporalRandom()
 	{

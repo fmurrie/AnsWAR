@@ -10,7 +10,7 @@ public class Admin extends Cuenta
 	{
 		super();
 	}
-	
+
 	public Admin(String usuario,String clave)
 	{
 		super(usuario,clave);

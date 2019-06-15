@@ -23,7 +23,7 @@ public abstract class Cuenta implements Serializable
 		setDni("");
 		setCorreo("");
 	}
-	
+
 	public Cuenta(String usuario,String clave)
 	{
 		setId("");
@@ -42,7 +42,7 @@ public abstract class Cuenta implements Serializable
 		setCorreo(correo);
 
 	}
-	
+
 	public Cuenta(String id,String usuario,String clave,String dni,String correo)
 	{
 		setId(id);
@@ -52,7 +52,7 @@ public abstract class Cuenta implements Serializable
 		setCorreo(correo);
 
 	}
-	
+
 	public Cuenta(Cuenta c)
 	{
 		setId(c.getId());
@@ -121,7 +121,8 @@ public abstract class Cuenta implements Serializable
 	@Override
 	public String toString()
 	{
-		String dato = "\nID: " + getId()+"\nUsuario: " + getUsuario()+"\nClave: "+getClave() + "\nDNI: " + getDni() + "\nDireccion de correo: " + getCorreo();
+		String dato = "ID: " + getId() + "  |  Usuario: " + getUsuario() + "  |  DNI: "
+				+ getDni() + "  |  Direccion de correo: " + getCorreo();
 		return dato;
 
 	}
@@ -155,7 +156,5 @@ public abstract class Cuenta implements Serializable
 		String idString = Long.toString(idNumero);
 		return idString;
 	}
-	
-
 
 }

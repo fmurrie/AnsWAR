@@ -44,7 +44,7 @@ public abstract class Jugador extends Cuenta
 		setNumPreguntasAcertadas(0);
 
 	}
-	
+
 	public Jugador(String id,String usuario,String clave,String dni,String correo,String nickname)
 	{
 		super(id,usuario,clave,dni,correo);
@@ -56,6 +56,17 @@ public abstract class Jugador extends Cuenta
 
 	}
 	
+	public Jugador(String id,String usuario,String clave,String dni,String correo,String nickname,long puntaje,int partidasJugadas,int preguntasAcertadas)
+	{
+		super(id,usuario,clave,dni,correo);
+		setNickname(nickname);
+		setPuntaje(0);
+		setRangoClasificacion(-1);
+		setNumPartidasJugadas(partidasJugadas);
+		setNumPreguntasAcertadas(preguntasAcertadas);
+
+	}
+
 	public Jugador(Jugador j)
 	{
 		super(j);
@@ -124,8 +135,8 @@ public abstract class Jugador extends Cuenta
 	@Override
 	public String toString()
 	{
-		String dato = super.toString() + "\nNickname: " + getNickname() + "\nPuntuacion: " + getPuntaje()
-				+ "\nPosicion: " + getRangoClasificacion() + "\nRespuestas correctas: " + getNumPreguntasAcertadas();
+		String dato ="-Datos del Jugador:  " +super.toString() + "  |  Nickname: " + getNickname() + "  |  Puntuacion: " + getPuntaje()
+				+ "  |  Posicion: " + getRangoClasificacion() + "  |  Respuestas correctas: " + getNumPreguntasAcertadas();
 
 		return dato;
 	}

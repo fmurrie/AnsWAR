@@ -20,7 +20,7 @@ public class Temporizador
 	{
 		timer = new Timer();
 		display = new Display();
-		this.componente=componente;
+		this.componente = componente;
 	}
 
 	TimerTask task = new TimerTask()
@@ -54,9 +54,7 @@ public class Temporizador
 			}
 			if(isTimerRunning)
 				display.printTime(hour,minute,second,componente);
-				
-			
-				
+
 		}
 	}; // fin timertask
 
@@ -64,15 +62,15 @@ public class Temporizador
 	{
 		timer.schedule(task,timeout,interval);
 	}
-	
+
 	public String devolverTiempoInicial()
 	{
-		String dato="";
+		String dato = "";
 
 		dato += (hour > 9) ? ":" + hour : "0" + hour;
 		dato += (minute > 9) ? ":" + minute : ":0" + minute;
 		dato += (second > 9) ? ":" + second : ":0" + second;
-		
+
 		return dato;
 	}
 

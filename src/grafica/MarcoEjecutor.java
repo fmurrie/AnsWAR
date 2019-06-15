@@ -38,13 +38,13 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 	/**
 	 * Create the frame.
 	 */
-	
+
 	private SuperPanel contentPane;
-	
+
 	public MarcoEjecutor()
 	{
-		//reproducirSonido("src/audio/musicaAnswar.mp3");
-		
+		// reproducirSonido("src/audio/musicaAnswar.mp3");
+
 		setBackground(Color.BLACK);
 		setTitle("AnsWAR");
 		Toolkit pantalla = Toolkit.getDefaultToolkit();
@@ -120,21 +120,21 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 		mnOpciones_1.setForeground(Color.GRAY);
 		mnOpciones_1.setBackground(Color.DARK_GRAY);
 		menuBar.add(mnOpciones_1);
-		
+
 		contentPane = new SuperPanel();
 		contentPane.setCuentaActiva(new JugadorInvitado());
 		contentPane.getData().copiarCuentasDelArchivoAlaColeccion("jugadores.dat");
 		contentPane.setBorder(new EmptyBorder(5,5,5,5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new CardLayout(0,0));
-		
+
 		JMenu mnCuenta = new JMenu("Cuenta");
 		mnCuenta.setForeground(Color.GRAY);
 		mnCuenta.setBackground(Color.BLACK);
 		mnCuenta.setHorizontalAlignment(SwingConstants.CENTER);
-		mnCuenta.setFont(new Font("Stencil", Font.PLAIN, 12));
+		mnCuenta.setFont(new Font("Stencil",Font.PLAIN,12));
 		menuBar.add(mnCuenta);
-		
+
 		mnCuenta.add(contentPane.getTxtId());
 		mnCuenta.add(contentPane.getTxtUsuario());
 
@@ -189,11 +189,14 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 		PanelPartida panelPartida = new PanelPartida(contentPane);
 		panelPartida.setName("panelPartida");
 		contentPane.add(panelPartida);
-		
-		PanelConfiguracionJugador panelConfiguracionJugador=new PanelConfiguracionJugador(contentPane);
+
+		PanelConfiguracionJugador panelConfiguracionJugador = new PanelConfiguracionJugador(contentPane);
 		panelConfiguracionJugador.setName("panelConfiguracionJugador");
 		contentPane.add(panelConfiguracionJugador);
-
+		
+		PanelInspeccionarJugadores panelInspeccionarJugadores=new PanelInspeccionarJugadores(contentPane);
+		panelInspeccionarJugadores.setName("panelInspeccionarJugadores");
+		contentPane.add(panelInspeccionarJugadores);
 		
 	}
 
@@ -244,30 +247,30 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 		}
 		return i;
 	}
-	
+
 	public Component obtenerPanelPorNombreYdevolverPos(SuperPanel contentPane, String nombrePanel)
 	{
 		boolean encontro = false;
-		Component aux=null;
+		Component aux = null;
 		int i = 0;
 
 		while(encontro == false)
 		{
 			if(contentPane.getComponent(i).getName().equals(nombrePanel))
 			{
-				aux=contentPane.getComponent(i);
+				aux = contentPane.getComponent(i);
 				encontro = true;
 			}
 			i++;
 		}
 		return aux;
 	}
-	
+
 	public void reproducirSonido(String rutaCancion)
 	{
 		try
 		{
-			Sonido sound= new Sonido(rutaCancion);
+			Sonido sound = new Sonido(rutaCancion);
 			sound.start();
 		}catch(FileNotFoundException | JavaLayerException e1)
 		{
@@ -275,7 +278,5 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 		}
 
 	}
-	
-
 
 }

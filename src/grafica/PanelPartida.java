@@ -36,43 +36,44 @@ public class PanelPartida<T extends Jugador> extends SuperPanel
 {
 	private SuperPanel contenidoPartida = new SuperPanel();
 	private JPanel panel = new JPanel();
-	
+
 	private ButtonGroup grupoBotonesMenuPartida = new ButtonGroup();
 	JButton btnIniciarPartida = new JButton("Iniciar partida");
 	JButton btnAbandonarPartida = new JButton("Abandonar partida");
-	
+
 	private final JLabel lblEstado = new JLabel("Estado:");
 	private final JLabel label_1 = new JLabel("");
-	
+
 	private final JTextField textFieldTiempo = new JTextField();
 	private final JTextField textFieldPuntaje = new JTextField();
 	private final JTextField textFieldJugador = new JTextField();
 	private final JTextField txtPreguntasAcertadas = new JTextField();
-	
+
 	private final JLabel label = new JLabel("");
 	private final JLabel label_2 = new JLabel("");
-	
+
 	private Temporizador reloj = new Temporizador(textFieldTiempo);
-	
+
 	private PanelRuleta panelRuleta = new PanelRuleta(contenidoPartida);
 	private PanelParaResponder panelParaResponder = new PanelParaResponder(contenidoPartida);
-	
+
 	private final JLabel label_3 = new JLabel("");
 	private final JLabel label_4 = new JLabel("");
 	private final JLabel label_5 = new JLabel("");
 	private final JLabel label_6 = new JLabel("");
-	
-	//private T jugador=(T) new JugadorInvitado("yo"); //esto es temporal despues debe ser borrado
+
+	// private T jugador=(T) new JugadorInvitado("yo"); //esto es temporal despues
+	// debe ser borrado
 	private Jugador jugador;
-	private static long puntosDePartida=0;
-	private static int preguntasAcertadasDePartida=0;
+	private static long puntosDePartida = 0;
+	private static int preguntasAcertadasDePartida = 0;
 
 	/**
 	 * Create the panel.
 	 */
 	public PanelPartida(SuperPanel contentPane)
 	{
-		jugador=(Jugador) contentPane.getCuentaActiva();
+		jugador = (Jugador) contentPane.getCuentaActiva();
 		setBackground(Color.BLACK);
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]
@@ -103,19 +104,19 @@ public class PanelPartida<T extends Jugador> extends SuperPanel
 		lblEstado.setFont(new Font("Stencil",Font.PLAIN,18));
 		panel.add(lblEstado);
 		panel.add(label_1);
-		
-		textFieldTiempo.setText("Tiempo: "+reloj.devolverTiempoInicial());
+
+		textFieldTiempo.setText("Tiempo: " + reloj.devolverTiempoInicial());
 		textFieldTiempo.setEditable(false);
 		textFieldTiempo.setFont(new Font("Stencil",Font.PLAIN,16));
 		textFieldTiempo.setColumns(10);
 		panel.add(textFieldTiempo);
-		
+
 		actualizarEstadoPreguntasAcertadasDePartida();
 		txtPreguntasAcertadas.setEditable(false);
 		txtPreguntasAcertadas.setFont(new Font("Stencil",Font.PLAIN,16));
 		txtPreguntasAcertadas.setColumns(10);
 		panel.add(txtPreguntasAcertadas);
-		
+
 		actualizarEstadoJugadorDePartida();
 		textFieldJugador.setEditable(false);
 		textFieldJugador.setFont(new Font("Stencil",Font.PLAIN,16));
@@ -178,33 +179,32 @@ public class PanelPartida<T extends Jugador> extends SuperPanel
 
 	public void setJugador(T jugador)
 	{
-		this.jugador=jugador;
+		this.jugador = jugador;
 	}
-	
+
 	private void actualizarEstadosPartida()
 	{
-		actualizarEstadoTiempo();	
+		actualizarEstadoTiempo();
 	}
-	
+
 	private void actualizarEstadoTiempo()
 	{
 		reloj.start(100,1000);
 	}
-	
+
 	private void actualizarEstadoPuntosDePartida()
 	{
-		this.textFieldPuntaje.setText("Puntaje: "+this.puntosDePartida);
+		this.textFieldPuntaje.setText("Puntaje: " + this.puntosDePartida);
 	}
-	
+
 	private void actualizarEstadoPreguntasAcertadasDePartida()
 	{
-		this.txtPreguntasAcertadas.setText("Preguntas acertadas: "+this.preguntasAcertadasDePartida);
+		this.txtPreguntasAcertadas.setText("Preguntas acertadas: " + this.preguntasAcertadasDePartida);
 	}
-	
+
 	private void actualizarEstadoJugadorDePartida()
 	{
-		textFieldJugador.setText("Jugador: "+this.jugador.getNickname());
+		textFieldJugador.setText("Jugador: " + this.jugador.getNickname());
 	}
-	
 
 }

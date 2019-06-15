@@ -4,7 +4,6 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import javax.swing.JTextField;
 
-
 public class Ruleta
 {
 	// Atributos:
@@ -41,7 +40,7 @@ public class Ruleta
 
 	public void girarRuleta()
 	{
-		obtenerResultadoAlAzar();	
+		obtenerResultadoAlAzar();
 	}
 
 	private void obtenerResultadoAlAzar()

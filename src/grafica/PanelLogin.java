@@ -75,7 +75,7 @@ public class PanelLogin extends SuperPanel
 			{
 				String auxParaElusuario = usuarioField.getText();
 				String auxParaLaClave = String.valueOf(passwordField.getPassword());
-				if((!auxParaElusuario.equals(""))&&(!auxParaLaClave.equals("")))
+				if((!auxParaElusuario.equals("")) && (!auxParaLaClave.equals("")))
 					iniciarSesionSegunElacceso(contentPane,auxParaElusuario,auxParaLaClave);
 			}
 		});
@@ -102,32 +102,30 @@ public class PanelLogin extends SuperPanel
 	private Cuenta accesoParaTodos(SuperPanel contentPane, String usuario, String clave)
 	{
 		Cuenta obj = null;
-		
+
 		if((usuario.equalsIgnoreCase("Administrador")) && (clave.equals("answar")))
 		{
 			obj = new Admin(usuario,clave);
-		}
-		else
+		}else
 		{
 			obj = contentPane.getData().loggearCuenta("jugadores.dat",usuario,clave);
 		}
-	 
+
 		return obj;
 	}
 
-	private void iniciarSesionSegunElacceso(SuperPanel contentPane,String auxParaElusuario,String auxParaLaClave)
+	private void iniciarSesionSegunElacceso(SuperPanel contentPane, String auxParaElusuario, String auxParaLaClave)
 	{
 		usuarioField.setText("");
 		passwordField.setText("");
 		Cuenta obj = null;
 
-
 		obj = accesoParaTodos(contentPane,auxParaElusuario,auxParaLaClave);
-	
+
 		if(obj != null)
 		{
 			contentPane.setCuentaActivaYactualizarTextFields(obj);
-			
+
 			if(contentPane.getCuentaActiva() instanceof Admin)
 				desplazarAotroPanel(contentPane,"panelMenuAdministracion");
 			if(contentPane.getCuentaActiva() instanceof JugadorPermanente)

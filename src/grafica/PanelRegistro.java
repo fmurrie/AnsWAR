@@ -40,7 +40,6 @@ public class PanelRegistro extends SuperPanel
 		lblUsuario.setOpaque(true);
 		add(lblUsuario);
 
-		
 		usuarioField.setHorizontalAlignment(SwingConstants.CENTER);
 		usuarioField.setFont(new Font("Tahoma",Font.PLAIN,16));
 		usuarioField.setBackground(Color.LIGHT_GRAY);
@@ -55,7 +54,6 @@ public class PanelRegistro extends SuperPanel
 		lblContrasea.setOpaque(true);
 		add(lblContrasea);
 
-		
 		passwordField.setHorizontalAlignment(SwingConstants.CENTER);
 		passwordField.setFont(new Font("Tahoma",Font.PLAIN,16));
 		passwordField.setBackground(Color.LIGHT_GRAY);
@@ -69,7 +67,6 @@ public class PanelRegistro extends SuperPanel
 		lblDni.setOpaque(true);
 		add(lblDni);
 
-		
 		dniField.setHorizontalAlignment(SwingConstants.CENTER);
 		dniField.setFont(new Font("Tahoma",Font.PLAIN,16));
 		dniField.setBackground(Color.LIGHT_GRAY);
@@ -84,7 +81,6 @@ public class PanelRegistro extends SuperPanel
 		lblDireccionDeCorreo.setOpaque(true);
 		add(lblDireccionDeCorreo);
 
-		
 		correoField.setHorizontalAlignment(SwingConstants.CENTER);
 		correoField.setFont(new Font("Tahoma",Font.PLAIN,16));
 		correoField.setBackground(Color.LIGHT_GRAY);
@@ -99,7 +95,6 @@ public class PanelRegistro extends SuperPanel
 		lblNickname.setOpaque(true);
 		add(lblNickname);
 
-		
 		nicknameField.setHorizontalAlignment(SwingConstants.CENTER);
 		nicknameField.setFont(new Font("Tahoma",Font.PLAIN,16));
 		nicknameField.setBackground(Color.LIGHT_GRAY);
@@ -134,42 +129,38 @@ public class PanelRegistro extends SuperPanel
 
 	}
 
-	
-	//Metodos varios:
-	
+	// Metodos varios:
+
 	private void registrarCuenta(SuperPanel contentPane)
 	{
-		String auxUsuario=this.usuarioField.getText();
-		String auxClave=String.valueOf(this.passwordField.getPassword());;
-		String auxDni=this.dniField.getText();
-		String auxCorreo=this.correoField.getText();
-		String auxNickname=this.nicknameField.getText();
-		boolean efectivo=false;
-		
-		
-		
-		
-		if((!auxUsuario.equals(""))&&(!auxClave.equals(""))&&(!auxDni.equals(""))&&(!auxCorreo.equals(""))&&(!auxNickname.equals("")))
+		String auxUsuario = this.usuarioField.getText();
+		String auxClave = String.valueOf(this.passwordField.getPassword());
+		;
+		String auxDni = this.dniField.getText();
+		String auxCorreo = this.correoField.getText();
+		String auxNickname = this.nicknameField.getText();
+		boolean efectivo = false;
+
+		if((!auxUsuario.equals("")) && (!auxClave.equals("")) && (!auxDni.equals("")) && (!auxCorreo.equals(""))
+				&& (!auxNickname.equals("")))
 		{
-			JugadorPermanente aux=new JugadorPermanente(auxUsuario,auxClave,auxDni,auxCorreo,auxNickname);
-			efectivo=contentPane.getData().registrarCuenta("jugadores.dat",aux);
-		
-		if(efectivo==false)
-		{
-			vaciarTextoTextFields();
-			contentPane.setCuentaActivaYactualizarTextFields(aux);
-			desplazarAotroPanel(contentPane,"panelMenuJugador");
+			JugadorPermanente aux = new JugadorPermanente(auxUsuario,auxClave,auxDni,auxCorreo,auxNickname);
+			efectivo = contentPane.getData().registrarCuenta("jugadores.dat",aux);
+
+			if(efectivo == false)
+			{
+				vaciarTextoTextFields();
+				contentPane.setCuentaActivaYactualizarTextFields(aux);
+				desplazarAotroPanel(contentPane,"panelMenuJugador");
+			}else
+			{
+				vaciarTextoTextFields();
+				System.out.println("no se registroooo");
+			}
 		}
-		else
-		{
-			vaciarTextoTextFields();
-			System.out.println("no se registroooo");
-		}
-		}
-		
-	
+
 	}
-	
+
 	private void vaciarTextoTextFields()
 	{
 		this.usuarioField.setText("");

@@ -50,7 +50,7 @@ public class PanelClasificacion extends SuperPanel
 				if(contentPane.getCuentaActiva() instanceof Admin)
 					desplazarAotroPanel(contentPane,"PanelMenuADMjugadores");
 				else
-					desplazarAotroPanel(contentPane,"panelMenuJugador"); 	
+					desplazarAotroPanel(contentPane,"panelMenuJugador");
 			}
 		});
 		btnVolver.setBackground(Color.BLACK);

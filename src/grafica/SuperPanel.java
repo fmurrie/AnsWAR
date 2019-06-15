@@ -22,31 +22,30 @@ public class SuperPanel<T extends Cuenta> extends JPanel implements IRelacionFra
 {
 
 	private T cuentaActiva; // cuenta que inicio sesion para todos los paneles
-	private BaseDeDatos data=new BaseDeDatos();
+	private BaseDeDatos data = new BaseDeDatos();
 	private JTextField txtId = new JTextField();
 	private JTextField txtUsuario = new JTextField();
 
-	
 	public SuperPanel()
 	{
-		
+
 	}
-	
-	//Getters y Setters:
-	
+
+	// Getters y Setters:
+
 	public void setCuentaActiva(T cuentaActiva)
 	{
-		this.cuentaActiva=cuentaActiva;
+		this.cuentaActiva = cuentaActiva;
 		restaurarLosTextFieldCuentaActiva();
 	}
-	
+
 	public void setCuentaActivaYactualizarTextFields(T cuentaActiva)
 	{
-		this.cuentaActiva=cuentaActiva;
-		
-		actualizarTextFieldCuentaActiva();	
+		this.cuentaActiva = cuentaActiva;
+
+		actualizarTextFieldCuentaActiva();
 	}
-	
+
 	public T getCuentaActiva()
 	{
 		return cuentaActiva;
@@ -66,7 +65,7 @@ public class SuperPanel<T extends Cuenta> extends JPanel implements IRelacionFra
 	{
 		return data;
 	}
-	
+
 	public void setTxtId(JTextField txtId)
 	{
 		this.txtId = txtId;
@@ -81,9 +80,8 @@ public class SuperPanel<T extends Cuenta> extends JPanel implements IRelacionFra
 	{
 		this.data = data;
 	}
-	
-	
-	//Metodos varios:
+
+	// Metodos varios:
 
 	public void desplazarAotroPanel(SuperPanel contentPane, String panelAmostrar)
 	{
@@ -154,25 +152,25 @@ public class SuperPanel<T extends Cuenta> extends JPanel implements IRelacionFra
 		}
 		return i;
 	}
-	
+
 	public Component obtenerPanelPorNombreYdevolverPos(SuperPanel contentPane, String nombrePanel)
 	{
 		boolean encontro = false;
-		Component aux=null;
+		Component aux = null;
 		int i = 0;
 
 		while(encontro == false)
 		{
 			if(contentPane.getComponent(i).getName().equals(nombrePanel))
 			{
-				aux=contentPane.getComponent(i);
+				aux = contentPane.getComponent(i);
 				encontro = true;
 			}
 			i++;
 		}
 		return aux;
 	}
-	
+
 	private void actualizarTextFieldCuentaActiva()
 	{
 		if(cuentaActiva instanceof JugadorInvitado)
@@ -180,73 +178,68 @@ public class SuperPanel<T extends Cuenta> extends JPanel implements IRelacionFra
 		else
 			actualizarLosTextFieldParaJugadorYAdmin();
 	}
-	
-	
+
 	private void actualizarLosTextFieldParaJugadorYAdmin()
 	{
-		txtId.setText("ID: "+getCuentaActiva().getId());
+		txtId.setText("ID: " + getCuentaActiva().getId());
 		txtId.setEnabled(false);
 		txtId.setBackground(Color.BLACK);
 		txtId.setForeground(Color.WHITE);
-		txtId.setFont(new Font("Stencil", Font.PLAIN, 11));
+		txtId.setFont(new Font("Stencil",Font.PLAIN,11));
 		txtId.setEditable(false);
 		txtId.setColumns(10);
-		
 
-		txtUsuario.setText("Usuario: "+getCuentaActiva().getUsuario());
+		txtUsuario.setText("Usuario: " + getCuentaActiva().getUsuario());
 		txtUsuario.setEditable(false);
 		txtUsuario.setEnabled(false);
-		txtUsuario.setFont(new Font("Stencil", Font.PLAIN, 11));
+		txtUsuario.setFont(new Font("Stencil",Font.PLAIN,11));
 		txtUsuario.setForeground(Color.WHITE);
 		txtUsuario.setBackground(Color.BLACK);
 		txtUsuario.setColumns(10);
 	}
-	
+
 	private void actualizarLosTextFieldParaInvitado()
 	{
 		txtId.setText("");
 		txtId.setEnabled(false);
 		txtId.setBackground(Color.BLACK);
 		txtId.setForeground(Color.WHITE);
-		txtId.setFont(new Font("Stencil", Font.PLAIN, 11));
+		txtId.setFont(new Font("Stencil",Font.PLAIN,11));
 		txtId.setEditable(false);
 		txtId.setColumns(10);
-		
 
 		txtUsuario.setText("");
 		txtUsuario.setEditable(false);
 		txtUsuario.setEnabled(false);
-		txtUsuario.setFont(new Font("Stencil", Font.PLAIN, 11));
+		txtUsuario.setFont(new Font("Stencil",Font.PLAIN,11));
 		txtUsuario.setForeground(Color.WHITE);
 		txtUsuario.setBackground(Color.BLACK);
 		txtUsuario.setColumns(10);
 	}
-	
+
 	public void restaurarLosTextFieldCuentaActiva()
 	{
 		txtId.setText("");
 		txtId.setEnabled(false);
 		txtId.setBackground(Color.BLACK);
 		txtId.setForeground(Color.WHITE);
-		txtId.setFont(new Font("Stencil", Font.PLAIN, 11));
+		txtId.setFont(new Font("Stencil",Font.PLAIN,11));
 		txtId.setEditable(false);
 		txtId.setColumns(10);
-		
 
 		txtUsuario.setText("");
 		txtUsuario.setEditable(false);
 		txtUsuario.setEnabled(false);
-		txtUsuario.setFont(new Font("Stencil", Font.PLAIN, 11));
+		txtUsuario.setFont(new Font("Stencil",Font.PLAIN,11));
 		txtUsuario.setForeground(Color.WHITE);
 		txtUsuario.setBackground(Color.BLACK);
 		txtUsuario.setColumns(10);
 	}
-	
+
 	public void actualizarTextFieldPanelConfiguracionJugador(SuperPanel contentPane)
 	{
-		Component aux=obtenerPanelPorNombreYdevolverPos(contentPane,"panelConfiguracionJugador");
-		((PanelConfiguracionJugador)aux).actualizarTextoTextFields(contentPane);
+		Component aux = obtenerPanelPorNombreYdevolverPos(contentPane,"panelConfiguracionJugador");
+		((PanelConfiguracionJugador) aux).actualizarTextoTextFields(contentPane);
 	}
 
-	
 }
