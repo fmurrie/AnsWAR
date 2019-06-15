@@ -25,7 +25,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
-public class PanelRuleta extends SuperPanel
+public class PanelRuleta extends SuperPanel implements IRelacionPanelesRuletaYResponder
 {
 
 	private Ruleta ruletaDeSuerte = new Ruleta();
@@ -259,10 +259,7 @@ public class PanelRuleta extends SuperPanel
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				desplazarAotroPanel(contenidoPartida,"panelParaResponder");
-				restaurarValoresPanelParaResponder(contenidoPartida);
-				revalidate();
-				repaint();
+				moverseEntreRuletaYResponder(contenidoPartida);
 			}
 		});
 		btnPartida.setForeground(Color.ORANGE);
@@ -275,6 +272,14 @@ public class PanelRuleta extends SuperPanel
 		gbc_btnPartida.gridy = 7;
 		add(btnPartida,gbc_btnPartida);
 
+	}
+	
+	public void moverseEntreRuletaYResponder(SuperPanel contenidoPartida)
+	{
+			desplazarAotroPanelDentroDeUnaPartida(contenidoPartida,"panelParaResponder");
+			restaurarValoresPanelParaResponder(contenidoPartida);
+			revalidate();
+			repaint();	
 	}
 
 }

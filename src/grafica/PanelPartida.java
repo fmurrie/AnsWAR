@@ -24,6 +24,7 @@ import java.io.FileNotFoundException;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.JMenuBar;
+import javax.swing.JOptionPane;
 import javax.swing.JMenu;
 import java.awt.FlowLayout;
 import javax.swing.JToolBar;
@@ -146,6 +147,7 @@ public class PanelPartida<T extends Jugador> extends SuperPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
+				btnAbandonarPartida.setEnabled(true);
 				actualizarEstadosPartida();
 				btnIniciarPartida.setEnabled(false);
 				panelRuleta.setName("panelRuleta");
@@ -164,6 +166,7 @@ public class PanelPartida<T extends Jugador> extends SuperPanel
 		btnAbandonarPartida.setBackground(Color.BLACK);
 		btnAbandonarPartida.setFont(new Font("Stencil",Font.PLAIN,18));
 		btnAbandonarPartida.setForeground(Color.RED);
+		btnAbandonarPartida.setEnabled(false);
 
 		panel.add(label);
 		panel.add(label_2);
@@ -171,7 +174,11 @@ public class PanelPartida<T extends Jugador> extends SuperPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
+				int respuesta=JOptionPane.showConfirmDialog(null, "¿Realmente desea abandonar la partida?", "Abandonar partida", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+				if(respuesta==0)
+				{
 				desplazarAotroPanel(contentPane,"panelMenuJugador");
+				}
 			}
 		});
 

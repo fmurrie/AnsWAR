@@ -223,7 +223,7 @@ public class PanelParaResponder extends SuperPanel implements IRelacionPanelesRu
 		try
 		{
 			Thread.sleep(1000);
-			desplazarAotroPanel(contenidoPartida,"panelRuleta");
+			desplazarAotroPanelDentroDeUnaPartida(contenidoPartida,"panelRuleta");
 			restaurarValoresRuleta(contenidoPartida);
 			revalidate();
 			repaint();

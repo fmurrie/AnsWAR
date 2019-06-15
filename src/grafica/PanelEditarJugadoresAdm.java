@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -92,8 +93,12 @@ public class PanelEditarJugadoresAdm extends SuperPanel
 				{
 					public void actionPerformed(ActionEvent e)
 					{
+						int respuesta=JOptionPane.showConfirmDialog(null, "¿Realmente desea modificar los datos del jugador?", "Modificar jugador", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+						if(respuesta==0)
+						{
 						modificarCuenta(contentPane);
 						desplazarAotroPanel(contentPane,"panelInspeccionarJugadores");
+						}
 					}
 				});
 				
@@ -124,8 +129,12 @@ public class PanelEditarJugadoresAdm extends SuperPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
+				int respuesta=JOptionPane.showConfirmDialog(null, "¿Realmente desea eliminar al jugador?", "Eliminar jugador", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+				if(respuesta==0)
+				{
 				contentPane.getData().eliminarJugadorDeLaLista("jugadores.dat",jugadorInterferido);
 				desplazarAotroPanel(contentPane,"panelInspeccionarJugadores");
+				}		
 			}
 		});
 		btnEliminar.setForeground(Color.RED);

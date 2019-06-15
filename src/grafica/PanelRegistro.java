@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -154,8 +155,8 @@ public class PanelRegistro extends SuperPanel
 				desplazarAotroPanel(contentPane,"panelMenuJugador");
 			}else
 			{
+				JOptionPane.showMessageDialog(null,"Los datos ingresados ya estan en uso.");
 				vaciarTextoTextFields();
-				System.out.println("no se registroooo");
 			}
 		}
 

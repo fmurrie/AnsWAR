@@ -12,6 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import personas.JugadorPermanente;
+
 public class PanelMenuJugador extends SuperPanel
 {
 
@@ -55,6 +57,18 @@ public class PanelMenuJugador extends SuperPanel
 		add(btnClasificacion);
 
 		JButton btnPerfil = new JButton("Mi perfil");
+		btnPerfil.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				if(contentPane.getCuentaActiva() instanceof JugadorPermanente)
+				{
+					contentPane.actualizarTextFieldPanelConfiguracionJugador(contentPane);
+					desplazarAotroPanel(contentPane,"");
+				}
+				
+			}
+		});
 		btnPerfil.setForeground(Color.BLUE);
 		btnPerfil.setBackground(Color.BLACK);
 		btnPerfil.setFont(new Font("Stencil",Font.PLAIN,18));
@@ -65,8 +79,12 @@ public class PanelMenuJugador extends SuperPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				contentPane.actualizarTextFieldPanelConfiguracionJugador(contentPane);
-				desplazarAotroPanel(contentPane,"panelConfiguracionJugador");
+				if(contentPane.getCuentaActiva() instanceof JugadorPermanente)
+				{
+					contentPane.actualizarTextFieldPanelConfiguracionJugador(contentPane);
+					desplazarAotroPanel(contentPane,"panelConfiguracionJugador");
+				}
+				
 			}
 		});
 		btnConfiguracion.setForeground(Color.WHITE);

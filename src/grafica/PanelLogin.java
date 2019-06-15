@@ -3,6 +3,7 @@ package grafica;
 import javax.swing.JPanel;
 import java.awt.GridLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
 import personas.Admin;
@@ -130,6 +131,10 @@ public class PanelLogin extends SuperPanel
 				desplazarAotroPanel(contentPane,"panelMenuAdministracion");
 			if(contentPane.getCuentaActiva() instanceof JugadorPermanente)
 				desplazarAotroPanel(contentPane,"panelMenuJugador");
+		}
+		else
+		{
+			JOptionPane.showMessageDialog(null,"La combinacion de datos ingresados no existe.");
 		}
 	}
 

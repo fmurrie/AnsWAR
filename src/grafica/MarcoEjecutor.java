@@ -20,6 +20,9 @@ import java.awt.Toolkit;
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JMenuBar;
+import javax.swing.JOptionPane;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.FileInputStream;
@@ -89,11 +92,20 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				if(contentPane.getComponent(0).getName().equals("panelExterior") == false)
+				if((contentPane.getComponent(0).getName().equals("panelExterior") == false)&&(contentPane.getComponent(0).getName().equals("panelRegistro") == false)&&(contentPane.getComponent(0).getName().equals("panelLogin") == false))
 				{
-					contentPane.setCuentaActiva(new JugadorInvitado());
-					contentPane.restaurarLosTextFieldCuentaActiva();
-					desplazarAotroPanel(contentPane,"panelLogin");
+					if(!(contentPane.getCuentaActiva() instanceof JugadorInvitado))
+					{
+						int respuesta=JOptionPane.showConfirmDialog(null, "¿Realmente desea cerrar sesion?", "Cerrar sesion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+						if(respuesta==0)
+						{
+						contentPane.setCuentaActiva(new JugadorInvitado());
+						contentPane.restaurarLosTextFieldCuentaActiva();
+						desplazarAotroPanel(contentPane,"panelLogin");
+						}
+						
+					}
+					
 				}
 			}
 		});
@@ -107,8 +119,12 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 		{
 			public void actionPerformed(ActionEvent e)
 			{
+				int respuesta=JOptionPane.showConfirmDialog(null, "¿Realmente desea salir?", "Salir", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+				if(respuesta==0)
+				{
 				setVisible(false);
 				dispose();
+				}
 			}
 		});
 		btnSalir.setForeground(Color.WHITE);
@@ -225,6 +241,28 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 			i++;
 		}
 		restaurarValoresPanelPartida(contentPane);
+	}
+	
+	@Override
+	public void desplazarAotroPanelDentroDeUnaPartida(SuperPanel contentPane, String panelAmostrar)
+	{
+		boolean busqueda = false;
+		Component auxiliar = new JPanel();
+		Component auxiliar2 = contentPane.getComponent(0);
+		int i = 0;
+		while(busqueda == false)
+		{
+			auxiliar = contentPane.getComponent(i);
+			if(panelAmostrar.equalsIgnoreCase(auxiliar.getName()))
+			{
+				contentPane.add(auxiliar,0);
+				contentPane.add(auxiliar2,i);
+				busqueda = true;
+			}
+
+			i++;
+		}
+		restaurarValoresPanelPartida(contentPane);	
 	}
 
 	private void restaurarValoresPanelPartida(SuperPanel contentPane)
