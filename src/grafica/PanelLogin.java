@@ -109,7 +109,7 @@ public class PanelLogin extends SuperPanel
 		}
 		else
 		{
-			obj = contentPane.getData().loggearCuenta("cuentas.dat",usuario,clave);
+			obj = contentPane.getData().loggearCuenta("jugadores.dat",usuario,clave);
 		}
 	 
 		return obj;

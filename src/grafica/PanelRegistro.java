@@ -144,16 +144,29 @@ public class PanelRegistro extends SuperPanel
 		String auxDni=this.dniField.getText();
 		String auxCorreo=this.correoField.getText();
 		String auxNickname=this.nicknameField.getText();
+		boolean efectivo=false;
 		
-		vaciarTextoTextFields();
 		
-		JugadorPermanente aux=new JugadorPermanente(auxUsuario,auxClave,auxDni,auxCorreo,auxNickname);
 		
-		contentPane.getData().registrarCuenta("cuentas.dat",aux);
 		
-		contentPane.setCuentaActivaYactualizarTextFields(aux);
+		if((!auxUsuario.equals(""))&&(!auxClave.equals(""))&&(!auxDni.equals(""))&&(!auxCorreo.equals(""))&&(!auxNickname.equals("")))
+		{
+			JugadorPermanente aux=new JugadorPermanente(auxUsuario,auxClave,auxDni,auxCorreo,auxNickname);
+			efectivo=contentPane.getData().registrarCuenta("jugadores.dat",aux);
 		
-		desplazarAotroPanel(contentPane,"panelMenuJugador");
+		if(efectivo==false)
+		{
+			vaciarTextoTextFields();
+			contentPane.setCuentaActivaYactualizarTextFields(aux);
+			desplazarAotroPanel(contentPane,"panelMenuJugador");
+		}
+		else
+		{
+			vaciarTextoTextFields();
+			System.out.println("no se registroooo");
+		}
+		}
+		
 	
 	}
 	

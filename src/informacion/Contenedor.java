@@ -1,30 +1,28 @@
 package informacion;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
+
+import personas.Cuenta;
 
 public class Contenedor<T>
 {
 	// Atributos:
-	private HashSet<T> elementos;
+	private ArrayList<T> elementos;
 
 	// Constructores:
 
 	public Contenedor()
 	{
-		setElementos(new HashSet<T>());
+		elementos = new ArrayList<T>();
 	}
 
 	// Getters y Setters:
 
-	private HashSet<T> getElementos()
+	private ArrayList<T> getElementos()
 	{
 		return elementos;
-	}
-
-	private void setElementos(HashSet<T> elementos)
-	{
-		this.elementos = elementos;
 	}
 
 	// Metodos varios:
@@ -46,13 +44,11 @@ public class Contenedor<T>
 
 	public String listar()
 	{
-		Iterator<T> it = this.elementos.iterator();
 		StringBuilder sb = new StringBuilder();
 
-		while(it.hasNext())
+		for (T e : elementos)
 		{
-
-			sb.append(it.next().toString());
+			sb.append(e.toString());
 		}
 		return sb.toString();
 	}
@@ -61,10 +57,10 @@ public class Contenedor<T>
 	{
 		Iterator<T> it = this.elementos.iterator();
 		boolean encontrado = false;
-		while(it.hasNext())
+		while (it.hasNext())
 		{
 			T obj = it.next();
-			if(obj.equals(param))
+			if (obj.equals(param))
 			{
 				encontrado = true;
 			}
@@ -74,50 +70,17 @@ public class Contenedor<T>
 
 	public T obtenerObjeto(int index)
 	{
-		Iterator<T> it = this.elementos.iterator();
-		T encontrado = null;
-		int i = 0;
-		while(it.hasNext())
-		{
-			T obj = it.next();
-			if(i == index)
-			{
-				encontrado = obj;
-			}
-			i++;
-		}
-		return encontrado;
+		return elementos.get(index);
 	}
 
-	public int obtenerPosicionObjeto(T param)
+	public void reemplazarElemento(int pos, T objRemplazo)
 	{
-		Iterator<T> it = this.elementos.iterator();
-		boolean encontrado = false;
-		int i = 0;
-		while((it.hasNext()) && (encontrado == false))
-		{
-			T obj = it.next();
-			if(obj.equals(param))
-			{
-				encontrado = true;
-			}
-			i++;
-		}
-		if(encontrado == false)
-			i = -1;
-		return i;
+		if (pos != -1)
+			elementos.set(pos, objRemplazo);
 	}
 
-	public void reemplazarObjetoDeUnaPosicion(T param, int index)
+	public void eliminarElemento(T param)
 	{
-		Iterator<T> it = this.elementos.iterator();
-		int i = 0;
-		T obj = it.next();
-		while(i <= index)
-		{
-			obj = it.next();
-			i++;
-		}
-		obj = param;
+		this.elementos.remove(param);
 	}
 }

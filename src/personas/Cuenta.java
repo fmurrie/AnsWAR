@@ -42,6 +42,26 @@ public abstract class Cuenta implements Serializable
 		setCorreo(correo);
 
 	}
+	
+	public Cuenta(String id,String usuario,String clave,String dni,String correo)
+	{
+		setId(id);
+		setUsuario(usuario);
+		setClave(clave);
+		setDni(dni);
+		setCorreo(correo);
+
+	}
+	
+	public Cuenta(Cuenta c)
+	{
+		setId(c.getId());
+		setUsuario(c.getUsuario());
+		setClave(c.clave);
+		setDni(c.dni);
+		setCorreo(c.correo);
+
+	}
 
 	// Getters y Setters:
 
@@ -101,7 +121,7 @@ public abstract class Cuenta implements Serializable
 	@Override
 	public String toString()
 	{
-		String dato = "\nID: " + getId() + "\nDNI: " + getDni() + "\nDireccion de correo: " + getCorreo();
+		String dato = "\nID: " + getId()+"\nUsuario: " + getUsuario()+"\nClave: "+getClave() + "\nDNI: " + getDni() + "\nDireccion de correo: " + getCorreo();
 		return dato;
 
 	}
@@ -136,12 +156,6 @@ public abstract class Cuenta implements Serializable
 		return idString;
 	}
 	
-	public boolean compararCuentasPorUsuarioYclave(String usuario,String clave)
-	{
-		boolean existe=false;
-		if((this.getClave().equals(usuario))&&(this.getUsuario().equals(clave)))
-			existe=true;
-		return existe;
-	}
+
 
 }

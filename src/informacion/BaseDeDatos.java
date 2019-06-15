@@ -8,32 +8,33 @@ import java.util.Iterator;
 import disciplinas.Pregunta;
 import personas.Cuenta;
 import personas.Jugador;
+import personas.JugadorPermanente;
 
 public class BaseDeDatos
 {
 	// Atributos
 
 	private HashMap<String, ArrayList<Pregunta>> coleccionPreguntas;
-	private Contenedor<Cuenta> coleccionCuentas;
+	private Contenedor<JugadorPermanente> coleccionJugadores;
 
 	// Constructores
 
 	public BaseDeDatos()
 	{
 		setColeccionPreguntas(new HashMap<String, ArrayList<Pregunta>>());
-		setColeccionCuentas(new Contenedor<Cuenta>());
+		setColeccionJugadores(new Contenedor<JugadorPermanente>());
 	}
 
 	// Getters y Setters
 
-	private HashMap<String, ArrayList<Pregunta>> getColeccionPreguntas()
+	public HashMap<String, ArrayList<Pregunta>> getColeccionPreguntas()
 	{
 		return coleccionPreguntas;
 	}
 
-	private Contenedor<Cuenta> getColeccionCuentas()
+	public Contenedor<JugadorPermanente> getColeccionJugadores()
 	{
-		return coleccionCuentas;
+		return coleccionJugadores;
 	}
 
 	private void setColeccionPreguntas(HashMap<String, ArrayList<Pregunta>> coleccionPreguntas)
@@ -41,155 +42,178 @@ public class BaseDeDatos
 		this.coleccionPreguntas = coleccionPreguntas;
 	}
 
-	private void setColeccionCuentas(Contenedor<Cuenta> coleccionCuentas)
+	private void setColeccionJugadores(Contenedor<JugadorPermanente> coleccionJugadores)
 	{
-		this.coleccionCuentas = coleccionCuentas;
+		this.coleccionJugadores = coleccionJugadores;
 	}
 
 	// Metodos extra:
-
-	@Override
-	public String toString()
+	
+	public boolean registrarCuenta(String nombreArchivo, JugadorPermanente obj)
 	{
-		return "BaseDeDatos{" + "registroEnunciados=" + coleccionPreguntas + ", registroJugadores=" + coleccionCuentas
-				+ '}';
-	}
-
-	public void registrarCuenta(String nombreArchivo, Cuenta obj)
-	{
-		if(obj != null)
-		{
-			copiarCuentasDelArchivoAlaColeccion(nombreArchivo);
-			this.coleccionCuentas.agregar(obj);
-			copiarCuentasDeColeccionAlArchivo(nombreArchivo);
-		}
-	}
-
-	public Cuenta loggearCuenta(String nombreArchivo, String usuario, String clave)
-	{
-		copiarCuentasDelArchivoAlaColeccion(nombreArchivo);
+		boolean efectivo = false;
 		
-		Cuenta obj = corroborarSiExisteLaCuentaLogueando(usuario,clave);
-
+		efectivo =verificarSiSeRepiteLaCuenta(obj);
+		if ((obj != null)&&(efectivo==false))
+		{
+				this.coleccionJugadores.agregar(obj);
+			
+		}
+		
 		copiarCuentasDeColeccionAlArchivo(nombreArchivo);
 		
-		return obj;
+		return efectivo;
 	}
-
-	private Cuenta corroborarSiExisteLaCuentaLogueando(String usuario, String clave)
-	{	
-		boolean encontrado = false;
-		Cuenta obj =null;
-		int i=0;
-		
-		while((i<getColeccionCuentas().cantidad()) && (encontrado == false))
-		{
-			obj=getColeccionCuentas().obtenerObjeto(i);
-			if(obj.compararCuentasPorUsuarioYclave(usuario,clave))
-			{
-				encontrado = true;
-			}
-			i++;
-		}
-		if(encontrado==false)
-			obj =null;
-		
-		return obj;
-	}
-
-	public void modificarCuenta(String nombreArchivo, Cuenta obj)
+	
+	public JugadorPermanente loggearCuenta(String nombreArchivo, String usuario, String clave)
 	{
-		if(obj != null)
+
+		JugadorPermanente obj=null;
+		
+		for(int i=0;i<coleccionJugadores.cantidad();i++)
 		{
-			copiarCuentasDelArchivoAlaColeccion(nombreArchivo);
-			int posicion = this.coleccionCuentas.obtenerPosicionObjeto(obj);
-			if(posicion != -1)
-				this.coleccionCuentas.reemplazarObjetoDeUnaPosicion(obj,posicion);
+			if((coleccionJugadores.obtenerObjeto(i).getUsuario().equals(usuario))&&(coleccionJugadores.obtenerObjeto(i).getClave().equals(clave)))
+			{
+				obj=coleccionJugadores.obtenerObjeto(i);
+			}
+		}
+
+		return obj;
+	}
+	
+	public void modificarCuenta(String nombreArchivo, JugadorPermanente original, JugadorPermanente modificada)
+	{
+		if (original != null)
+		{
+			
+			int pos=retornarPosicionJugador(original);
+			this.coleccionJugadores.reemplazarElemento(pos, modificada);
+			
 			copiarCuentasDeColeccionAlArchivo(nombreArchivo);
 		}
-
+	}
+	
+	public String retornarColeccionJugadoresParaMostrar()
+	{
+		String dato="";
+		for(int i=0;i<this.coleccionJugadores.cantidad();i++)
+		{
+			dato=dato+coleccionJugadores.obtenerObjeto(i).toString();
+		}
+	
+		return dato;
+	}
+	
+	private boolean verificarSiSeRepiteLaCuenta(JugadorPermanente obj)
+	{
+		boolean encontrada=false;
+		
+		JugadorPermanente aux;
+		
+		for(int i=0;i<coleccionJugadores.cantidad();i++)
+		{
+			aux=getColeccionJugadores().obtenerObjeto(i);
+			if((obj.getId().equals(aux.getId()))||(obj.getUsuario().equals(aux.getUsuario()))||(obj.getDni().equals(aux.getDni()))||(obj.getCorreo().equals(aux.getCorreo()))||(obj.getNickname().equals(aux.getNickname())))
+			{
+				encontrada=true;
+			}
+		}
+		
+		return encontrada;
 	}
 
-	private void copiarCuentasDeColeccionAlArchivo(String nombreArchivo)
+	public int retornarPosicionJugador(JugadorPermanente param)
 	{
-		File archiC=new File(nombreArchivo);
-		if(!archiC.exists())
-		try
+		int pos = -1;
+
+			for(int i = 0; i < coleccionJugadores.cantidad(); i++)
+			{
+				if (param.getId().equals(coleccionJugadores.obtenerObjeto(i).getId()))
+					pos = i;
+			}
+		return pos;
+	}
+
+	public void copiarCuentasDeColeccionAlArchivo(String nombreArchivo)
+	{
+		File archiC = new File(nombreArchivo);
+		if (!archiC.exists())
 		{
-			archiC.createNewFile();
-		}catch(IOException e1)
-		{
-			e1.printStackTrace();
+			try
+			{
+				archiC.createNewFile();
+			} catch (IOException e1)
+			{
+				e1.printStackTrace();
+			}
 		}
+
 		try
 		{
 			ObjectOutputStream archiCuentas = new ObjectOutputStream(new FileOutputStream(archiC));
 			int i = 0;
-			while(i <= getColeccionCuentas().cantidad())
+			while (i < getColeccionJugadores().cantidad())
 			{
-				Cuenta aux = this.coleccionCuentas.obtenerObjeto(i);
-
-				if(aux != null)
-					archiCuentas.writeObject(aux);
+				JugadorPermanente aux = this.coleccionJugadores.obtenerObjeto(i);	
+				archiCuentas.writeObject(aux);
 				i++;
-
 			}
 
 			archiCuentas.close();
-		}catch(FileNotFoundException e)
+		} catch (FileNotFoundException e)
 		{
-			e.printStackTrace();
-		}catch(IOException e)
+			// e.printStackTrace();
+		} catch (IOException e)
 		{
-			e.printStackTrace();
+			// e.printStackTrace();
 		}
-		
+
 	}
 
-	private void copiarCuentasDelArchivoAlaColeccion(String nombreArchivo)
+	public void copiarCuentasDelArchivoAlaColeccion(String nombreArchivo)
 	{
-		File archiC=new File(nombreArchivo);
-		if(archiC.exists())
+		File archiC = new File(nombreArchivo);
+		if (archiC.exists())
 		{
-		try
-		{
-			ObjectInputStream archiCuentas = new ObjectInputStream(new FileInputStream(archiC));
-			setColeccionCuentas(new Contenedor<Cuenta>());
-			Cuenta aux;
-			do
+			try
 			{
-				aux = (Cuenta) archiCuentas.readObject();
-				if(aux!=null)
-					this.coleccionCuentas.agregar(aux);
+				ObjectInputStream archiCuentas = new ObjectInputStream(new FileInputStream(archiC));
+				setColeccionJugadores(new Contenedor<JugadorPermanente>());
+				JugadorPermanente aux=(JugadorPermanente) archiCuentas.readObject();
+				while(aux != null)
+				{
+					this.coleccionJugadores.agregar(aux);
+					aux = (JugadorPermanente) archiCuentas.readObject();
+				}
 
-			}while(aux != null);
+				archiCuentas.close();
 
-			archiCuentas.close();
-
-		}catch(FileNotFoundException e)
-		{
-			e.printStackTrace();
-		}catch(IOException e)
-		{
-			e.printStackTrace();
-		}catch(ClassNotFoundException e)
-		{
-			e.printStackTrace();
-		}
+			} catch (FileNotFoundException e)
+			{
+				// e.printStackTrace();
+			} catch (IOException e)
+			{
+				// e.printStackTrace();
+			} catch (ClassNotFoundException e)
+			{
+				// e.printStackTrace();
+			}
 		}
 	}
 
+	//----------------------------------------------------------------------------------------------------------------------------------
+	
 	private void copiarPreguntasDeColeccionAlArchivo(String nombreArchivo)
 	{
 		try
 		{
 			ObjectOutputStream archiPreguntas = new ObjectOutputStream(new FileOutputStream(nombreArchivo));
-		}catch(FileNotFoundException e)
+		} catch (FileNotFoundException e)
 		{
-			e.printStackTrace();
-		}catch(IOException e)
+			// e.printStackTrace();
+		} catch (IOException e)
 		{
-			e.printStackTrace();
+			// e.printStackTrace();
 		}
 	}
 
@@ -199,12 +223,12 @@ public class BaseDeDatos
 		{
 			ObjectInputStream archiPreguntas = new ObjectInputStream(new FileInputStream(nombreArchivo));
 
-		}catch(FileNotFoundException e)
+		} catch (FileNotFoundException e)
 		{
-			e.printStackTrace();
-		}catch(IOException e)
+			// e.printStackTrace();
+		} catch (IOException e)
 		{
-			e.printStackTrace();
+			// e.printStackTrace();
 		}
 	}
 
@@ -212,7 +236,7 @@ public class BaseDeDatos
 	{
 		ArrayList<Pregunta> aux = new ArrayList<Pregunta>();
 		aux.add(nuevaPregunta);
-		coleccionPreguntas.put(categoria,aux);
+		coleccionPreguntas.put(categoria, aux);
 	}
 
 }

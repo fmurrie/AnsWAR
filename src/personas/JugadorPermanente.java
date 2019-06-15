@@ -13,7 +13,19 @@ public class JugadorPermanente extends Jugador
 	{
 		super(usuario,clave,dni,correo,nickname);
 	}
+	
+	public JugadorPermanente(String id,String usuario,String clave,String dni,String correo,String nickname)
+	{
+		super(id,usuario,clave,dni,correo,nickname);
+	}
+	
+	public JugadorPermanente(JugadorPermanente j)
+	{
+		super(j);
+	}
 
 	// Metodos extra:
+	
+
 
 }

@@ -44,6 +44,28 @@ public abstract class Jugador extends Cuenta
 		setNumPreguntasAcertadas(0);
 
 	}
+	
+	public Jugador(String id,String usuario,String clave,String dni,String correo,String nickname)
+	{
+		super(id,usuario,clave,dni,correo);
+		setNickname(nickname);
+		setPuntaje(0);
+		setRangoClasificacion(-1);
+		setNumPartidasJugadas(0);
+		setNumPreguntasAcertadas(0);
+
+	}
+	
+	public Jugador(Jugador j)
+	{
+		super(j);
+		setNickname(j.getNickname());
+		setPuntaje(0);
+		setRangoClasificacion(-1);
+		setNumPartidasJugadas(0);
+		setNumPreguntasAcertadas(0);
+
+	}
 
 	// Getters y Setters:
 

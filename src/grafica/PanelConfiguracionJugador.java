@@ -95,7 +95,8 @@ public class PanelConfiguracionJugador extends SuperPanel
 		btnModificar.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
-			{											
+			{
+				modificarCuenta(contentPane);
 				actualizarTextoTextFields(contentPane);
 			}
 		});
@@ -110,51 +111,68 @@ public class PanelConfiguracionJugador extends SuperPanel
 	
 	private void modificarCuenta(SuperPanel contentPane)
 	{
-		Jugador aux = (Jugador) contentPane.getCuentaActiva();
+		JugadorPermanente aux = (JugadorPermanente) contentPane.getCuentaActiva();
+		String auxId=aux.getId();
 		String auxUsuario=aux.getUsuario();
 		String auxDni=aux.getDni();
 		String auxClave=aux.getClave();
 		String auxCorreo=aux.getCorreo();
-		String auxNickname=aux.getNickname();
+		String auxNickname= ((Jugador)aux).getNickname();
 		String claveField = String.valueOf(passwordField.getPassword());
-		Cuenta aux2 = null;
+		
+		JugadorPermanente aux2 = null;
 		
 		
-		if((!(nicknameField.getText().equals(""))&&(!(correoField.getText().equals(""))&&(!(claveField.equals(""))))))  //aca modifica nickname-clave-correo
+		//aca modifica nickname-clave-correo
+		if((!(nicknameField.getText().equals(""))&&(!(correoField.getText().equals(""))&&(!(claveField.equals(""))))))  
 		{
-			aux2 = new JugadorPermanente(auxUsuario,claveField,auxDni,correoField.getText(),nicknameField.getText());
+			aux2 = new JugadorPermanente(auxId,auxUsuario,claveField,auxDni,correoField.getText(),nicknameField.getText());
 		}
 		
-		if((!(nicknameField.getText().equals(""))&&((correoField.getText().equals(""))&&((claveField.equals(""))))))  //aca modifica nickname
+		//aca modifica nickname
+		if((!(nicknameField.getText().equals(""))&&((correoField.getText().equals(""))&&((claveField.equals(""))))))  
 		{
-			aux2 = new JugadorPermanente(auxUsuario,auxClave,auxDni,auxCorreo,nicknameField.getText());
+			aux2 = new JugadorPermanente(auxId,auxUsuario,auxClave,auxDni,auxCorreo,nicknameField.getText());
 		}
 		
-		if(((nicknameField.getText().equals(""))&&((correoField.getText().equals(""))&&(!(claveField.equals(""))))))  //aca modifica clave	
+		//aca modifica clave	
+		if(((nicknameField.getText().equals(""))&&((correoField.getText().equals(""))&&(!(claveField.equals(""))))))  
 		{
-			aux2 = new JugadorPermanente(auxUsuario,claveField,auxDni,auxCorreo,auxNickname);
+			aux2 = new JugadorPermanente(auxId,auxUsuario,claveField,auxDni,auxCorreo,auxNickname);
 		}
 		
-		if(((nicknameField.getText().equals(""))&&(!(correoField.getText().equals(""))&&((claveField.equals(""))))))  //aca modifica correo
+		 //aca modifica correo
+		if(((nicknameField.getText().equals(""))&&(!(correoField.getText().equals(""))&&((claveField.equals("")))))) 
 		{
-			aux2 = new JugadorPermanente(auxUsuario,auxClave,auxDni,correoField.getText(),auxNickname);
+			aux2 = new JugadorPermanente(auxId,auxUsuario,auxClave,auxDni,correoField.getText(),auxNickname);
 		}
 		
-		if((!(nicknameField.getText().equals(""))&&((correoField.getText().equals(""))&&(!(claveField.equals(""))))))  //aca modifica nickname-clave
+		//aca modifica nickname-clave
+		if((!(nicknameField.getText().equals(""))&&((correoField.getText().equals(""))&&(!(claveField.equals(""))))))  
 		{
-			aux2 = new JugadorPermanente(auxUsuario,claveField,auxDni,auxCorreo,nicknameField.getText());
+			aux2 = new JugadorPermanente(auxId,auxUsuario,claveField,auxDni,auxCorreo,nicknameField.getText());
 		}
 		
-		if((!(nicknameField.getText().equals(""))&&(!(correoField.getText().equals(""))&&((claveField.equals(""))))))  //aca modifica nickname-correo	
+		//aca modifica nickname-correo
+		if((!(nicknameField.getText().equals(""))&&(!(correoField.getText().equals(""))&&((claveField.equals(""))))))  	
 		{
-			aux2 = new JugadorPermanente(auxUsuario,auxClave,auxDni,correoField.getText(),nicknameField.getText());
+			aux2 = new JugadorPermanente(auxId,auxUsuario,auxClave,auxDni,correoField.getText(),nicknameField.getText());
 		}
 		
-		if(((nicknameField.getText().equals(""))&&(!(correoField.getText().equals(""))&&(!(claveField.equals(""))))))  //aca modifica clave-correo	
+		 //aca modifica clave-correo
+		if(((nicknameField.getText().equals(""))&&(!(correoField.getText().equals(""))&&(!(claveField.equals("")))))) 	
 		{
-			aux2 = new JugadorPermanente(auxUsuario,claveField,auxDni,correoField.getText(),auxNickname);
+			aux2 = new JugadorPermanente(auxId,auxUsuario,claveField,auxDni,correoField.getText(),auxNickname);
 		}
 		
+		//Se reemplaza la cuenta modificada por la original
+		if(aux2!=null)
+		{
+			contentPane.getData().modificarCuenta("jugadores.dat", aux, aux2);
+			
+			contentPane.setCuentaActivaYactualizarTextFields(new JugadorPermanente(aux2));
+	
+		}
 		
 		
 			
