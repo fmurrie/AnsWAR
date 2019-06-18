@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -12,6 +13,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+
+import disciplinas.Pregunta;
+import disciplinas.Respuesta;
+
 import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
 import javax.swing.JToggleButton;
@@ -20,9 +25,26 @@ import javax.swing.JCheckBox;
 
 public class PanelCargarPreguntas extends SuperPanel
 {
-	/**
-	 * Create the panel.
-	 */
+	private ButtonGroup grupoRdionBotomns = new ButtonGroup();
+	private JRadioButtonMenuItem rdbtnGeografia = new JRadioButtonMenuItem("Geografia");
+	private JRadioButtonMenuItem rdbtnHistoria = new JRadioButtonMenuItem("Historia");
+	private JRadioButtonMenuItem rdbtnDeporte = new JRadioButtonMenuItem("Deporte");
+	private JRadioButtonMenuItem rdbtnEntretenimiento = new JRadioButtonMenuItem("Entretenimiento");
+	private JRadioButtonMenuItem rdbtnArte = new JRadioButtonMenuItem("Arte");
+	private JRadioButtonMenuItem rdbtnCiencia = new JRadioButtonMenuItem("Ciencia");
+	
+	private JTextField preguntaField = new JTextField();
+	private JTextField opcionAField = new JTextField();
+	private JTextField opcionBField = new JTextField();
+	private JTextField opcionCField = new JTextField();
+	private JTextField opcionDField = new JTextField();
+	
+	private ButtonGroup grupoCheckBotomns = new ButtonGroup();
+	private JCheckBox chckbxA = new JCheckBox("A");
+	private JCheckBox chckbxB = new JCheckBox("B");
+	private JCheckBox chckbxC = new JCheckBox("C");
+	private JCheckBox chckbxD = new JCheckBox("D");
+	
 	public PanelCargarPreguntas(SuperPanel contentPane)
 	{
 		setLayout(new GridLayout(18,1,0,0));
@@ -36,20 +58,34 @@ public class PanelCargarPreguntas extends SuperPanel
 		JLabel label_3 = new JLabel("");
 		add(label_3);
 
-		ButtonGroup grupoRdionBotomns = new ButtonGroup();
-		JRadioButtonMenuItem rdbtnGeografia = new JRadioButtonMenuItem("Geografia");
+		grupoRdionBotomns = new ButtonGroup();
+		
+		rdbtnGeografia = new JRadioButtonMenuItem("Geografia");
+		rdbtnGeografia.setText("Geografia");
 		rdbtnGeografia.setSelected(true);
-		JRadioButtonMenuItem rdbtnHistoria = new JRadioButtonMenuItem("Historia");
-		JRadioButtonMenuItem rdbtnDeporte = new JRadioButtonMenuItem("Deporte");
-		JRadioButtonMenuItem rdbtnEntretenimiento = new JRadioButtonMenuItem("Entretenimiento");
-		JRadioButtonMenuItem rdbtnArte = new JRadioButtonMenuItem("Arte");
-		JRadioButtonMenuItem rdbtnCiencia = new JRadioButtonMenuItem("Ciencia");
+		
+		rdbtnHistoria = new JRadioButtonMenuItem("Historia");
+		rdbtnHistoria.setText("Historia");
+		
+		rdbtnDeporte = new JRadioButtonMenuItem("Deporte");
+		rdbtnDeporte.setText("Deporte");
+		
+		rdbtnEntretenimiento = new JRadioButtonMenuItem("Entretenimiento");
+		rdbtnEntretenimiento.setText("Entretenimiento");
+		
+		rdbtnArte = new JRadioButtonMenuItem("Arte");
+		rdbtnArte.setText("Arte");
+		
+		rdbtnCiencia = new JRadioButtonMenuItem("Ciencia");
+		rdbtnCiencia.setText("Ciencia");
+		
 		grupoRdionBotomns.add(rdbtnGeografia);
 		grupoRdionBotomns.add(rdbtnHistoria);
 		grupoRdionBotomns.add(rdbtnDeporte);
 		grupoRdionBotomns.add(rdbtnEntretenimiento);
 		grupoRdionBotomns.add(rdbtnArte);
 		grupoRdionBotomns.add(rdbtnCiencia);
+		
 		add(rdbtnGeografia);
 		add(rdbtnHistoria);
 		add(rdbtnDeporte);
@@ -71,12 +107,12 @@ public class PanelCargarPreguntas extends SuperPanel
 		lblPregunta.setOpaque(true);
 		add(lblPregunta);
 
-		JTextField textField = new JTextField();
-		textField.setHorizontalAlignment(SwingConstants.CENTER);
-		textField.setFont(new Font("Tahoma",Font.PLAIN,16));
-		textField.setBackground(Color.LIGHT_GRAY);
-		add(textField);
-		textField.setColumns(10);
+		preguntaField = new JTextField();
+		preguntaField.setHorizontalAlignment(SwingConstants.CENTER);
+		preguntaField.setFont(new Font("Tahoma",Font.PLAIN,16));
+		preguntaField.setBackground(Color.LIGHT_GRAY);
+		add(preguntaField);
+		preguntaField.setColumns(10);
 
 		JLabel label_6 = new JLabel("");
 		add(label_6);
@@ -92,12 +128,12 @@ public class PanelCargarPreguntas extends SuperPanel
 		lblOpcionA.setOpaque(true);
 		add(lblOpcionA);
 
-		JTextField textField36 = new JTextField();
-		textField36.setHorizontalAlignment(SwingConstants.CENTER);
-		textField36.setFont(new Font("Tahoma",Font.PLAIN,16));
-		textField36.setBackground(Color.LIGHT_GRAY);
-		add(textField36);
-		textField36.setColumns(10);
+		opcionAField = new JTextField();
+		opcionAField.setHorizontalAlignment(SwingConstants.CENTER);
+		opcionAField.setFont(new Font("Tahoma",Font.PLAIN,16));
+		opcionAField.setBackground(Color.LIGHT_GRAY);
+		add(opcionAField);
+		opcionAField.setColumns(10);
 
 		JLabel lblOpcionB = new JLabel("     Opcion B:");
 		lblOpcionB.setBackground(Color.BLACK);
@@ -107,12 +143,12 @@ public class PanelCargarPreguntas extends SuperPanel
 		lblOpcionB.setOpaque(true);
 		add(lblOpcionB);
 
-		JTextField textField_2 = new JTextField();
-		textField_2.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_2.setFont(new Font("Tahoma",Font.PLAIN,16));
-		textField_2.setBackground(Color.LIGHT_GRAY);
-		add(textField_2);
-		textField_2.setColumns(10);
+		opcionBField = new JTextField();
+		opcionBField.setHorizontalAlignment(SwingConstants.CENTER);
+		opcionBField.setFont(new Font("Tahoma",Font.PLAIN,16));
+		opcionBField.setBackground(Color.LIGHT_GRAY);
+		add(opcionBField);
+		opcionBField.setColumns(10);
 
 		JLabel lblOpcionC = new JLabel("     Opcion C:");
 		lblOpcionC.setBackground(Color.BLACK);
@@ -122,12 +158,12 @@ public class PanelCargarPreguntas extends SuperPanel
 		lblOpcionC.setOpaque(true);
 		add(lblOpcionC);
 
-		JTextField textField_1 = new JTextField();
-		textField_1.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_1.setFont(new Font("Tahoma",Font.PLAIN,16));
-		textField_1.setBackground(Color.LIGHT_GRAY);
-		add(textField_1);
-		textField_1.setColumns(10);
+		opcionCField = new JTextField();
+		opcionCField.setHorizontalAlignment(SwingConstants.CENTER);
+		opcionCField.setFont(new Font("Tahoma",Font.PLAIN,16));
+		opcionCField.setBackground(Color.LIGHT_GRAY);
+		add(opcionCField);
+		opcionCField.setColumns(10);
 
 		JLabel lblOpcionD = new JLabel("     Opcion D:");
 		lblOpcionD.setBackground(Color.BLACK);
@@ -137,11 +173,11 @@ public class PanelCargarPreguntas extends SuperPanel
 		lblOpcionD.setOpaque(true);
 		add(lblOpcionD);
 
-		JTextField textField_3 = new JTextField();
-		textField_3.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_3.setFont(new Font("Tahoma",Font.PLAIN,16));
-		textField_3.setBackground(Color.LIGHT_GRAY);
-		add(textField_3);
+		opcionDField = new JTextField();
+		opcionDField.setHorizontalAlignment(SwingConstants.CENTER);
+		opcionDField.setFont(new Font("Tahoma",Font.PLAIN,16));
+		opcionDField.setBackground(Color.LIGHT_GRAY);
+		add(opcionDField);
 
 		JLabel label_8 = new JLabel("");
 		add(label_8);
@@ -153,31 +189,33 @@ public class PanelCargarPreguntas extends SuperPanel
 		lblRespuesta.setForeground(Color.WHITE);
 		lblRespuesta.setFont(new Font("Stencil",Font.PLAIN,18));
 		add(lblRespuesta);
-		ButtonGroup grupoCheckBotomns = new ButtonGroup();
-		JCheckBox chckbxA = new JCheckBox("A");
+		
+		grupoCheckBotomns = new ButtonGroup();
+		chckbxA = new JCheckBox("A");
+		chckbxA.setText("A");
 		chckbxA.setSelected(true);
-		JCheckBox chckbxB = new JCheckBox("B");
-		JCheckBox chckbxC = new JCheckBox("C");
-		JCheckBox chckbxD = new JCheckBox("D");
 		grupoCheckBotomns.add(chckbxA);
-		grupoCheckBotomns.add(chckbxB);
-		grupoCheckBotomns.add(chckbxC);
-		grupoCheckBotomns.add(chckbxD);
 		add(chckbxA);
-
+		
 		JLabel label = new JLabel("");
 		add(label);
-
+		chckbxB = new JCheckBox("B");
+		chckbxB.setText("B");
+		grupoCheckBotomns.add(chckbxB);
 		add(chckbxB);
 
 		JLabel label_1 = new JLabel("");
 		add(label_1);
-
+		chckbxC = new JCheckBox("C");
+		chckbxC.setText("C");
+		grupoCheckBotomns.add(chckbxC);
 		add(chckbxC);
 
 		JLabel label_2 = new JLabel("");
 		add(label_2);
-
+		chckbxD = new JCheckBox("D");
+		chckbxD.setText("D");
+		grupoCheckBotomns.add(chckbxD);
 		add(chckbxD);
 
 		JLabel label_10 = new JLabel("");
@@ -199,12 +237,113 @@ public class PanelCargarPreguntas extends SuperPanel
 		btnVolver.setFont(new Font("Stencil",Font.PLAIN,18));
 		add(btnVolver);
 
-		JButton btnRegistrarse = new JButton("Crear pregunta");
-		btnRegistrarse.setForeground(Color.GREEN);
-		btnRegistrarse.setFont(new Font("Stencil",Font.PLAIN,18));
-		btnRegistrarse.setBackground(Color.BLACK);
-		add(btnRegistrarse);
+		JButton btnCrearPregunta = new JButton("Crear pregunta");
+		btnCrearPregunta.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				crearEnunciado(contentPane);
+			}
+		});
+		btnCrearPregunta.setForeground(Color.GREEN);
+		btnCrearPregunta.setFont(new Font("Stencil",Font.PLAIN,18));
+		btnCrearPregunta.setBackground(Color.BLACK);
+		add(btnCrearPregunta);
 
+	}
+	
+	public void crearEnunciado(SuperPanel contentPane)
+	{
+		String auxPregunta=preguntaField.getText();
+		String auxOpcionA=opcionAField.getText();
+		String auxOpcionB=opcionBField.getText();
+		String auxOpcionC=opcionCField.getText();
+		String auxOpcionD=opcionDField.getText();
+		
+		String auxCategoria="";	
+		auxCategoria=determinarDisciplina(auxCategoria);
+
+		String auxOpcionCorrecta="";
+		auxOpcionCorrecta=determinarOpcionCorrecta(auxOpcionCorrecta);
+		
+		Pregunta preguntaNueva;
+		ArrayList<Respuesta> auxOpciones=new ArrayList<Respuesta>();
+		Respuesta auxRespuesta;
+		
+		if((!auxPregunta.equals(""))&&(!auxOpcionA.equals(""))&&(!auxOpcionB.equals(""))&&(!auxOpcionC.equals(""))&&(!auxOpcionD.equals("")))
+		{
+			auxRespuesta=new Respuesta(auxOpcionA,false);
+			if(auxOpcionCorrecta.equalsIgnoreCase("A"))
+				auxRespuesta.setEsCorrecta(true);
+			auxOpciones.add(auxRespuesta);
+			
+			auxRespuesta=new Respuesta(auxOpcionB,false);
+			if(auxOpcionCorrecta.equalsIgnoreCase("B"))
+				auxRespuesta.setEsCorrecta(true);
+			auxOpciones.add(auxRespuesta);
+			
+			auxRespuesta=new Respuesta(auxOpcionC,false);
+			if(auxOpcionCorrecta.equalsIgnoreCase("C"))
+				auxRespuesta.setEsCorrecta(true);
+			auxOpciones.add(auxRespuesta);
+			
+			auxRespuesta=new Respuesta(auxOpcionD,false);
+			if(auxOpcionCorrecta.equalsIgnoreCase("D"))
+				auxRespuesta.setEsCorrecta(true);
+			auxOpciones.add(auxRespuesta);
+			
+			preguntaNueva=new Pregunta(auxPregunta,auxCategoria,auxOpciones);
+		
+			contentPane.getData().cargarNuevaPregunta("preguntas.dat",auxCategoria,preguntaNueva);
+			
+		}
+				
+	}
+	
+	private String determinarOpcionCorrecta(String auxOpcionCorrecta)
+	{
+		if(chckbxA.isSelected())
+			auxOpcionCorrecta=chckbxA.getText();
+		if(chckbxB.isSelected())
+			auxOpcionCorrecta=chckbxB.getText();
+		if(chckbxC.isSelected())
+			auxOpcionCorrecta=chckbxC.getText();
+		if(chckbxD.isSelected())
+			auxOpcionCorrecta=chckbxD.getText();
+		
+		return auxOpcionCorrecta;
+	}
+	
+	private String determinarDisciplina(String auxCategoria)
+	{
+		if(rdbtnGeografia.isSelected())
+			auxCategoria=rdbtnGeografia.getText();
+		
+		if(rdbtnHistoria.isSelected())
+			auxCategoria=rdbtnHistoria.getText();
+		
+		if(rdbtnDeporte.isSelected())
+			auxCategoria=rdbtnDeporte.getText();
+		
+		if(rdbtnEntretenimiento.isSelected())
+			auxCategoria=rdbtnEntretenimiento.getText();
+		
+		if(rdbtnArte.isSelected())
+			auxCategoria=rdbtnArte.getText();
+		
+		if(rdbtnCiencia.isSelected())
+			auxCategoria=rdbtnCiencia.getText();
+		
+		return auxCategoria;
+	}
+	
+	public void restaurarTextfields()
+	{
+		preguntaField.setText("");
+		opcionAField.setText("");
+		opcionBField.setText("");
+		opcionCField.setText("");
+		opcionDField.setText("");
 	}
 
 }

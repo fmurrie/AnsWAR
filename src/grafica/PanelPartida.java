@@ -63,8 +63,7 @@ public class PanelPartida<T extends Jugador> extends SuperPanel
 	private final JLabel label_5 = new JLabel("");
 	private final JLabel label_6 = new JLabel("");
 
-	// private T jugador=(T) new JugadorInvitado("yo"); //esto es temporal despues
-	// debe ser borrado
+
 	private Jugador jugador;
 	private static long puntosDePartida = 0;
 	private static int preguntasAcertadasDePartida = 0;

@@ -1,28 +1,50 @@
 package disciplinas;
 
-public class Respuesta
+import java.io.Serializable;
+
+public class Respuesta implements Serializable
 {
 	private String respuesta;
-	private boolean esCorrecta;
+	private boolean esCorrecta=false;
 
 	// Constructores
 
 	public Respuesta(String respuesta,boolean esCorrecta)
 	{
-		this.respuesta = respuesta;
-		this.esCorrecta = esCorrecta;
+		setRespuesta(respuesta);
+		setEsCorrecta(esCorrecta);
 	}
 
 	// Getters Setters
 
-	public boolean isEsCorrecta()
+
+	private String getRespuesta()
+	{
+		return respuesta;
+	}
+
+	private boolean getEsCorrecta()
 	{
 		return esCorrecta;
 	}
+	
+	private void setRespuesta(String respuesta)
+	{
+		this.respuesta = respuesta;
+	}
 
+	public void setEsCorrecta(boolean esCorrecta)
+	{
+		this.esCorrecta = esCorrecta;
+	}
+
+	//Metodos varios:
+	
 	@Override
 	public String toString()
 	{
-		return "Respuesta{" + "respuesta='" + respuesta + '\'' + ", esCorrecta=" + esCorrecta + '}';
+		String dato =getRespuesta()+" su valor es: "+getEsCorrecta();
+		
+		return dato;
 	}
 }

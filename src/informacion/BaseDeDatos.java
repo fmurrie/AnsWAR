@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 import disciplinas.Pregunta;
 import personas.Cuenta;
@@ -93,8 +94,8 @@ public class BaseDeDatos
 			copiarCuentasDeColeccionAlArchivo(nombreArchivo);
 		}
 	}
-	
-	public void eliminarJugadorDeLaLista(String nombreArchivo,JugadorPermanente obj)
+
+	public void eliminarJugadorDeLaLista(String nombreArchivo, JugadorPermanente obj)
 	{
 		for(int i = 0;i < this.coleccionJugadores.cantidad();i++)
 		{
@@ -216,40 +217,95 @@ public class BaseDeDatos
 
 	// ----------------------------------------------------------------------------------------------------------------------------------
 
-	private void copiarPreguntasDeColeccionAlArchivo(String nombreArchivo)
+	public void copiarPreguntasDeColeccionAlArchivo(String nombreArchivo)
 	{
+		File archiP = new File(nombreArchivo);
+		if(!archiP.exists())
+		{
+			try
+			{
+				archiP.createNewFile();
+			}catch(IOException e1)
+			{
+				e1.printStackTrace();
+			}
+		}
 		try
 		{
 			ObjectOutputStream archiPreguntas = new ObjectOutputStream(new FileOutputStream(nombreArchivo));
+		
+			for (HashMap.Entry<String, ArrayList<Pregunta>> entry : coleccionPreguntas.entrySet())
+			{
+				for(int i=0;i<coleccionPreguntas.get(entry.getKey()).size();i++)
+				{
+					Pregunta aux = coleccionPreguntas.get(entry.getKey()).get(i);
+					archiPreguntas.writeObject(aux);
+				}
+			}
+
+			archiPreguntas.close();
+			
 		}catch(FileNotFoundException e)
 		{
-			// e.printStackTrace();
+			//e.printStackTrace();
 		}catch(IOException e)
 		{
-			// e.printStackTrace();
+			 //e.printStackTrace();
 		}
 	}
 
-	private void copiarPreguntasDelArchivoAlaColeccion(String nombreArchivo)
+	public void copiarPreguntasDelArchivoAlaColeccion(String nombreArchivo)
 	{
+		File archiP = new File(nombreArchivo);
 		try
 		{
-			ObjectInputStream archiPreguntas = new ObjectInputStream(new FileInputStream(nombreArchivo));
-
+			ObjectInputStream archiPreguntas = new ObjectInputStream(new FileInputStream(archiP));
+			setColeccionPreguntas(new HashMap<String, ArrayList<Pregunta>>());
+			Pregunta aux = (Pregunta) archiPreguntas.readObject();
+			while(aux != null)
+			{
+				if(coleccionPreguntas.containsKey(aux.getDisciplina()) == false)
+				{
+					ArrayList<Pregunta> arrayAuxiliar = new ArrayList<Pregunta>();
+					arrayAuxiliar.add(aux);
+					coleccionPreguntas.put(aux.getDisciplina(),arrayAuxiliar);
+				}
+				else
+				{
+					coleccionPreguntas.get(aux.getDisciplina()).add(aux);
+				}
+				
+				aux = (Pregunta) archiPreguntas.readObject();
+			}
+			archiPreguntas.close();
+			
 		}catch(FileNotFoundException e)
 		{
-			// e.printStackTrace();
+			 //e.printStackTrace();
 		}catch(IOException e)
 		{
-			// e.printStackTrace();
+			//e.printStackTrace();
+		}catch(ClassNotFoundException e)
+		{
+			//e.printStackTrace();
 		}
 	}
 
-	public void agregarEnunciados(String categoria, Pregunta nuevaPregunta)
+	public void cargarNuevaPregunta(String nombreArchivo,String categoria, Pregunta nuevaPregunta)
 	{
-		ArrayList<Pregunta> aux = new ArrayList<Pregunta>();
-		aux.add(nuevaPregunta);
-		coleccionPreguntas.put(categoria,aux);
+		
+		if(coleccionPreguntas.containsKey(categoria) == false)
+		{
+			ArrayList<Pregunta> aux = new ArrayList<Pregunta>();
+			aux.add(nuevaPregunta);
+			coleccionPreguntas.put(categoria,aux);
+		}
+		else
+		{
+			coleccionPreguntas.get(categoria).add(nuevaPregunta);
+		}
+		
+		copiarPreguntasDeColeccionAlArchivo(nombreArchivo);
 	}
 
 }

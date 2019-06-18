@@ -41,44 +41,19 @@ public class PanelMenuADMenunciados extends SuperPanel
 		btnCargarPreguntas.setFont(new Font("Stencil",Font.PLAIN,18));
 		add(btnCargarPreguntas);
 
-		JButton btnListarEnunciados = new JButton("Ver preguntas");
-		btnListarEnunciados.addActionListener(new ActionListener()
+		JButton btnInspeccionarEnunciados = new JButton("Inspeccionar enunciados");
+		btnInspeccionarEnunciados.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
 			{
 				desplazarAotroPanel(contentPane,"panelVerPreguntas");
 			}
 		});
-		btnListarEnunciados.setBackground(Color.BLACK);
-		btnListarEnunciados.setForeground(Color.GREEN);
-		btnListarEnunciados.setFont(new Font("Stencil",Font.PLAIN,18));
-		add(btnListarEnunciados);
-
-		JButton btnA = new JButton("Editar enunciado");
-		btnA.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent e)
-			{
-				desplazarAotroPanel(contentPane,"panelBuscarPregunta");
-			}
-		});
-		btnA.setForeground(Color.ORANGE);
-		btnA.setFont(new Font("Stencil",Font.PLAIN,18));
-		btnA.setBackground(Color.BLACK);
-		add(btnA);
-
-		JButton btnElimicarEnunciado = new JButton("Eliminar enunciado");
-		btnElimicarEnunciado.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent e)
-			{
-				desplazarAotroPanel(contentPane,"panelBuscarPregunta");
-			}
-		});
-		btnElimicarEnunciado.setForeground(Color.RED);
-		btnElimicarEnunciado.setBackground(Color.BLACK);
-		btnElimicarEnunciado.setFont(new Font("Stencil",Font.PLAIN,18));
-		add(btnElimicarEnunciado);
+		btnInspeccionarEnunciados.setBackground(Color.BLACK);
+		btnInspeccionarEnunciados.setForeground(Color.GREEN);
+		btnInspeccionarEnunciados.setFont(new Font("Stencil",Font.PLAIN,18));
+		add(btnInspeccionarEnunciados);
+	
 
 		JButton btnVolver = new JButton("Volver");
 		btnVolver.addActionListener(new ActionListener()

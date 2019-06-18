@@ -30,7 +30,7 @@ public class PanelParaResponder extends SuperPanel implements IRelacionPanelesRu
 	private JToggleButton opcionD = new JToggleButton("");
 	private JTextField textField5sec = new JTextField();
 	private final JLabel lblA = new JLabel("A)");
-	private final JLabel lblB = new JLabel("b)");
+	private final JLabel lblB = new JLabel("B)");
 	private final JLabel lblC = new JLabel("C)");
 	private final JLabel lblD = new JLabel("D)");
 
