@@ -4,6 +4,8 @@ import javax.swing.JPanel;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.concurrent.ThreadLocalRandom;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JLabel;
@@ -11,6 +13,7 @@ import javax.swing.JTextField;
 import javax.swing.JToggleButton;
 import javax.swing.SwingConstants;
 
+import disciplinas.Pregunta;
 import tiempo.Temporizador;
 
 import java.awt.Font;
@@ -216,6 +219,27 @@ public class PanelParaResponder extends SuperPanel implements IRelacionPanelesRu
 		gbc_opcionD.gridy = 6;
 		add(opcionD,gbc_opcionD);
 
+	}
+
+	public void buscarPreguntaSegunCategoria(SuperPanel contenidoPartida)
+	{
+		String auxCategoria = ((PanelRuleta) obtenerPanelPorNombreYdevolverPos(contenidoPartida,"panelRuleta")).getTextoFieldResultado();
+		ArrayList<Pregunta> listaAux = contenidoPartida.getData().getColeccionPreguntas().get(auxCategoria);
+		Pregunta auxPregunta;
+		
+		int indexElegida = ThreadLocalRandom.current().nextInt(0,listaAux.size());
+		
+		auxPregunta=listaAux.get(indexElegida);
+		actulizarTextFieldYbotones(auxPregunta);
+	}
+	
+	private void actulizarTextFieldYbotones(Pregunta preguntaTocada)
+	{
+		this.pregunta.setText(preguntaTocada.getEnunciado());
+		this.opcionA.setText(preguntaTocada.getOpciones().get(0).getRespuesta());
+		this.opcionB.setText(preguntaTocada.getOpciones().get(1).getRespuesta());
+		this.opcionC.setText(preguntaTocada.getOpciones().get(2).getRespuesta());
+		this.opcionD.setText(preguntaTocada.getOpciones().get(3).getRespuesta());
 	}
 
 	public void moverseEntreRuletaYResponder(SuperPanel contenidoPartida)

@@ -114,7 +114,8 @@ public class PanelVerPreguntas extends SuperPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				int respuesta = JOptionPane.showConfirmDialog(null,"¿Realmente desea eliminar el enunciado?","Eliminar enunciado",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+				int respuesta = JOptionPane.showConfirmDialog(null,"¿Realmente desea eliminar el enunciado?",
+						"Eliminar enunciado",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 				if(respuesta == 0)
 				{
 					eliminarPregunta(contentPane,"preguntas.dat");
@@ -141,16 +142,17 @@ public class PanelVerPreguntas extends SuperPanel
 		add(btnVolver);
 
 	}
-	
-	//Metodos varios:
-	
-	private void eliminarPregunta(SuperPanel contentPane,String rutaDelArchivo)
+
+	// Metodos varios:
+
+	private void eliminarPregunta(SuperPanel contentPane, String rutaDelArchivo)
 	{
 		String auxCategoria = determinarDisciplina();
-		
-		contentPane.getData().eliminarPreguntaDeLaListaDelMapa("preguntas.dat",auxCategoria,(Pregunta)list.getSelectedValue());
+
+		contentPane.getData().eliminarPreguntaDeLaListaDelMapa("preguntas.dat",auxCategoria,
+				(Pregunta) list.getSelectedValue());
 		vaciarJList();
-		meterEnElJListTodasLasPreguntasDeUnaDeterminadaDisciplina(contentPane, auxCategoria);
+		meterEnElJListTodasLasPreguntasDeUnaDeterminadaDisciplina(contentPane,auxCategoria);
 	}
 
 	private void listarPreguntasPorDisciplina(SuperPanel contentPane)
@@ -185,7 +187,7 @@ public class PanelVerPreguntas extends SuperPanel
 		DefaultListModel listModel = new DefaultListModel();
 		list.setModel(listModel);
 	}
-	
+
 	private String determinarDisciplina()
 	{
 		String auxCategoria = "";

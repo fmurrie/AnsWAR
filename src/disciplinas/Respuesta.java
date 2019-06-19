@@ -18,7 +18,7 @@ public class Respuesta implements Serializable
 	// Getters Setters
 
 
-	private String getRespuesta()
+	public String getRespuesta()
 	{
 		return respuesta;
 	}

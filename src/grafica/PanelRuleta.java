@@ -274,10 +274,16 @@ public class PanelRuleta extends SuperPanel implements IRelacionPanelesRuletaYRe
 
 	}
 
+	public String getTextoFieldResultado()
+	{
+		return resultado.getText();
+	}
+
 	public void moverseEntreRuletaYResponder(SuperPanel contenidoPartida)
 	{
 		desplazarAotroPanelDentroDeUnaPartida(contenidoPartida,"panelParaResponder");
 		restaurarValoresPanelParaResponder(contenidoPartida);
+		((PanelParaResponder)obtenerPanelPorNombreYdevolverPos(contenidoPartida,"panelParaResponder")).buscarPreguntaSegunCategoria(contenidoPartida);
 		revalidate();
 		repaint();
 	}

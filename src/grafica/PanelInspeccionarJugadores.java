@@ -26,8 +26,6 @@ public class PanelInspeccionarJugadores extends SuperPanel
 	private JList list = new JList();
 	private JScrollPane scroll = new JScrollPane(list);
 
-
-
 	public PanelInspeccionarJugadores(SuperPanel contentPane)
 	{
 		setBackground(Color.BLACK);
@@ -70,7 +68,9 @@ public class PanelInspeccionarJugadores extends SuperPanel
 			{
 				if((JugadorPermanente) list.getSelectedValue() != null)
 				{
-					((PanelEditarJugadoresAdm) contentPane.obtenerPanelPorNombreYdevolverPos(contentPane,"panelEditarJugadoresAdm")).setJugadorInterferidoYactualizarTextFields((JugadorPermanente) list.getSelectedValue());
+					((PanelEditarJugadoresAdm) contentPane.obtenerPanelPorNombreYdevolverPos(contentPane,
+							"panelEditarJugadoresAdm")).setJugadorInterferidoYactualizarTextFields(
+									(JugadorPermanente) list.getSelectedValue());
 					desplazarAotroPanel(contentPane,"panelEditarJugadoresAdm");
 				}
 			}

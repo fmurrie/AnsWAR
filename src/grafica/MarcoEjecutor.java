@@ -144,7 +144,7 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 		contentPane = new SuperPanel();
 		contentPane.setCuentaActiva(new JugadorInvitado());
 		contentPane.getData().copiarCuentasDelArchivoAlaColeccion("jugadores.dat");
-		contentPane.getData().copiarPreguntasDelArchivoAlaColeccion("preguntas.dat"); // marca
+		contentPane.getData().copiarPreguntasDelArchivoAlaColeccion("preguntas.dat");
 		contentPane.setBorder(new EmptyBorder(5,5,5,5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new CardLayout(0,0));

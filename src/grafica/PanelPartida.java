@@ -148,6 +148,7 @@ public class PanelPartida<T extends Jugador> extends SuperPanel
 				btnAbandonarPartida.setEnabled(true);
 				actualizarEstadosPartida();
 				btnIniciarPartida.setEnabled(false);
+				contenidoPartida.getData().copiarPreguntasDelArchivoAlaColeccion("preguntas.dat");// marca
 				panelRuleta.setName("panelRuleta");
 				panelParaResponder.setName("panelParaResponder");
 				contenidoPartida.add(panelRuleta);
