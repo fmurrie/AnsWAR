@@ -191,17 +191,9 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 		panelCargarPreguntas.setName("panelCargarPreguntas");
 		contentPane.add(panelCargarPreguntas);
 
-		PanelBuscarPregunta panelBuscarPregunta = new PanelBuscarPregunta(contentPane);
-		panelBuscarPregunta.setName("panelBuscarPregunta");
-		contentPane.add(panelBuscarPregunta);
-
 		PanelVerPreguntas panelVerPreguntas = new PanelVerPreguntas(contentPane);
 		panelVerPreguntas.setName("panelVerPreguntas");
 		contentPane.add(panelVerPreguntas);
-
-		PanelBuscarJugador panelBuscarJugador = new PanelBuscarJugador(contentPane);
-		panelBuscarJugador.setName("panelBuscarJugador");
-		contentPane.add(panelBuscarJugador);
 
 		PanelClasificacion panelClasificacion = new PanelClasificacion(contentPane);
 		panelClasificacion.setName("panelClasificacion");

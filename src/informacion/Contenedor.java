@@ -8,7 +8,7 @@ import javax.swing.AbstractListModel;
 
 import personas.Cuenta;
 
-public class Contenedor<T> 
+public class Contenedor<T>
 {
 	// Atributos:
 	private ArrayList<T> elementos;

@@ -6,6 +6,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import disciplinas.Pregunta;
 import personas.Cuenta;
 import personas.Jugador;
@@ -232,11 +236,11 @@ public class BaseDeDatos
 		}
 		try
 		{
-			ObjectOutputStream archiPreguntas = new ObjectOutputStream(new FileOutputStream(nombreArchivo));
-		
-			for (HashMap.Entry<String, ArrayList<Pregunta>> entry : coleccionPreguntas.entrySet())
+			ObjectOutputStream archiPreguntas = new ObjectOutputStream(new FileOutputStream(archiP));
+
+			for(HashMap.Entry<String, ArrayList<Pregunta>> entry: coleccionPreguntas.entrySet())
 			{
-				for(int i=0;i<coleccionPreguntas.get(entry.getKey()).size();i++)
+				for(int i = 0;i < coleccionPreguntas.get(entry.getKey()).size();i++)
 				{
 					Pregunta aux = coleccionPreguntas.get(entry.getKey()).get(i);
 					archiPreguntas.writeObject(aux);
@@ -244,14 +248,23 @@ public class BaseDeDatos
 			}
 
 			archiPreguntas.close();
-			
+
 		}catch(FileNotFoundException e)
 		{
-			//e.printStackTrace();
+			// e.printStackTrace();
 		}catch(IOException e)
 		{
-			 //e.printStackTrace();
+			// e.printStackTrace();
 		}
+		
+		try
+		{
+			copiarPreguntasAlArchivoJSON();
+			
+		}catch(JSONException e)
+		{
+			e.printStackTrace();
+		}	
 	}
 
 	public void copiarPreguntasDelArchivoAlaColeccion(String nombreArchivo)
@@ -269,48 +282,93 @@ public class BaseDeDatos
 					ArrayList<Pregunta> arrayAuxiliar = new ArrayList<Pregunta>();
 					arrayAuxiliar.add(aux);
 					coleccionPreguntas.put(aux.getDisciplina(),arrayAuxiliar);
-				}
-				else
+				}else
 				{
 					coleccionPreguntas.get(aux.getDisciplina()).add(aux);
 				}
-				
+
 				aux = (Pregunta) archiPreguntas.readObject();
 			}
+		
 			archiPreguntas.close();
 			
 		}catch(FileNotFoundException e)
 		{
-			 //e.printStackTrace();
+			// e.printStackTrace();
 		}catch(IOException e)
 		{
-			//e.printStackTrace();
+			// e.printStackTrace();
 		}catch(ClassNotFoundException e)
 		{
-			//e.printStackTrace();
+			// e.printStackTrace();
 		}
+		try
+		{
+			copiarPreguntasAlArchivoJSON();
+			
+		}catch(JSONException e)
+		{
+			e.printStackTrace();
+		}	
 	}
 
-	public void cargarNuevaPregunta(String nombreArchivo,String categoria, Pregunta nuevaPregunta)
+	public void copiarPreguntasAlArchivoJSON() throws JSONException
 	{
+		JSONArray arregloJson = new JSONArray();
+
+		int j = 0;
+		for(HashMap.Entry<String, ArrayList<Pregunta>> entry: coleccionPreguntas.entrySet())
+		{
+			for(int i = 0;i < coleccionPreguntas.get(entry.getKey()).size();i++)
+			{
+				JSONObject objetoJson = new JSONObject();
+				Pregunta auxPregunta = coleccionPreguntas.get(entry.getKey()).get(i);
+				objetoJson.put("ID",auxPregunta.getId());
+				objetoJson.put("Enunciado",auxPregunta.getEnunciado());
+				objetoJson.put("Disciplina",auxPregunta.getDisciplina());
+				objetoJson.put("Opcion A",auxPregunta.getOpciones().get(0));
+				objetoJson.put("Opcion B",auxPregunta.getOpciones().get(1));
+				objetoJson.put("Opcion C",auxPregunta.getOpciones().get(2));
+				objetoJson.put("Opcion D",auxPregunta.getOpciones().get(3));
+				arregloJson.put(j,objetoJson);
+				j++;
+			}
+		}
 		
+		try
+		{
+			ObjectOutputStream escritura = new ObjectOutputStream(new FileOutputStream("infopreguntas.txt"));
+			escritura.writeObject(arregloJson.toString());
+			escritura.flush();
+			escritura.close();
+
+		}catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+
+		
+	}
+
+	public void cargarNuevaPregunta(String nombreArchivo, String categoria, Pregunta nuevaPregunta)
+	{
+
 		if(coleccionPreguntas.containsKey(categoria) == false)
 		{
 			ArrayList<Pregunta> aux = new ArrayList<Pregunta>();
 			aux.add(nuevaPregunta);
 			coleccionPreguntas.put(categoria,aux);
-		}
-		else
+		}else
 		{
 			coleccionPreguntas.get(categoria).add(nuevaPregunta);
 		}
-		
+
 		copiarPreguntasDeColeccionAlArchivo(nombreArchivo);
 	}
-	
-	public void eliminarPreguntaDeLaListaDelMapa(String nombreArchivo,String categoria,Pregunta obj)
+
+	public void eliminarPreguntaDeLaListaDelMapa(String nombreArchivo, String categoria, Pregunta obj)
 	{
-		
+
 		for(int i = 0;i < this.coleccionPreguntas.get(categoria).size();i++)
 		{
 			if(obj.getId().equals(coleccionPreguntas.get(categoria).get(i).getId()))

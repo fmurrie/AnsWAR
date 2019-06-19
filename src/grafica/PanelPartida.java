@@ -63,7 +63,7 @@ public class PanelPartida<T extends Jugador> extends SuperPanel
 	private final JLabel label_5 = new JLabel("");
 	private final JLabel label_6 = new JLabel("");
 
-	private Jugador jugador;
+	private T jugador;
 	private static long puntosDePartida = 0;
 	private static int preguntasAcertadasDePartida = 0;
 
@@ -72,7 +72,7 @@ public class PanelPartida<T extends Jugador> extends SuperPanel
 	 */
 	public PanelPartida(SuperPanel contentPane)
 	{
-		jugador = (Jugador) contentPane.getCuentaActiva();
+		jugador = (T) contentPane.getCuentaActiva();
 		setBackground(Color.BLACK);
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]

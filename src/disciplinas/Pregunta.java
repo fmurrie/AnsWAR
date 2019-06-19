@@ -43,12 +43,12 @@ public class Pregunta implements Serializable
 
 	//Getters y Setters:
 	
-	private String getEnunciado()
+	public String getEnunciado()
 	{
 		return enunciado;
 	}
 
-	private ArrayList<Respuesta> getOpciones()
+	public ArrayList<Respuesta> getOpciones()
 	{
 		return opciones;
 	}

@@ -45,7 +45,7 @@ public class Respuesta implements Serializable
 	{
 		String dato =getRespuesta();
 		if(getEsCorrecta()==true)
-			dato=dato+" [es la correcta]";
+			dato=dato+" (es la correcta)";
 		
 		return dato;
 	}
