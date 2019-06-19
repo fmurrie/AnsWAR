@@ -26,14 +26,7 @@ public class PanelInspeccionarJugadores extends SuperPanel
 	private JList list = new JList();
 	private JScrollPane scroll = new JScrollPane(list);
 
-	/**
-	 * Create the panel.
-	 */
-	/*
-	 * public PanelInspeccionarJugadores(SuperPanel contentPane) {
-	 * 
-	 * }
-	 */
+
 
 	public PanelInspeccionarJugadores(SuperPanel contentPane)
 	{
@@ -77,9 +70,7 @@ public class PanelInspeccionarJugadores extends SuperPanel
 			{
 				if((JugadorPermanente) list.getSelectedValue() != null)
 				{
-					((PanelEditarJugadoresAdm) contentPane.obtenerPanelPorNombreYdevolverPos(contentPane,
-							"panelEditarJugadoresAdm")).setJugadorInterferidoYactualizarTextFields(
-									(JugadorPermanente) list.getSelectedValue());
+					((PanelEditarJugadoresAdm) contentPane.obtenerPanelPorNombreYdevolverPos(contentPane,"panelEditarJugadoresAdm")).setJugadorInterferidoYactualizarTextFields((JugadorPermanente) list.getSelectedValue());
 					desplazarAotroPanel(contentPane,"panelEditarJugadoresAdm");
 				}
 			}

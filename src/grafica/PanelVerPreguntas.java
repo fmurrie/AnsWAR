@@ -4,6 +4,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JScrollPane;
@@ -89,6 +90,7 @@ public class PanelVerPreguntas extends SuperPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
+				vaciarJList();
 				listarPreguntasPorDisciplina(contentPane);
 			}
 		});
@@ -107,15 +109,19 @@ public class PanelVerPreguntas extends SuperPanel
 		scroll = new JScrollPane(list);
 		add(scroll);
 
-		JButton btnEditarEnunciado = new JButton("Editar enunciado");
+		JButton btnEditarEnunciado = new JButton("Eliminar enunciado");
 		btnEditarEnunciado.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-
+				int respuesta = JOptionPane.showConfirmDialog(null,"¿Realmente desea eliminar el enunciado?","Eliminar enunciado",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+				if(respuesta == 0)
+				{
+					eliminarPregunta(contentPane,"preguntas.dat");
+				}
 			}
 		});
-		btnEditarEnunciado.setForeground(Color.ORANGE);
+		btnEditarEnunciado.setForeground(Color.RED);
 		btnEditarEnunciado.setBackground(Color.BLACK);
 		btnEditarEnunciado.setFont(new Font("Stencil",Font.PLAIN,16));
 		scroll.setColumnHeaderView(btnEditarEnunciado);
@@ -125,6 +131,7 @@ public class PanelVerPreguntas extends SuperPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
+				vaciarJList();
 				desplazarAotroPanel(contentPane,"panelMenuADMenunciados");
 			}
 		});
@@ -133,6 +140,17 @@ public class PanelVerPreguntas extends SuperPanel
 		btnVolver.setFont(new Font("Stencil",Font.PLAIN,18));
 		add(btnVolver);
 
+	}
+	
+	//Metodos varios:
+	
+	private void eliminarPregunta(SuperPanel contentPane,String rutaDelArchivo)
+	{
+		String auxCategoria = determinarDisciplina();
+		
+		contentPane.getData().eliminarPreguntaDeLaListaDelMapa("preguntas.dat",auxCategoria,(Pregunta)list.getSelectedValue());
+		vaciarJList();
+		meterEnElJListTodasLasPreguntasDeUnaDeterminadaDisciplina(contentPane, auxCategoria);
 	}
 
 	private void listarPreguntasPorDisciplina(SuperPanel contentPane)
@@ -162,6 +180,12 @@ public class PanelVerPreguntas extends SuperPanel
 
 	}
 
+	private void vaciarJList()
+	{
+		DefaultListModel listModel = new DefaultListModel();
+		list.setModel(listModel);
+	}
+	
 	private String determinarDisciplina()
 	{
 		String auxCategoria = "";

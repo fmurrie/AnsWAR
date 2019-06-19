@@ -307,5 +307,18 @@ public class BaseDeDatos
 		
 		copiarPreguntasDeColeccionAlArchivo(nombreArchivo);
 	}
+	
+	public void eliminarPreguntaDeLaListaDelMapa(String nombreArchivo,String categoria,Pregunta obj)
+	{
+		
+		for(int i = 0;i < this.coleccionPreguntas.get(categoria).size();i++)
+		{
+			if(obj.getId().equals(coleccionPreguntas.get(categoria).get(i).getId()))
+			{
+				this.coleccionPreguntas.get(categoria).remove(i);
+			}
+		}
+		copiarPreguntasDeColeccionAlArchivo(nombreArchivo);
+	}
 
 }

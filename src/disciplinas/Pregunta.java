@@ -14,6 +14,15 @@ public class Pregunta implements Serializable
 	
 
 	// Constructores
+	
+	public Pregunta()
+	{
+		setId("");
+		setEnunciado("");
+		setDisciplina("");
+		setOpciones(new ArrayList<Respuesta>());
+	
+	}
 
 	public Pregunta(String enunciado,String disciplina,ArrayList<Respuesta> opciones)
 	{
@@ -44,7 +53,7 @@ public class Pregunta implements Serializable
 		return opciones;
 	}
 
-	private String getId()
+	public String getId()
 	{
 		return id;
 	}
