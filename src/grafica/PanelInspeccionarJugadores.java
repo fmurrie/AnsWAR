@@ -57,7 +57,7 @@ public class PanelInspeccionarJugadores extends SuperPanel
 		list.setFont(new Font("Stencil",Font.PLAIN,12));
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-		contentPane.getData().copiarCuentasDelArchivoAlaColeccion("jugadores.dat");// marca
+		contentPane.getData().copiarCuentasDelArchivoAlaColeccion("jugadores.dat");
 		DefaultListModel listModel = new DefaultListModel();
 
 		for(int i = 0;i < contentPane.getData().getColeccionJugadores().cantidad();i++)
@@ -77,7 +77,9 @@ public class PanelInspeccionarJugadores extends SuperPanel
 			{
 				if((JugadorPermanente) list.getSelectedValue() != null)
 				{
-					((PanelEditarJugadoresAdm) contentPane.obtenerPanelPorNombreYdevolverPos(contentPane,"panelEditarJugadoresAdm")).setJugadorInterferidoYactualizarTextFields((JugadorPermanente) list.getSelectedValue());
+					((PanelEditarJugadoresAdm) contentPane.obtenerPanelPorNombreYdevolverPos(contentPane,
+							"panelEditarJugadoresAdm")).setJugadorInterferidoYactualizarTextFields(
+									(JugadorPermanente) list.getSelectedValue());
 					desplazarAotroPanel(contentPane,"panelEditarJugadoresAdm");
 				}
 			}

@@ -71,66 +71,67 @@ public class PanelConfiguracionJugador extends SuperPanel
 		passwordField.setFont(new Font("Tahoma",Font.PLAIN,16));
 		passwordField.setBackground(Color.LIGHT_GRAY);
 		add(passwordField);
-		
+
 		JLabel label_2 = new JLabel("");
 		add(label_2);
-		
+
 		JLabel label_1 = new JLabel("");
 		add(label_1);
-		
+
 		JButton btnEliminar = new JButton("Eliminar mi cuenta");
 		btnEliminar.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				int respuesta=JOptionPane.showConfirmDialog(null, "¿Realmente desea eliminar su cuenta?", "Eliminar cuenta", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-				if(respuesta==0)
+				int respuesta = JOptionPane.showConfirmDialog(null,"¿Realmente desea eliminar su cuenta?",
+						"Eliminar cuenta",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+				if(respuesta == 0)
 				{
-				contentPane.getData().eliminarJugadorDeLaLista("jugadores.dat",(JugadorPermanente) contentPane.getCuentaActiva());
-				desplazarAotroPanel(contentPane,"panelExterior");
+					contentPane.getData().eliminarJugadorDeLaLista("jugadores.dat",
+							(JugadorPermanente) contentPane.getCuentaActiva());
+					desplazarAotroPanel(contentPane,"panelExterior");
 				}
 			}
 		});
-		
-		
-				JButton btnVolver = new JButton("Volver");
-				btnVolver.addActionListener(new ActionListener()
+
+		JButton btnVolver = new JButton("Volver");
+		btnVolver.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				desplazarAotroPanel(contentPane,"panelMenuJugador");
+			}
+		});
+
+		JLabel label = new JLabel("");
+		add(label);
+
+		JButton btnModificar = new JButton("Modificar");
+		btnModificar.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				int respuesta = JOptionPane.showConfirmDialog(null,"¿Realmente desea modificar los datos de su cuenta?",
+						"Modificar datos",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+				if(respuesta == 0)
 				{
-					public void actionPerformed(ActionEvent e)
-					{
-						desplazarAotroPanel(contentPane,"panelMenuJugador");
-					}
-				});
-				
-				JLabel label = new JLabel("");
-				add(label);
-				
-						JButton btnModificar = new JButton("Modificar");
-						btnModificar.addActionListener(new ActionListener()
-						{
-							public void actionPerformed(ActionEvent e)
-							{
-								int respuesta=JOptionPane.showConfirmDialog(null, "¿Realmente desea modificar los datos de su cuenta?", "Modificar datos", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-								if(respuesta==0)
-								{
-								modificarCuenta(contentPane);
-								actualizarTextoTextFields(contentPane);
-								}
-							}
-						});
-						btnModificar.setForeground(Color.GREEN);
-						btnModificar.setFont(new Font("Stencil",Font.PLAIN,18));
-						btnModificar.setBackground(Color.BLACK);
-						add(btnModificar);
-				btnVolver.setForeground(Color.CYAN);
-				btnVolver.setBackground(Color.BLACK);
-				btnVolver.setFont(new Font("Stencil",Font.PLAIN,18));
-				add(btnVolver);
+					modificarCuenta(contentPane);
+					actualizarTextoTextFields(contentPane);
+				}
+			}
+		});
+		btnModificar.setForeground(Color.GREEN);
+		btnModificar.setFont(new Font("Stencil",Font.PLAIN,18));
+		btnModificar.setBackground(Color.BLACK);
+		add(btnModificar);
+		btnVolver.setForeground(Color.CYAN);
+		btnVolver.setBackground(Color.BLACK);
+		btnVolver.setFont(new Font("Stencil",Font.PLAIN,18));
+		add(btnVolver);
 		btnEliminar.setForeground(Color.RED);
 		btnEliminar.setFont(new Font("Stencil",Font.PLAIN,18));
 		btnEliminar.setBackground(Color.BLACK);
 		add(btnEliminar);
-
 
 	}
 

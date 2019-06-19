@@ -32,19 +32,19 @@ public class PanelCargarPreguntas extends SuperPanel
 	private JRadioButtonMenuItem rdbtnEntretenimiento = new JRadioButtonMenuItem("Entretenimiento");
 	private JRadioButtonMenuItem rdbtnArte = new JRadioButtonMenuItem("Arte");
 	private JRadioButtonMenuItem rdbtnCiencia = new JRadioButtonMenuItem("Ciencia");
-	
+
 	private JTextField preguntaField = new JTextField();
 	private JTextField opcionAField = new JTextField();
 	private JTextField opcionBField = new JTextField();
 	private JTextField opcionCField = new JTextField();
 	private JTextField opcionDField = new JTextField();
-	
+
 	private ButtonGroup grupoCheckBotomns = new ButtonGroup();
 	private JCheckBox chckbxA = new JCheckBox("A");
 	private JCheckBox chckbxB = new JCheckBox("B");
 	private JCheckBox chckbxC = new JCheckBox("C");
 	private JCheckBox chckbxD = new JCheckBox("D");
-	
+
 	public PanelCargarPreguntas(SuperPanel contentPane)
 	{
 		setLayout(new GridLayout(18,1,0,0));
@@ -59,33 +59,33 @@ public class PanelCargarPreguntas extends SuperPanel
 		add(label_3);
 
 		grupoRdionBotomns = new ButtonGroup();
-		
+
 		rdbtnGeografia = new JRadioButtonMenuItem("Geografia");
 		rdbtnGeografia.setText("Geografia");
 		rdbtnGeografia.setSelected(true);
-		
+
 		rdbtnHistoria = new JRadioButtonMenuItem("Historia");
 		rdbtnHistoria.setText("Historia");
-		
+
 		rdbtnDeporte = new JRadioButtonMenuItem("Deporte");
 		rdbtnDeporte.setText("Deporte");
-		
+
 		rdbtnEntretenimiento = new JRadioButtonMenuItem("Entretenimiento");
 		rdbtnEntretenimiento.setText("Entretenimiento");
-		
+
 		rdbtnArte = new JRadioButtonMenuItem("Arte");
 		rdbtnArte.setText("Arte");
-		
+
 		rdbtnCiencia = new JRadioButtonMenuItem("Ciencia");
 		rdbtnCiencia.setText("Ciencia");
-		
+
 		grupoRdionBotomns.add(rdbtnGeografia);
 		grupoRdionBotomns.add(rdbtnHistoria);
 		grupoRdionBotomns.add(rdbtnDeporte);
 		grupoRdionBotomns.add(rdbtnEntretenimiento);
 		grupoRdionBotomns.add(rdbtnArte);
 		grupoRdionBotomns.add(rdbtnCiencia);
-		
+
 		add(rdbtnGeografia);
 		add(rdbtnHistoria);
 		add(rdbtnDeporte);
@@ -189,14 +189,14 @@ public class PanelCargarPreguntas extends SuperPanel
 		lblRespuesta.setForeground(Color.WHITE);
 		lblRespuesta.setFont(new Font("Stencil",Font.PLAIN,18));
 		add(lblRespuesta);
-		
+
 		grupoCheckBotomns = new ButtonGroup();
 		chckbxA = new JCheckBox("A");
 		chckbxA.setText("A");
 		chckbxA.setSelected(true);
 		grupoCheckBotomns.add(chckbxA);
 		add(chckbxA);
-		
+
 		JLabel label = new JLabel("");
 		add(label);
 		chckbxB = new JCheckBox("B");
@@ -229,6 +229,7 @@ public class PanelCargarPreguntas extends SuperPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
+				restaurarTextfields();
 				desplazarAotroPanel(contentPane,"panelMenuADMenunciados");
 			}
 		});
@@ -243,6 +244,7 @@ public class PanelCargarPreguntas extends SuperPanel
 			public void actionPerformed(ActionEvent e)
 			{
 				crearEnunciado(contentPane);
+				restaurarTextfields();
 			}
 		});
 		btnCrearPregunta.setForeground(Color.GREEN);
@@ -251,93 +253,94 @@ public class PanelCargarPreguntas extends SuperPanel
 		add(btnCrearPregunta);
 
 	}
-	
+
 	public void crearEnunciado(SuperPanel contentPane)
 	{
-		String auxPregunta=preguntaField.getText();
-		String auxOpcionA=opcionAField.getText();
-		String auxOpcionB=opcionBField.getText();
-		String auxOpcionC=opcionCField.getText();
-		String auxOpcionD=opcionDField.getText();
-		
-		String auxCategoria="";	
-		auxCategoria=determinarDisciplina(auxCategoria);
+		String auxPregunta = preguntaField.getText();
+		String auxOpcionA = opcionAField.getText();
+		String auxOpcionB = opcionBField.getText();
+		String auxOpcionC = opcionCField.getText();
+		String auxOpcionD = opcionDField.getText();
 
-		String auxOpcionCorrecta="";
-		auxOpcionCorrecta=determinarOpcionCorrecta(auxOpcionCorrecta);
-		
+		String auxCategoria = "";
+		auxCategoria = determinarDisciplina(auxCategoria);
+
+		String auxOpcionCorrecta = "";
+		auxOpcionCorrecta = determinarOpcionCorrecta(auxOpcionCorrecta);
+
 		Pregunta preguntaNueva;
-		ArrayList<Respuesta> auxOpciones=new ArrayList<Respuesta>();
+		ArrayList<Respuesta> auxOpciones = new ArrayList<Respuesta>();
 		Respuesta auxRespuesta;
-		
-		if((!auxPregunta.equals(""))&&(!auxOpcionA.equals(""))&&(!auxOpcionB.equals(""))&&(!auxOpcionC.equals(""))&&(!auxOpcionD.equals("")))
+
+		if((!auxPregunta.equals("")) && (!auxOpcionA.equals("")) && (!auxOpcionB.equals("")) && (!auxOpcionC.equals(""))
+				&& (!auxOpcionD.equals("")))
 		{
-			auxRespuesta=new Respuesta(auxOpcionA,false);
+			auxRespuesta = new Respuesta(auxOpcionA,false);
 			if(auxOpcionCorrecta.equalsIgnoreCase("A"))
 				auxRespuesta.setEsCorrecta(true);
 			auxOpciones.add(auxRespuesta);
-			
-			auxRespuesta=new Respuesta(auxOpcionB,false);
+
+			auxRespuesta = new Respuesta(auxOpcionB,false);
 			if(auxOpcionCorrecta.equalsIgnoreCase("B"))
 				auxRespuesta.setEsCorrecta(true);
 			auxOpciones.add(auxRespuesta);
-			
-			auxRespuesta=new Respuesta(auxOpcionC,false);
+
+			auxRespuesta = new Respuesta(auxOpcionC,false);
 			if(auxOpcionCorrecta.equalsIgnoreCase("C"))
 				auxRespuesta.setEsCorrecta(true);
 			auxOpciones.add(auxRespuesta);
-			
-			auxRespuesta=new Respuesta(auxOpcionD,false);
+
+			auxRespuesta = new Respuesta(auxOpcionD,false);
 			if(auxOpcionCorrecta.equalsIgnoreCase("D"))
 				auxRespuesta.setEsCorrecta(true);
 			auxOpciones.add(auxRespuesta);
-			
-			preguntaNueva=new Pregunta(auxPregunta,auxCategoria,auxOpciones);
-		
+
+			preguntaNueva = new Pregunta(auxPregunta,auxCategoria,auxOpciones);
+
 			contentPane.getData().cargarNuevaPregunta("preguntas.dat",auxCategoria,preguntaNueva);
-			
+
 		}
-				
+
 	}
-	
+
 	private String determinarOpcionCorrecta(String auxOpcionCorrecta)
 	{
 		if(chckbxA.isSelected())
-			auxOpcionCorrecta=chckbxA.getText();
+			auxOpcionCorrecta = chckbxA.getText();
 		if(chckbxB.isSelected())
-			auxOpcionCorrecta=chckbxB.getText();
+			auxOpcionCorrecta = chckbxB.getText();
 		if(chckbxC.isSelected())
-			auxOpcionCorrecta=chckbxC.getText();
+			auxOpcionCorrecta = chckbxC.getText();
 		if(chckbxD.isSelected())
-			auxOpcionCorrecta=chckbxD.getText();
-		
+			auxOpcionCorrecta = chckbxD.getText();
+
 		return auxOpcionCorrecta;
 	}
-	
+
 	private String determinarDisciplina(String auxCategoria)
 	{
 		if(rdbtnGeografia.isSelected())
-			auxCategoria=rdbtnGeografia.getText();
-		
+			auxCategoria = rdbtnGeografia.getText();
+
 		if(rdbtnHistoria.isSelected())
-			auxCategoria=rdbtnHistoria.getText();
-		
+			auxCategoria = rdbtnHistoria.getText();
+
 		if(rdbtnDeporte.isSelected())
-			auxCategoria=rdbtnDeporte.getText();
-		
+			auxCategoria = rdbtnDeporte.getText();
+
 		if(rdbtnEntretenimiento.isSelected())
-			auxCategoria=rdbtnEntretenimiento.getText();
-		
+			auxCategoria = rdbtnEntretenimiento.getText();
+
 		if(rdbtnArte.isSelected())
-			auxCategoria=rdbtnArte.getText();
-		
+			auxCategoria = rdbtnArte.getText();
+
 		if(rdbtnCiencia.isSelected())
-			auxCategoria=rdbtnCiencia.getText();
-		
+			auxCategoria = rdbtnCiencia.getText();
+
 		return auxCategoria;
 	}
-	
-	public void restaurarTextfields()
+
+	private void restaurarTextfields()
 	{
 		preguntaField.setText("");
 		opcionAField.setText("");

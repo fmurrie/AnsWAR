@@ -43,7 +43,9 @@ public class Respuesta implements Serializable
 	@Override
 	public String toString()
 	{
-		String dato =getRespuesta()+" su valor es: "+getEsCorrecta();
+		String dato =getRespuesta();
+		if(getEsCorrecta()==true)
+			dato=dato+" [es la correcta]";
 		
 		return dato;
 	}

@@ -53,7 +53,6 @@ public class PanelMenuADMenunciados extends SuperPanel
 		btnInspeccionarEnunciados.setForeground(Color.GREEN);
 		btnInspeccionarEnunciados.setFont(new Font("Stencil",Font.PLAIN,18));
 		add(btnInspeccionarEnunciados);
-	
 
 		JButton btnVolver = new JButton("Volver");
 		btnVolver.addActionListener(new ActionListener()

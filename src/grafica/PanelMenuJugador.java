@@ -66,7 +66,7 @@ public class PanelMenuJugador extends SuperPanel
 					contentPane.actualizarTextFieldPanelConfiguracionJugador(contentPane);
 					desplazarAotroPanel(contentPane,"");
 				}
-				
+
 			}
 		});
 		btnPerfil.setForeground(Color.BLUE);
@@ -84,7 +84,7 @@ public class PanelMenuJugador extends SuperPanel
 					contentPane.actualizarTextFieldPanelConfiguracionJugador(contentPane);
 					desplazarAotroPanel(contentPane,"panelConfiguracionJugador");
 				}
-				
+
 			}
 		});
 		btnConfiguracion.setForeground(Color.WHITE);

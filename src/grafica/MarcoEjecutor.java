@@ -92,20 +92,23 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				if((contentPane.getComponent(0).getName().equals("panelExterior") == false)&&(contentPane.getComponent(0).getName().equals("panelRegistro") == false)&&(contentPane.getComponent(0).getName().equals("panelLogin") == false))
+				if((contentPane.getComponent(0).getName().equals("panelExterior") == false)
+						&& (contentPane.getComponent(0).getName().equals("panelRegistro") == false)
+						&& (contentPane.getComponent(0).getName().equals("panelLogin") == false))
 				{
 					if(!(contentPane.getCuentaActiva() instanceof JugadorInvitado))
 					{
-						int respuesta=JOptionPane.showConfirmDialog(null, "¿Realmente desea cerrar sesion?", "Cerrar sesion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-						if(respuesta==0)
+						int respuesta = JOptionPane.showConfirmDialog(null,"¿Realmente desea cerrar sesion?",
+								"Cerrar sesion",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+						if(respuesta == 0)
 						{
-						contentPane.setCuentaActiva(new JugadorInvitado());
-						contentPane.restaurarLosTextFieldCuentaActiva();
-						desplazarAotroPanel(contentPane,"panelLogin");
+							contentPane.setCuentaActiva(new JugadorInvitado());
+							contentPane.restaurarLosTextFieldCuentaActiva();
+							desplazarAotroPanel(contentPane,"panelLogin");
 						}
-						
+
 					}
-					
+
 				}
 			}
 		});
@@ -119,11 +122,12 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				int respuesta=JOptionPane.showConfirmDialog(null, "¿Realmente desea salir?", "Salir", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-				if(respuesta==0)
+				int respuesta = JOptionPane.showConfirmDialog(null,"¿Realmente desea salir?","Salir",
+						JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+				if(respuesta == 0)
 				{
-				setVisible(false);
-				dispose();
+					setVisible(false);
+					dispose();
 				}
 			}
 		});
@@ -140,7 +144,7 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 		contentPane = new SuperPanel();
 		contentPane.setCuentaActiva(new JugadorInvitado());
 		contentPane.getData().copiarCuentasDelArchivoAlaColeccion("jugadores.dat");
-		contentPane.getData().copiarPreguntasDelArchivoAlaColeccion("preguntas.dat"); //marca
+		contentPane.getData().copiarPreguntasDelArchivoAlaColeccion("preguntas.dat"); // marca
 		contentPane.setBorder(new EmptyBorder(5,5,5,5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new CardLayout(0,0));
@@ -210,17 +214,15 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 		PanelConfiguracionJugador panelConfiguracionJugador = new PanelConfiguracionJugador(contentPane);
 		panelConfiguracionJugador.setName("panelConfiguracionJugador");
 		contentPane.add(panelConfiguracionJugador);
-		
-		PanelInspeccionarJugadores panelInspeccionarJugadores=new PanelInspeccionarJugadores(contentPane);
+
+		PanelInspeccionarJugadores panelInspeccionarJugadores = new PanelInspeccionarJugadores(contentPane);
 		panelInspeccionarJugadores.setName("panelInspeccionarJugadores");
 		contentPane.add(panelInspeccionarJugadores);
-		
-		PanelEditarJugadoresAdm panelEditarJugadoresAdm=new PanelEditarJugadoresAdm(contentPane);
+
+		PanelEditarJugadoresAdm panelEditarJugadoresAdm = new PanelEditarJugadoresAdm(contentPane);
 		panelEditarJugadoresAdm.setName("panelEditarJugadoresAdm");
 		contentPane.add(panelEditarJugadoresAdm);
-		
-		
-		
+
 	}
 
 	public void desplazarAotroPanel(SuperPanel contentPane, String panelAmostrar)
@@ -243,7 +245,7 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 		}
 		restaurarValoresPanelPartida(contentPane);
 	}
-	
+
 	@Override
 	public void desplazarAotroPanelDentroDeUnaPartida(SuperPanel contentPane, String panelAmostrar)
 	{
@@ -263,7 +265,7 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 
 			i++;
 		}
-		restaurarValoresPanelPartida(contentPane);	
+		restaurarValoresPanelPartida(contentPane);
 	}
 
 	private void restaurarValoresPanelPartida(SuperPanel contentPane)
@@ -310,7 +312,7 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 		}
 		return aux;
 	}
-	
+
 	@Override
 	public void eliminarUnPanel(SuperPanel contentPane, String nombrePanel)
 	{

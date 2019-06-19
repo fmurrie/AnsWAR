@@ -273,13 +273,13 @@ public class PanelRuleta extends SuperPanel implements IRelacionPanelesRuletaYRe
 		add(btnPartida,gbc_btnPartida);
 
 	}
-	
+
 	public void moverseEntreRuletaYResponder(SuperPanel contenidoPartida)
 	{
-			desplazarAotroPanelDentroDeUnaPartida(contenidoPartida,"panelParaResponder");
-			restaurarValoresPanelParaResponder(contenidoPartida);
-			revalidate();
-			repaint();	
+		desplazarAotroPanelDentroDeUnaPartida(contenidoPartida,"panelParaResponder");
+		restaurarValoresPanelParaResponder(contenidoPartida);
+		revalidate();
+		repaint();
 	}
 
 }

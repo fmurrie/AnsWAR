@@ -84,7 +84,7 @@ public class Pregunta implements Serializable
 	@Override
 	public String toString()
 	{
-		String dato="\nID: "+getId()+"\nPregunta: "+getEnunciado()+"\nOpcion A) "+getOpciones().get(0).toString()+"\nOpcion B) "+getOpciones().get(1).toString()+"\nOpcion C) "+getOpciones().get(2).toString()+"\nOpcion D) "+getOpciones().get(3).toString();
+		String dato="ID: "+getId()+"  |  Pregunta: "+getEnunciado()+"  |  Opcion A) "+getOpciones().get(0).toString()+"  |  Opcion B) "+getOpciones().get(1).toString()+"  |  Opcion C) "+getOpciones().get(2).toString()+"  |  Opcion D) "+getOpciones().get(3).toString();
 		
 		return  dato;
 	}

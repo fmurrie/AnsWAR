@@ -63,7 +63,6 @@ public class PanelPartida<T extends Jugador> extends SuperPanel
 	private final JLabel label_5 = new JLabel("");
 	private final JLabel label_6 = new JLabel("");
 
-
 	private Jugador jugador;
 	private static long puntosDePartida = 0;
 	private static int preguntasAcertadasDePartida = 0;
@@ -173,10 +172,11 @@ public class PanelPartida<T extends Jugador> extends SuperPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				int respuesta=JOptionPane.showConfirmDialog(null, "¿Realmente desea abandonar la partida?", "Abandonar partida", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-				if(respuesta==0)
+				int respuesta = JOptionPane.showConfirmDialog(null,"¿Realmente desea abandonar la partida?",
+						"Abandonar partida",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+				if(respuesta == 0)
 				{
-				desplazarAotroPanel(contentPane,"panelMenuJugador");
+					desplazarAotroPanel(contentPane,"panelMenuJugador");
 				}
 			}
 		});

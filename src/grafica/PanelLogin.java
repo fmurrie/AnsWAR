@@ -131,8 +131,7 @@ public class PanelLogin extends SuperPanel
 				desplazarAotroPanel(contentPane,"panelMenuAdministracion");
 			if(contentPane.getCuentaActiva() instanceof JugadorPermanente)
 				desplazarAotroPanel(contentPane,"panelMenuJugador");
-		}
-		else
+		}else
 		{
 			JOptionPane.showMessageDialog(null,"La combinacion de datos ingresados no existe.");
 		}

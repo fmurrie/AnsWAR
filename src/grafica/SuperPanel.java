@@ -103,9 +103,9 @@ public class SuperPanel<T extends Cuenta> extends JPanel implements IRelacionFra
 		}
 		restaurarValoresPanelPartida(contentPane);
 		actualizarJlistDelPanelInspeccionarJugadores(contentPane);
-		
+
 	}
-	
+
 	@Override
 	public void desplazarAotroPanelDentroDeUnaPartida(SuperPanel contentPane, String panelAmostrar)
 	{
@@ -125,9 +125,8 @@ public class SuperPanel<T extends Cuenta> extends JPanel implements IRelacionFra
 
 			i++;
 		}
-		restaurarValoresPanelPartida(contentPane);	
+		restaurarValoresPanelPartida(contentPane);
 	}
-
 
 	public void restaurarValoresRuleta(SuperPanel contentPane)
 	{
@@ -266,7 +265,7 @@ public class SuperPanel<T extends Cuenta> extends JPanel implements IRelacionFra
 		Component aux = obtenerPanelPorNombreYdevolverPos(contentPane,"panelConfiguracionJugador");
 		((PanelConfiguracionJugador) aux).actualizarTextoTextFields(contentPane);
 	}
-	
+
 	public void actualizarJlistDelPanelInspeccionarJugadores(SuperPanel contentPane)
 	{
 		Component aux = obtenerPanelPorNombreYdevolverPos(contentPane,"panelInspeccionarJugadores");
