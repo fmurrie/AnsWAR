@@ -23,7 +23,7 @@ public class Respuesta implements Serializable
 		return respuesta;
 	}
 
-	private boolean getEsCorrecta()
+	public boolean getEsCorrecta()
 	{
 		return esCorrecta;
 	}

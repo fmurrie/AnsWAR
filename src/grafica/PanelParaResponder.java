@@ -9,6 +9,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JToggleButton;
 import javax.swing.SwingConstants;
@@ -25,6 +26,7 @@ import java.awt.Insets;
 
 public class PanelParaResponder extends SuperPanel implements IRelacionPanelesRuletaYResponder
 {
+	private Pregunta preguntaActual= new Pregunta();
 	private JTextField pregunta = new JTextField();
 	private ButtonGroup grupoRdionBotomns = new ButtonGroup();
 	private JToggleButton opcionA = new JToggleButton("");
@@ -127,7 +129,6 @@ public class PanelParaResponder extends SuperPanel implements IRelacionPanelesRu
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-
 				opcionA.setEnabled(false);
 				opcionC.setEnabled(false);
 				opcionD.setEnabled(false);
@@ -143,12 +144,14 @@ public class PanelParaResponder extends SuperPanel implements IRelacionPanelesRu
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-
+				if(preguntaActual.getOpciones().get(0).getEsCorrecta()==true)
+					JOptionPane.showMessageDialog(null,"Correcta!");
+				else
+					JOptionPane.showMessageDialog(null,"Incorrecta");
 				opcionB.setEnabled(false);
 				opcionC.setEnabled(false);
 				opcionD.setEnabled(false);
-				moverseEntreRuletaYResponder(contenidoPartida);
-
+				moverseEntreRuletaYResponder(contenidoPartida);			
 			}
 		});
 
@@ -225,21 +228,20 @@ public class PanelParaResponder extends SuperPanel implements IRelacionPanelesRu
 	{
 		String auxCategoria = ((PanelRuleta) obtenerPanelPorNombreYdevolverPos(contenidoPartida,"panelRuleta")).getTextoFieldResultado();
 		ArrayList<Pregunta> listaAux = contenidoPartida.getData().getColeccionPreguntas().get(auxCategoria);
-		Pregunta auxPregunta;
 		
 		int indexElegida = ThreadLocalRandom.current().nextInt(0,listaAux.size());
 		
-		auxPregunta=listaAux.get(indexElegida);
-		actulizarTextFieldYbotones(auxPregunta);
+		preguntaActual=listaAux.get(indexElegida);
+		actulizarTextFieldYbotones();
 	}
 	
-	private void actulizarTextFieldYbotones(Pregunta preguntaTocada)
+	private void actulizarTextFieldYbotones()
 	{
-		this.pregunta.setText(preguntaTocada.getEnunciado());
-		this.opcionA.setText(preguntaTocada.getOpciones().get(0).getRespuesta());
-		this.opcionB.setText(preguntaTocada.getOpciones().get(1).getRespuesta());
-		this.opcionC.setText(preguntaTocada.getOpciones().get(2).getRespuesta());
-		this.opcionD.setText(preguntaTocada.getOpciones().get(3).getRespuesta());
+		this.pregunta.setText(this.preguntaActual.getEnunciado());
+		this.opcionA.setText(this.preguntaActual.getOpciones().get(0).getRespuesta());
+		this.opcionB.setText(this.preguntaActual.getOpciones().get(1).getRespuesta());
+		this.opcionC.setText(this.preguntaActual.getOpciones().get(2).getRespuesta());
+		this.opcionD.setText(this.preguntaActual.getOpciones().get(3).getRespuesta());
 	}
 
 	public void moverseEntreRuletaYResponder(SuperPanel contenidoPartida)
