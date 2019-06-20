@@ -265,6 +265,12 @@ public class SuperPanel<T extends Cuenta> extends JPanel implements IRelacionFra
 		Component aux = obtenerPanelPorNombreYdevolverPos(contentPane,"panelConfiguracionJugador");
 		((PanelConfiguracionJugador) aux).actualizarTextoTextFields(contentPane);
 	}
+	
+	public void actualizarTextFieldPanelPerfilJugador(SuperPanel contentPane)
+	{
+		Component aux = obtenerPanelPorNombreYdevolverPos(contentPane,"panelPerfilJugador");
+		((PanelPerfilJugador) aux).actualizarTextoTextFields(contentPane);
+	}
 
 	public void actualizarJlistDelPanelInspeccionarJugadores(SuperPanel contentPane)
 	{

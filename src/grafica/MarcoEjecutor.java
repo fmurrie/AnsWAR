@@ -214,6 +214,10 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 		PanelEditarJugadoresAdm panelEditarJugadoresAdm = new PanelEditarJugadoresAdm(contentPane);
 		panelEditarJugadoresAdm.setName("panelEditarJugadoresAdm");
 		contentPane.add(panelEditarJugadoresAdm);
+		
+		PanelPerfilJugador panelPerfilJugador = new PanelPerfilJugador(contentPane);
+		panelPerfilJugador.setName("panelPerfilJugador");
+		contentPane.add(panelPerfilJugador);
 
 	}
 

@@ -139,6 +139,13 @@ public abstract class Jugador extends Cuenta
 
 		return dato;
 	}
+	
+	public String toStringValores()
+	{
+		String dato ="Nickname: " + getNickname() + "  |  Puntuacion: " + getPuntaje()+"  |  Respuestas correctas: " + getNumPreguntasAcertadas()+ "  |  Partidas jugadas: " + getNumPartidasJugadas();
+
+		return dato;
+	}
 
 	@Override
 	public boolean equals(Object obj)

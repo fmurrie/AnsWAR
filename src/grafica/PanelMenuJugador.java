@@ -63,8 +63,8 @@ public class PanelMenuJugador extends SuperPanel
 			{
 				if(contentPane.getCuentaActiva() instanceof JugadorPermanente)
 				{
-					contentPane.actualizarTextFieldPanelConfiguracionJugador(contentPane);
-					desplazarAotroPanel(contentPane,"");
+					contentPane.actualizarTextFieldPanelPerfilJugador(contentPane);
+					desplazarAotroPanel(contentPane,"panelPerfilJugador");
 				}
 
 			}
@@ -93,5 +93,7 @@ public class PanelMenuJugador extends SuperPanel
 		add(btnConfiguracion);
 
 	}
+	
+	
 
 }
