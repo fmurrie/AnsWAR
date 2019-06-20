@@ -277,6 +277,13 @@ public class SuperPanel<T extends Cuenta> extends JPanel implements IRelacionFra
 		Component aux = obtenerPanelPorNombreYdevolverPos(contentPane,"panelInspeccionarJugadores");
 		((PanelInspeccionarJugadores) aux).actualizarListaJugadores(contentPane);
 	}
+	
+	public void actualizarJlistDelPanelClasificacion(SuperPanel contentPane)
+	{
+		Component aux = obtenerPanelPorNombreYdevolverPos(contentPane,"panelClasificacion");
+		((PanelClasificacion) aux).actualizarListaJugadores(contentPane);
+	}
+
 
 	@Override
 	public void eliminarUnPanel(SuperPanel contentPane, String nombrePanel)

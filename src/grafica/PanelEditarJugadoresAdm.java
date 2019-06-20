@@ -183,6 +183,7 @@ public class PanelEditarJugadoresAdm extends SuperPanel
 		// Se reemplaza la cuenta modificada por la original
 		if(aux2 != null)
 		{
+			aux2.setPuntaje(Long.parseLong(puntajeField.getText()));
 			contentPane.getData().modificarCuenta("jugadores.dat",aux,aux2);
 		}
 

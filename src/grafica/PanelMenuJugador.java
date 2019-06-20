@@ -60,6 +60,7 @@ public class PanelMenuJugador extends SuperPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
+				contentPane.actualizarJlistDelPanelClasificacion(contentPane);
 				desplazarAotroPanel(contentPane,"panelClasificacion");
 			}
 		});

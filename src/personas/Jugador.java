@@ -90,7 +90,7 @@ public abstract class Jugador extends Cuenta
 		return puntaje;
 	}
 
-	private int getRangoClasificacion()
+	public int getRangoClasificacion()
 	{
 		return rangoClasificacion;
 	}
@@ -115,7 +115,7 @@ public abstract class Jugador extends Cuenta
 		this.puntaje = puntaje;
 	}
 
-	private void setRangoClasificacion(int rangoClasificacion)
+	public void setRangoClasificacion(int rangoClasificacion)
 	{
 		this.rangoClasificacion = rangoClasificacion;
 	}
