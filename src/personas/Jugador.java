@@ -110,7 +110,7 @@ public abstract class Jugador extends Cuenta
 		this.nickname = nickname;
 	}
 
-	private void setPuntaje(long puntaje)
+	public void setPuntaje(long puntaje)
 	{
 		this.puntaje = puntaje;
 	}
@@ -120,12 +120,12 @@ public abstract class Jugador extends Cuenta
 		this.rangoClasificacion = rangoClasificacion;
 	}
 
-	private void setNumPartidasJugadas(int numPartidasJugadas)
+	public void setNumPartidasJugadas(int numPartidasJugadas)
 	{
 		this.numPartidasJugadas = numPartidasJugadas;
 	}
 
-	private void setNumPreguntasAcertadas(int numPreguntasAcertadas)
+	public void setNumPreguntasAcertadas(int numPreguntasAcertadas)
 	{
 		this.numPreguntasAcertadas = numPreguntasAcertadas;
 	}
@@ -135,8 +135,7 @@ public abstract class Jugador extends Cuenta
 	@Override
 	public String toString()
 	{
-		String dato ="-Datos del Jugador:  " +super.toString() + "  |  Nickname: " + getNickname() + "  |  Puntuacion: " + getPuntaje()
-				+ "  |  Posicion: " + getRangoClasificacion() + "  |  Respuestas correctas: " + getNumPreguntasAcertadas();
+		String dato ="-Datos del Jugador:  " +super.toString() + "  |  Nickname: " + getNickname() + "  |  Puntuacion: " + getPuntaje()	+ "  |  Posicion: " + getRangoClasificacion() + "  |  Respuestas correctas: " + getNumPreguntasAcertadas()+ "  |  Partidas jugadas: " + getNumPartidasJugadas();
 
 		return dato;
 	}

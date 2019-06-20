@@ -53,8 +53,6 @@ public class PanelPartida<T extends Jugador> extends SuperPanel
 	private final JLabel label = new JLabel("");
 	private final JLabel label_2 = new JLabel("");
 
-	private Temporizador reloj = new Temporizador(textFieldTiempo);
-
 	private PanelRuleta panelRuleta = new PanelRuleta(contenidoPartida);
 	private PanelParaResponder panelParaResponder = new PanelParaResponder(contenidoPartida);
 
@@ -64,8 +62,8 @@ public class PanelPartida<T extends Jugador> extends SuperPanel
 	private final JLabel label_6 = new JLabel("");
 
 	private T jugador;
-	//private static long puntosDePartida = 0;
-	//private static int preguntasAcertadasDePartida = 0;
+	
+	private Temporizador reloj;
 
 	/**
 	 * Create the panel.
@@ -73,6 +71,7 @@ public class PanelPartida<T extends Jugador> extends SuperPanel
 	public PanelPartida(SuperPanel contentPane)
 	{
 		jugador = (T) contentPane.getCuentaActiva();
+		reloj = new Temporizador(textFieldTiempo,contentPane,contenidoPartida,jugador);
 		setBackground(Color.BLACK);
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]
@@ -111,7 +110,7 @@ public class PanelPartida<T extends Jugador> extends SuperPanel
 		panel.add(textFieldTiempo);
 		
 
-		actualizarEstadoPuntosDePartidaYPreguntasAcertadasDePartida(); //marca
+		actualizarEstadoPuntosDePartidaYPreguntasAcertadasDePartida();
 		txtPreguntasAcertadas.setEditable(false);
 		txtPreguntasAcertadas.setFont(new Font("Stencil",Font.PLAIN,16));
 		txtPreguntasAcertadas.setColumns(10);
@@ -123,7 +122,6 @@ public class PanelPartida<T extends Jugador> extends SuperPanel
 		textFieldJugador.setColumns(10);
 		panel.add(textFieldJugador);
 
-		//actualizarEstadoPuntosDePartida();
 		textFieldPuntaje.setEditable(false);
 		textFieldPuntaje.setFont(new Font("Stencil",Font.PLAIN,16));
 		textFieldPuntaje.setColumns(10);
@@ -149,7 +147,8 @@ public class PanelPartida<T extends Jugador> extends SuperPanel
 				btnAbandonarPartida.setEnabled(true);
 				actualizarEstadosPartida();
 				btnIniciarPartida.setEnabled(false);
-				contenidoPartida.getData().copiarPreguntasDelArchivoAlaColeccion("preguntas.dat");// marca
+				contenidoPartida.getData().copiarPreguntasDelArchivoAlaColeccion("preguntas.dat");
+				contenidoPartida.getData().copiarCuentasDelArchivoAlaColeccion("jugadores.dat");
 				panelRuleta.setName("panelRuleta");
 				panelParaResponder.setName("panelParaResponder");
 				contenidoPartida.add(panelRuleta);
