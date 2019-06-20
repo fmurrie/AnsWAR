@@ -35,7 +35,7 @@ import javax.swing.JTextField;
 
 public class PanelPartida<T extends Jugador> extends SuperPanel
 {
-	private SuperPanel contenidoPartida = new SuperPanel();
+	private ContenidoPartida contenidoPartida = new ContenidoPartida();
 	private JPanel panel = new JPanel();
 
 	private ButtonGroup grupoBotonesMenuPartida = new ButtonGroup();
@@ -64,8 +64,8 @@ public class PanelPartida<T extends Jugador> extends SuperPanel
 	private final JLabel label_6 = new JLabel("");
 
 	private T jugador;
-	private static long puntosDePartida = 0;
-	private static int preguntasAcertadasDePartida = 0;
+	//private static long puntosDePartida = 0;
+	//private static int preguntasAcertadasDePartida = 0;
 
 	/**
 	 * Create the panel.
@@ -109,8 +109,9 @@ public class PanelPartida<T extends Jugador> extends SuperPanel
 		textFieldTiempo.setFont(new Font("Stencil",Font.PLAIN,16));
 		textFieldTiempo.setColumns(10);
 		panel.add(textFieldTiempo);
+		
 
-		actualizarEstadoPreguntasAcertadasDePartida();
+		actualizarEstadoPuntosDePartidaYPreguntasAcertadasDePartida(); //marca
 		txtPreguntasAcertadas.setEditable(false);
 		txtPreguntasAcertadas.setFont(new Font("Stencil",Font.PLAIN,16));
 		txtPreguntasAcertadas.setColumns(10);
@@ -122,7 +123,7 @@ public class PanelPartida<T extends Jugador> extends SuperPanel
 		textFieldJugador.setColumns(10);
 		panel.add(textFieldJugador);
 
-		actualizarEstadoPuntosDePartida();
+		//actualizarEstadoPuntosDePartida();
 		textFieldPuntaje.setEditable(false);
 		textFieldPuntaje.setFont(new Font("Stencil",Font.PLAIN,16));
 		textFieldPuntaje.setColumns(10);
@@ -199,14 +200,10 @@ public class PanelPartida<T extends Jugador> extends SuperPanel
 		reloj.start(100,1000);
 	}
 
-	private void actualizarEstadoPuntosDePartida()
+	private void actualizarEstadoPuntosDePartidaYPreguntasAcertadasDePartida()
 	{
-		this.textFieldPuntaje.setText("Puntaje: " + this.puntosDePartida);
-	}
-
-	private void actualizarEstadoPreguntasAcertadasDePartida()
-	{
-		this.txtPreguntasAcertadas.setText("Preguntas acertadas: " + this.preguntasAcertadasDePartida);
+		ActualizadorPartida actualizador=new ActualizadorPartida(textFieldPuntaje, txtPreguntasAcertadas, contenidoPartida, textFieldTiempo);
+		actualizador.start();
 	}
 
 	private void actualizarEstadoJugadorDePartida()

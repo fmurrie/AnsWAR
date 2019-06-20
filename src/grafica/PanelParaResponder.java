@@ -100,9 +100,16 @@ public class PanelParaResponder extends SuperPanel implements IRelacionPanelesRu
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
+				if(preguntaActual.getOpciones().get(3).getEsCorrecta()==true)
+					JOptionPane.showMessageDialog(null,"Respuesta Correcta!");
+					//Si la respuesta es correcta hay que sumarle el puntaje al jugador
+
+				else
+					JOptionPane.showMessageDialog(null,"Respuesta Incorrecta");
 				opcionA.setEnabled(false);
 				opcionB.setEnabled(false);
 				opcionC.setEnabled(false);
+				otorgarRecompensaSegunAcierto(contenidoPartida,3);
 				moverseEntreRuletaYResponder(contenidoPartida);
 			}
 		});
@@ -114,10 +121,15 @@ public class PanelParaResponder extends SuperPanel implements IRelacionPanelesRu
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-
+				if(preguntaActual.getOpciones().get(2).getEsCorrecta()==true)
+					JOptionPane.showMessageDialog(null,"Respuesta Correcta!");
+					//Si la respuesta es correcta hay que sumarle el puntaje al jugador
+				else
+					JOptionPane.showMessageDialog(null,"Respuesta Incorrecta");
 				opcionA.setEnabled(false);
 				opcionB.setEnabled(false);
 				opcionD.setEnabled(false);
+				otorgarRecompensaSegunAcierto(contenidoPartida,2);
 				moverseEntreRuletaYResponder(contenidoPartida);
 			}
 		});
@@ -129,9 +141,15 @@ public class PanelParaResponder extends SuperPanel implements IRelacionPanelesRu
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
+				if(preguntaActual.getOpciones().get(1).getEsCorrecta()==true)
+					JOptionPane.showMessageDialog(null,"Respuesta Correcta!");
+					//Si la respuesta es correcta hay que sumarle el puntaje al jugador
+				else
+					JOptionPane.showMessageDialog(null,"Respuesta Incorrecta");
 				opcionA.setEnabled(false);
 				opcionC.setEnabled(false);
 				opcionD.setEnabled(false);
+				otorgarRecompensaSegunAcierto(contenidoPartida,1);
 				moverseEntreRuletaYResponder(contenidoPartida);
 
 			}
@@ -145,12 +163,14 @@ public class PanelParaResponder extends SuperPanel implements IRelacionPanelesRu
 			public void actionPerformed(ActionEvent arg0)
 			{
 				if(preguntaActual.getOpciones().get(0).getEsCorrecta()==true)
-					JOptionPane.showMessageDialog(null,"Correcta!");
+					JOptionPane.showMessageDialog(null,"Respuesta Correcta!");
+					//Si la respuesta es correcta hay que sumarle el puntaje al jugador
 				else
-					JOptionPane.showMessageDialog(null,"Incorrecta");
+					JOptionPane.showMessageDialog(null,"Respuesta Incorrecta");
 				opcionB.setEnabled(false);
 				opcionC.setEnabled(false);
 				opcionD.setEnabled(false);
+				otorgarRecompensaSegunAcierto(contenidoPartida,0);
 				moverseEntreRuletaYResponder(contenidoPartida);			
 			}
 		});
@@ -224,6 +244,19 @@ public class PanelParaResponder extends SuperPanel implements IRelacionPanelesRu
 
 	}
 
+	private void otorgarRecompensaSegunAcierto(SuperPanel contenidoPartida,int index)
+	{
+		if(preguntaActual.getOpciones().get(index).getEsCorrecta()==true)
+		{
+			long puntosActuales=((ContenidoPartida)contenidoPartida).getPuntosDePartida();
+			((ContenidoPartida)contenidoPartida).setPuntosDePartida(puntosActuales+10);
+			
+			int preguntasActuales=((ContenidoPartida)contenidoPartida).getPreguntasAcertadasDePartida();
+			((ContenidoPartida)contenidoPartida).setPreguntasAcertadasDePartida(preguntasActuales+1);
+		}
+		
+	}
+	
 	public void buscarPreguntaSegunCategoria(SuperPanel contenidoPartida)
 	{
 		String auxCategoria = ((PanelRuleta) obtenerPanelPorNombreYdevolverPos(contenidoPartida,"panelRuleta")).getTextoFieldResultado();
