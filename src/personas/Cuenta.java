@@ -3,6 +3,8 @@ package personas;
 import java.io.*;
 import java.util.concurrent.ThreadLocalRandom;
 
+import informacion.Contenedor;
+
 public abstract class Cuenta implements Serializable
 {
 	// Atributos:
@@ -121,8 +123,8 @@ public abstract class Cuenta implements Serializable
 	@Override
 	public String toString()
 	{
-		String dato = "ID: " + getId() + "  |  Usuario: " + getUsuario() + "  |  DNI: "
-				+ getDni() + "  |  Direccion de correo: " + getCorreo();
+		String dato = "ID: " + getId() + "  |  Usuario: " + getUsuario() + "  |  DNI: " + getDni()
+				+ "  |  Direccion de correo: " + getCorreo();
 		return dato;
 
 	}
@@ -152,9 +154,53 @@ public abstract class Cuenta implements Serializable
 
 	private String generarIdRandom(long min, long max)
 	{
-		long idNumero = ThreadLocalRandom.current().nextLong(min,max);
-		String idString = Long.toString(idNumero);
+		boolean esta=true;
+		long idNumero=0;
+		String idString="";
+		while(esta==true)
+		{
+			idNumero = ThreadLocalRandom.current().nextLong(min,max);
+			idString = Long.toString(idNumero);
+			esta=verificarQueElIDnoExista("jugadores.dat",idString);
+		}
+		
 		return idString;
+	}
+
+	private boolean verificarQueElIDnoExista(String nombreArchivo, String idNueva)
+	{
+		File archiC = new File(nombreArchivo);
+		boolean respuesta = false;
+
+		if(archiC.exists())
+		{
+			ObjectInputStream archiCuentas;
+			try
+			{
+				archiCuentas = new ObjectInputStream(new FileInputStream(archiC));
+				JugadorPermanente aux = (JugadorPermanente) archiCuentas.readObject();
+				while((aux != null) && (respuesta != true))
+				{
+					if(aux.getId().equalsIgnoreCase(idNueva))
+						respuesta = true;
+					aux = (JugadorPermanente) archiCuentas.readObject();
+				}
+
+				archiCuentas.close();
+
+			}catch(FileNotFoundException e)
+			{
+				//e.printStackTrace();
+			}catch(IOException e)
+			{
+				//e.printStackTrace();
+			}catch(ClassNotFoundException e)
+			{
+				//e.printStackTrace();
+			}
+
+		}
+		return respuesta;
 	}
 
 }

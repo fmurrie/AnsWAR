@@ -18,8 +18,8 @@ import personas.JugadorPermanente;
 public class Temporizador
 {
 	private int hour = 0;
-	private int minute = 0;
-	private int second = 5;
+	private int minute = 3;
+	private int second = 0;
 	private Timer timer;
 	private boolean isTimerRunning;
 	private Display display;

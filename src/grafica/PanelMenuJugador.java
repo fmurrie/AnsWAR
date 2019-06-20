@@ -5,13 +5,20 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import disciplinas.Pregunta;
 import personas.JugadorPermanente;
 
 public class PanelMenuJugador extends SuperPanel
@@ -35,7 +42,12 @@ public class PanelMenuJugador extends SuperPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				desplazarAotroPanel(contentPane,"panelPartida");
+				boolean hayPreguntas = false;
+				hayPreguntas = verificarQueHayanPreguntasParaJugar("preguntas.dat");
+				if(hayPreguntas == true)
+					desplazarAotroPanel(contentPane,"panelPartida");
+				else
+					JOptionPane.showMessageDialog(null,"En este momento el sistema se encuentra en mantenimiento.");
 			}
 		});
 		btnJugar.setBackground(Color.BLACK);
@@ -93,7 +105,62 @@ public class PanelMenuJugador extends SuperPanel
 		add(btnConfiguracion);
 
 	}
-	
-	
+
+	private boolean verificarQueHayanPreguntasParaJugar(String nombreArchivo)
+	{
+		File archiP = new File(nombreArchivo);
+		boolean respuesta = false;
+		boolean hayDeGeografia = false;
+		boolean hayDeHistoria = false;
+		boolean hayDeDeporte = false;
+		boolean hayDeEntretenimiento = false;
+		boolean hayDeCiencia = false;
+		boolean hayDeArte = false;
+
+		if(archiP.exists())
+		{
+			ObjectInputStream archiPreguntas;
+			try
+			{
+				archiPreguntas = new ObjectInputStream(new FileInputStream(archiP));
+				Pregunta aux = (Pregunta) archiPreguntas.readObject();
+				while((aux != null) && (respuesta != true))
+				{
+					if((aux.getId().charAt(0) == 'G') && (!hayDeGeografia))
+						hayDeGeografia = true;
+					if((aux.getId().charAt(0) == 'H') && (!hayDeHistoria))
+						hayDeHistoria = true;
+					if((aux.getId().charAt(0) == 'D') && (!hayDeDeporte))
+						hayDeDeporte = true;
+					if((aux.getId().charAt(0) == 'E') && (!hayDeEntretenimiento))
+						hayDeEntretenimiento = true;
+					if((aux.getId().charAt(0) == 'C') && (!hayDeCiencia))
+						hayDeCiencia = true;
+					if((aux.getId().charAt(0) == 'A') && (!hayDeArte))
+						hayDeArte = true;
+
+					if((hayDeGeografia) && (hayDeHistoria) && (hayDeDeporte) && (hayDeEntretenimiento) && (hayDeCiencia)
+							&& (hayDeArte))
+						respuesta = true;
+
+					aux = (Pregunta) archiPreguntas.readObject();
+				}
+
+				archiPreguntas.close();
+
+			}catch(FileNotFoundException e)
+			{
+				// e.printStackTrace();
+			}catch(IOException e)
+			{
+				// e.printStackTrace();
+			}catch(ClassNotFoundException e)
+			{
+				// e.printStackTrace();
+			}
+
+		}
+		return respuesta;
+	}
 
 }
