@@ -12,6 +12,10 @@ import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * Panel grafico donde el administrador carga preguntas o inspecciona los
+ * enunciados cargados.
+ */
 public class PanelMenuADMenunciados extends SuperPanel
 {
 

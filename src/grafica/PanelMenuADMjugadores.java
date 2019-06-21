@@ -12,6 +12,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+/**
+ * Panel grafico donde el admnistrador puede ver y eliminar a los jugadores.
+ */
 public class PanelMenuADMjugadores extends SuperPanel
 {
 

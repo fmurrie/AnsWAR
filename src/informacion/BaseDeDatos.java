@@ -15,6 +15,10 @@ import personas.Cuenta;
 import personas.Jugador;
 import personas.JugadorPermanente;
 
+/**
+ * Clase que contiene un arreglo de jugadores. Y contiene un HashMap donde se encuentran las preguntas agrupadas segun categoria.
+ *
+ */
 public class BaseDeDatos
 {
 	// Atributos
@@ -54,6 +58,12 @@ public class BaseDeDatos
 
 	// Metodos extra:
 
+	/**
+	 * Metodo para registrar una cuenta nueva. Verifica si la cuenta no existe anteriormente.
+	 * @param nombreArchivo Recibe por parametro el nombre del archivo donde se encuentran los jugadores registrados
+	 * @param obj Recibe el jugador nuevo.
+	 * @return Devuelve false si la cuenta ya existe, o true si se pudo crear la cuenta.
+	 */
 	public boolean registrarCuenta(String nombreArchivo, JugadorPermanente obj)
 	{
 		boolean efectivo = false;
@@ -70,6 +80,13 @@ public class BaseDeDatos
 		return efectivo;
 	}
 
+	/**
+	 * Metodo para iniciar sesion de una cuenta
+	 * @param nombreArchivo Recibe la ruta del archivo donde se encuentran las cuentas registradas
+	 * @param usuario Recibe el nombre de usuario a ingresar
+	 * @param clave Recibe la clave del usuario a ingresar.
+	 * @return Devuelve el objeto jugador permanente. Donde estan toda la informacion del jugador.
+	 */
 	public JugadorPermanente loggearCuenta(String nombreArchivo, String usuario, String clave)
 	{
 
@@ -87,6 +104,12 @@ public class BaseDeDatos
 		return obj;
 	}
 
+	/**
+	 * Metodo para modificar una cuenta.
+	 * @param nombreArchivo
+	 * @param original
+	 * @param modificada
+	 */
 	public void modificarCuenta(String nombreArchivo, JugadorPermanente original, JugadorPermanente modificada)
 	{
 		if(original != null)
@@ -99,6 +122,11 @@ public class BaseDeDatos
 		}
 	}
 
+	/**
+	 * Metodo para eliminar un jugador de la lista de jugadores.
+	 * @param nombreArchivo Recibe la ruta del archivo donde se encuentran todos los jugadores
+	 * @param obj Recibe el jugador a eliminar.
+	 */
 	public void eliminarJugadorDeLaLista(String nombreArchivo, JugadorPermanente obj)
 	{
 		for(int i = 0;i < this.coleccionJugadores.cantidad();i++)
@@ -109,6 +137,10 @@ public class BaseDeDatos
 		copiarCuentasDeColeccionAlArchivo(nombreArchivo);
 	}
 
+	/**
+	 * Metodo que devuelve la coleccion de jugadores en forma de string.
+	 * @return Devuelve un String con todos los jugadores que hay en la coleccion.
+	 */
 	public String retornarColeccionJugadoresParaMostrar()
 	{
 		String dato = "";
@@ -120,6 +152,11 @@ public class BaseDeDatos
 		return dato;
 	}
 
+	/**
+	 * Metodo que verifca si la cuenta si la cuenta pasada por parametro ya existe.
+	 * @param obj Recibe el jugador para verificar
+	 * @return devuelve true si la cuenta ya existe, devuelve false si la cuenta no existe aun.
+	 */
 	private boolean verificarSiSeRepiteLaCuenta(JugadorPermanente obj)
 	{
 		boolean encontrada = false;
@@ -140,6 +177,11 @@ public class BaseDeDatos
 		return encontrada;
 	}
 
+	/**
+	 * Funcion que retorna la posicion de un jugador especifico.
+	 * @param param recibe el jugador que deseeamos buscar la posicion
+	 * @return devuelve la posicion del jugador  en el arraylist.
+	 */
 	public int retornarPosicionJugador(JugadorPermanente param)
 	{
 		int pos = -1;
@@ -152,6 +194,10 @@ public class BaseDeDatos
 		return pos;
 	}
 
+	/**
+	 *  Metodo para copiar las cuentas que estan en la coleccion a un archivo binario.
+	 * @param nombreArchivo recibe el nombre del archivo donde van a guardarse las cuentas.
+	 */
 	public void copiarCuentasDeColeccionAlArchivo(String nombreArchivo)
 	{
 		File archiC = new File(nombreArchivo);
@@ -188,6 +234,10 @@ public class BaseDeDatos
 
 	}
 
+	/**
+	 * Metodo que copia las cuentas del archivo a la coleccion.
+	 * @param nombreArchivo recibe por parametro el nombre del archivo donde se encuentran las cuentas.
+	 */
 	public void copiarCuentasDelArchivoAlaColeccion(String nombreArchivo)
 	{
 		File archiC = new File(nombreArchivo);
@@ -221,6 +271,10 @@ public class BaseDeDatos
 
 	// ----------------------------------------------------------------------------------------------------------------------------------
 
+	/**
+	 * Metodo para copiar las preguntas que estan en la coleccion para el archivo.
+	 * @param nombreArchivo recibe el nombre del archivo donde se van a guardar las preguntas.
+	 */
 	public void copiarPreguntasDeColeccionAlArchivo(String nombreArchivo)
 	{
 		File archiP = new File(nombreArchivo);
@@ -267,6 +321,10 @@ public class BaseDeDatos
 		}	
 	}
 
+	/**
+	 * Metodo para copiar laspreguntas del archivo a la coleccion de preguntas.
+	 * @param nombreArchivo recibe el nombre del archivo donde se encuentran las preguntas.
+	 */
 	public void copiarPreguntasDelArchivoAlaColeccion(String nombreArchivo)
 	{
 		File archiP = new File(nombreArchivo);
@@ -312,6 +370,10 @@ public class BaseDeDatos
 		}	
 	}
 
+	/**
+	 * Metodo para copiar la coleccion de preguntas al un JSON.
+	 * @throws JSONException
+	 */
 	public void copiarPreguntasAlArchivoJSON() throws JSONException
 	{
 		JSONArray arregloJson = new JSONArray();
@@ -350,6 +412,12 @@ public class BaseDeDatos
 		
 	}
 
+	/**
+	 * Metodo para agregar una nueva pregunta al archivo.
+	 * @param nombreArchivo recibe el nombre del archivo donde se va a agregar la pregunta
+	 * @param categoria  recibe la categoria a la que pertenece la pergunta
+	 * @param nuevaPregunta recibe la pregunta nueva.
+	 */
 	public void cargarNuevaPregunta(String nombreArchivo, String categoria, Pregunta nuevaPregunta)
 	{
 
@@ -366,6 +434,12 @@ public class BaseDeDatos
 		copiarPreguntasDeColeccionAlArchivo(nombreArchivo);
 	}
 
+	/**
+	 * Metodo que elimina una pregunta especifica de la coleccion de Preguntas
+	 * @param nombreArchivo recibe el nombre del archivo donde se encuentran las preguntas.
+	 * @param categoria Recibe la categoria de la pregunta a eliminar
+	 * @param obj Recibe la pregunta a eliminar.
+	 */
 	public void eliminarPreguntaDeLaListaDelMapa(String nombreArchivo, String categoria, Pregunta obj)
 	{
 

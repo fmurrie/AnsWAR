@@ -35,6 +35,9 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
 
+/**
+ * Ventana del programa
+ */
 public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 {
 
@@ -46,7 +49,7 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 
 	public MarcoEjecutor()
 	{
-		// reproducirSonido("src/audio/musicaAnswar.mp3");
+		 reproducirSonido("src/audio/musicaAnswar.mp3");
 
 		setBackground(Color.BLACK);
 		setTitle("AnsWAR");
@@ -55,7 +58,7 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 		setIconImage(miIcono);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100,100,1000,600);
+		setBounds(100,100,1000,700);
 
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBackground(Color.BLACK);
@@ -135,12 +138,6 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 		btnSalir.setBackground(Color.BLACK);
 		btnSalir.setFont(new Font("Stencil",Font.PLAIN,11));
 
-		JMenu mnOpciones_1 = new JMenu("Opciones");
-		mnOpciones_1.setFont(new Font("Stencil",Font.PLAIN,12));
-		mnOpciones_1.setForeground(Color.GRAY);
-		mnOpciones_1.setBackground(Color.DARK_GRAY);
-		menuBar.add(mnOpciones_1);
-
 		contentPane = new SuperPanel();
 		contentPane.setCuentaActiva(new JugadorInvitado());
 		contentPane.getData().copiarCuentasDelArchivoAlaColeccion("jugadores.dat");
@@ -214,13 +211,19 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 		PanelEditarJugadoresAdm panelEditarJugadoresAdm = new PanelEditarJugadoresAdm(contentPane);
 		panelEditarJugadoresAdm.setName("panelEditarJugadoresAdm");
 		contentPane.add(panelEditarJugadoresAdm);
-		
+
 		PanelPerfilJugador panelPerfilJugador = new PanelPerfilJugador(contentPane);
 		panelPerfilJugador.setName("panelPerfilJugador");
 		contentPane.add(panelPerfilJugador);
 
 	}
 
+	/**
+	 * Metodo para cambiar de un panel a otro.
+	 * 
+	 * @param contentPane   recibe el Panel que contiene todos los paneles
+	 * @param panelAmostrar El panel al que se va a desplazar.
+	 */
 	public void desplazarAotroPanel(SuperPanel contentPane, String panelAmostrar)
 	{
 		boolean busqueda = false;
@@ -242,6 +245,12 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 		restaurarValoresPanelPartida(contentPane);
 	}
 
+	/**
+	 * Metodo implementado de la interfaz IRelacionFrameYPaneles
+	 * 
+	 * @param contentPane   recibe el Panel que contiene todos los paneles
+	 * @param panelAmostrar Recibe el panel a mostrar
+	 */
 	@Override
 	public void desplazarAotroPanelDentroDeUnaPartida(SuperPanel contentPane, String panelAmostrar)
 	{

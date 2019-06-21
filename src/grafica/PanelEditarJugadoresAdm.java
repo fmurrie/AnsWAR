@@ -17,6 +17,10 @@ import javax.swing.SwingConstants;
 import personas.Jugador;
 import personas.JugadorPermanente;
 
+/**
+ * Panel grafico en el cual el administrador puede modificar datos de los
+ * jugadores
+ */
 public class PanelEditarJugadoresAdm extends SuperPanel
 {
 	private JugadorPermanente jugadorInterferido = new JugadorPermanente();
@@ -93,8 +97,9 @@ public class PanelEditarJugadoresAdm extends SuperPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				int respuesta = JOptionPane.showConfirmDialog(null,"¿Realmente desea modificar los datos del jugador?",
-						"Modificar jugador",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+				int respuesta = JOptionPane.showConfirmDialog(null,
+						"ï¿½Realmente desea modificar los datos del jugador?","Modificar jugador",
+						JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 				if(respuesta == 0)
 				{
 					modificarCuenta(contentPane);
@@ -128,7 +133,7 @@ public class PanelEditarJugadoresAdm extends SuperPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				int respuesta = JOptionPane.showConfirmDialog(null,"¿Realmente desea eliminar al jugador?",
+				int respuesta = JOptionPane.showConfirmDialog(null,"ï¿½Realmente desea eliminar al jugador?",
 						"Eliminar jugador",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 				if(respuesta == 0)
 				{

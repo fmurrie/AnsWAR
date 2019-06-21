@@ -1,7 +1,7 @@
 package grafica;
 
 import javax.swing.JPanel;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -17,17 +17,15 @@ import javax.swing.SwingConstants;
 import disciplinas.Pregunta;
 import tiempo.Temporizador;
 
-import java.awt.Font;
-import java.awt.Color;
 import javax.swing.ImageIcon;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
 
+/**
+ * Panel grafico que muestra el enunciado con sus respectivas opciones.
+ */
 public class PanelParaResponder extends SuperPanel implements IRelacionPanelesRuletaYResponder
 {
-	private Pregunta preguntaActual= new Pregunta();
-	private JTextField pregunta = new JTextField();
+	private Pregunta preguntaActual = new Pregunta();
+	private JTextField pregunta = new JTextField(50);
 	private ButtonGroup grupoRdionBotomns = new ButtonGroup();
 	private JToggleButton opcionA = new JToggleButton("");
 	private JToggleButton opcionB = new JToggleButton("");
@@ -68,7 +66,7 @@ public class PanelParaResponder extends SuperPanel implements IRelacionPanelesRu
 		pregunta.setEditable(false);
 		pregunta.setForeground(Color.GREEN);
 		pregunta.setBackground(Color.GRAY);
-		pregunta.setFont(new Font("Stencil",Font.PLAIN,18));
+		pregunta.setFont(new Font("Stencil",Font.PLAIN,14));
 		pregunta.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_pregunta = new GridBagConstraints();
 		gbc_pregunta.fill = GridBagConstraints.BOTH;
@@ -100,9 +98,9 @@ public class PanelParaResponder extends SuperPanel implements IRelacionPanelesRu
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				if(preguntaActual.getOpciones().get(3).getEsCorrecta()==true)
+				if(preguntaActual.getOpciones().get(3).getEsCorrecta() == true)
 					JOptionPane.showMessageDialog(null,"Respuesta Correcta!");
-					//Si la respuesta es correcta hay que sumarle el puntaje al jugador
+				// Si la respuesta es correcta hay que sumarle el puntaje al jugador
 
 				else
 					JOptionPane.showMessageDialog(null,"Respuesta Incorrecta");
@@ -121,9 +119,9 @@ public class PanelParaResponder extends SuperPanel implements IRelacionPanelesRu
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				if(preguntaActual.getOpciones().get(2).getEsCorrecta()==true)
+				if(preguntaActual.getOpciones().get(2).getEsCorrecta() == true)
 					JOptionPane.showMessageDialog(null,"Respuesta Correcta!");
-					//Si la respuesta es correcta hay que sumarle el puntaje al jugador
+				// Si la respuesta es correcta hay que sumarle el puntaje al jugador
 				else
 					JOptionPane.showMessageDialog(null,"Respuesta Incorrecta");
 				opcionA.setEnabled(false);
@@ -141,9 +139,9 @@ public class PanelParaResponder extends SuperPanel implements IRelacionPanelesRu
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				if(preguntaActual.getOpciones().get(1).getEsCorrecta()==true)
+				if(preguntaActual.getOpciones().get(1).getEsCorrecta() == true)
 					JOptionPane.showMessageDialog(null,"Respuesta Correcta!");
-					//Si la respuesta es correcta hay que sumarle el puntaje al jugador
+				// Si la respuesta es correcta hay que sumarle el puntaje al jugador
 				else
 					JOptionPane.showMessageDialog(null,"Respuesta Incorrecta");
 				opcionA.setEnabled(false);
@@ -162,16 +160,16 @@ public class PanelParaResponder extends SuperPanel implements IRelacionPanelesRu
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				if(preguntaActual.getOpciones().get(0).getEsCorrecta()==true)
+				if(preguntaActual.getOpciones().get(0).getEsCorrecta() == true)
 					JOptionPane.showMessageDialog(null,"Respuesta Correcta!");
-					//Si la respuesta es correcta hay que sumarle el puntaje al jugador
+				// Si la respuesta es correcta hay que sumarle el puntaje al jugador
 				else
 					JOptionPane.showMessageDialog(null,"Respuesta Incorrecta");
 				opcionB.setEnabled(false);
 				opcionC.setEnabled(false);
 				opcionD.setEnabled(false);
 				otorgarRecompensaSegunAcierto(contenidoPartida,0);
-				moverseEntreRuletaYResponder(contenidoPartida);			
+				moverseEntreRuletaYResponder(contenidoPartida);
 			}
 		});
 
@@ -244,30 +242,31 @@ public class PanelParaResponder extends SuperPanel implements IRelacionPanelesRu
 
 	}
 
-	private void otorgarRecompensaSegunAcierto(SuperPanel contenidoPartida,int index)
+	private void otorgarRecompensaSegunAcierto(SuperPanel contenidoPartida, int index)
 	{
-		if(preguntaActual.getOpciones().get(index).getEsCorrecta()==true)
+		if(preguntaActual.getOpciones().get(index).getEsCorrecta() == true)
 		{
-			long puntosActuales=((ContenidoPartida)contenidoPartida).getPuntosDePartida();
-			((ContenidoPartida)contenidoPartida).setPuntosDePartida(puntosActuales+10);
-			
-			int preguntasActuales=((ContenidoPartida)contenidoPartida).getPreguntasAcertadasDePartida();
-			((ContenidoPartida)contenidoPartida).setPreguntasAcertadasDePartida(preguntasActuales+1);
+			long puntosActuales = ((ContenidoPartida) contenidoPartida).getPuntosDePartida();
+			((ContenidoPartida) contenidoPartida).setPuntosDePartida(puntosActuales + 10);
+
+			int preguntasActuales = ((ContenidoPartida) contenidoPartida).getPreguntasAcertadasDePartida();
+			((ContenidoPartida) contenidoPartida).setPreguntasAcertadasDePartida(preguntasActuales + 1);
 		}
-		
+
 	}
-	
+
 	public void buscarPreguntaSegunCategoria(SuperPanel contenidoPartida)
 	{
-		String auxCategoria = ((PanelRuleta) obtenerPanelPorNombreYdevolverPos(contenidoPartida,"panelRuleta")).getTextoFieldResultado();
+		String auxCategoria = ((PanelRuleta) obtenerPanelPorNombreYdevolverPos(contenidoPartida,"panelRuleta"))
+				.getTextoFieldResultado();
 		ArrayList<Pregunta> listaAux = contenidoPartida.getData().getColeccionPreguntas().get(auxCategoria);
-		
+
 		int indexElegida = ThreadLocalRandom.current().nextInt(0,listaAux.size());
-		
-		preguntaActual=listaAux.get(indexElegida);
+
+		preguntaActual = listaAux.get(indexElegida);
 		actulizarTextFieldYbotones();
 	}
-	
+
 	private void actulizarTextFieldYbotones()
 	{
 		this.pregunta.setText(this.preguntaActual.getEnunciado());

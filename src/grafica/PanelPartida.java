@@ -33,6 +33,11 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JTextField;
 
+/**
+ * Panel grafico donde el jugador puede iniciar partida.
+ * 
+ * @param <T>
+ */
 public class PanelPartida<T extends Jugador> extends SuperPanel
 {
 	private ContenidoPartida contenidoPartida = new ContenidoPartida();
@@ -62,8 +67,12 @@ public class PanelPartida<T extends Jugador> extends SuperPanel
 	private final JLabel label_6 = new JLabel("");
 
 	private T jugador;
-	
+
 	private Temporizador reloj;
+	private final JButton btnVolver = new JButton("Volver");
+	private final JLabel label_7 = new JLabel("");
+	private final JLabel label_8 = new JLabel("");
+	private final JLabel label_9 = new JLabel("");
 
 	/**
 	 * Create the panel.
@@ -108,7 +117,6 @@ public class PanelPartida<T extends Jugador> extends SuperPanel
 		textFieldTiempo.setFont(new Font("Stencil",Font.PLAIN,16));
 		textFieldTiempo.setColumns(10);
 		panel.add(textFieldTiempo);
-		
 
 		actualizarEstadoPuntosDePartidaYPreguntasAcertadasDePartida();
 		txtPreguntasAcertadas.setEditable(false);
@@ -131,10 +139,16 @@ public class PanelPartida<T extends Jugador> extends SuperPanel
 		panel.add(label_3);
 
 		panel.add(label_4);
+		
+		panel.add(label_8);
 
 		panel.add(label_5);
+		
+		panel.add(label_9);
 
 		panel.add(label_6);
+
+		panel.add(label_7);
 
 		panel.add(btnIniciarPartida);
 		btnIniciarPartida.setForeground(Color.GREEN);
@@ -145,6 +159,7 @@ public class PanelPartida<T extends Jugador> extends SuperPanel
 			public void actionPerformed(ActionEvent e)
 			{
 				btnAbandonarPartida.setEnabled(true);
+				btnVolver.setEnabled(false);
 				actualizarEstadosPartida();
 				btnIniciarPartida.setEnabled(false);
 				contenidoPartida.getData().copiarPreguntasDelArchivoAlaColeccion("preguntas.dat");
@@ -160,15 +175,24 @@ public class PanelPartida<T extends Jugador> extends SuperPanel
 
 			}
 		});
+		btnVolver.setBackground(Color.BLACK);
+		btnVolver.setForeground(Color.CYAN);
+		btnVolver.setFont(new Font("Stencil",Font.PLAIN,18));
+		btnVolver.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				desplazarAotroPanel(contentPane,"panelMenuJugador");
+			}
+		});
+
+		panel.add(btnVolver);
 
 		panel.add(btnAbandonarPartida);
 		btnAbandonarPartida.setBackground(Color.BLACK);
 		btnAbandonarPartida.setFont(new Font("Stencil",Font.PLAIN,18));
 		btnAbandonarPartida.setForeground(Color.RED);
 		btnAbandonarPartida.setEnabled(false);
-
-		panel.add(label);
-		panel.add(label_2);
 		btnAbandonarPartida.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
@@ -181,6 +205,9 @@ public class PanelPartida<T extends Jugador> extends SuperPanel
 				}
 			}
 		});
+
+		panel.add(label);
+		panel.add(label_2);
 
 	}
 
@@ -201,7 +228,8 @@ public class PanelPartida<T extends Jugador> extends SuperPanel
 
 	private void actualizarEstadoPuntosDePartidaYPreguntasAcertadasDePartida()
 	{
-		ActualizadorPartida actualizador=new ActualizadorPartida(textFieldPuntaje, txtPreguntasAcertadas, contenidoPartida, textFieldTiempo);
+		ActualizadorPartida actualizador = new ActualizadorPartida(textFieldPuntaje,txtPreguntasAcertadas,
+				contenidoPartida,textFieldTiempo);
 		actualizador.start();
 	}
 

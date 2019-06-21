@@ -25,6 +25,9 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
+/**
+ * Panel grafico donde el jugador acciona la ruleta y obtiene una categoria.
+ */
 public class PanelRuleta extends SuperPanel implements IRelacionPanelesRuletaYResponder
 {
 
@@ -283,7 +286,8 @@ public class PanelRuleta extends SuperPanel implements IRelacionPanelesRuletaYRe
 	{
 		desplazarAotroPanelDentroDeUnaPartida(contenidoPartida,"panelParaResponder");
 		restaurarValoresPanelParaResponder(contenidoPartida);
-		((PanelParaResponder)obtenerPanelPorNombreYdevolverPos(contenidoPartida,"panelParaResponder")).buscarPreguntaSegunCategoria(contenidoPartida);
+		((PanelParaResponder) obtenerPanelPorNombreYdevolverPos(contenidoPartida,"panelParaResponder"))
+				.buscarPreguntaSegunCategoria(contenidoPartida);
 		revalidate();
 		repaint();
 	}

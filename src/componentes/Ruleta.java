@@ -4,6 +4,10 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import javax.swing.JTextField;
 
+/**
+ * Clase para elegir aleatoriamente una categoria de pregunta.
+ * Contiene un conjunto de categorias. Y un resultado, que es la categoria arrojada.
+ */
 public class Ruleta
 {
 	// Atributos:
@@ -38,11 +42,17 @@ public class Ruleta
 
 	// Metodos extra:
 
+	/**
+	 * Metodo para obtener un resultado.
+	 */
 	public void girarRuleta()
 	{
 		obtenerResultadoAlAzar();
 	}
 
+	/**
+	 * Metodo que obtiene un resultado al azar entre las categorias posibles
+	 */
 	private void obtenerResultadoAlAzar()
 	{
 		int i = 0;

@@ -1,5 +1,9 @@
 package personas;
 
+/**
+ * Clase jugador permanete que hereda de jugador.
+ *
+ */
 public class JugadorPermanente extends Jugador
 {
 	// Constructores:

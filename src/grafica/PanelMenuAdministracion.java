@@ -11,6 +11,10 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * Panel grafico donde el administrador elige entre administrar enunciados o
+ * administrar jugadores.
+ */
 public class PanelMenuAdministracion extends SuperPanel
 {
 

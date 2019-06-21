@@ -22,6 +22,10 @@ import java.util.HashMap;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 
+/**
+ * Panel grafico donde el administrador elige una categoria y puede ver todas
+ * las preguntas ingresadas.
+ */
 public class PanelVerPreguntas extends SuperPanel
 {
 	private JList list = new JList();
@@ -114,7 +118,7 @@ public class PanelVerPreguntas extends SuperPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				int respuesta = JOptionPane.showConfirmDialog(null,"¿Realmente desea eliminar el enunciado?",
+				int respuesta = JOptionPane.showConfirmDialog(null,"Realmente desea eliminar el enunciado?",
 						"Eliminar enunciado",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 				if(respuesta == 0)
 				{

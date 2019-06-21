@@ -18,6 +18,9 @@ import personas.Cuenta;
 import personas.Jugador;
 import personas.JugadorPermanente;
 
+/**
+ * Panel grafico en el cual el jugador modifica su perfil
+ */
 public class PanelConfiguracionJugador extends SuperPanel
 {
 	private JPasswordField passwordField = new JPasswordField();
@@ -83,7 +86,7 @@ public class PanelConfiguracionJugador extends SuperPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				int respuesta = JOptionPane.showConfirmDialog(null,"¿Realmente desea eliminar su cuenta?",
+				int respuesta = JOptionPane.showConfirmDialog(null,"Realmente desea eliminar su cuenta?",
 						"Eliminar cuenta",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 				if(respuesta == 0)
 				{
@@ -111,8 +114,9 @@ public class PanelConfiguracionJugador extends SuperPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				int respuesta = JOptionPane.showConfirmDialog(null,"¿Realmente desea modificar los datos de su cuenta?",
-						"Modificar datos",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+				int respuesta = JOptionPane.showConfirmDialog(null,
+						"ï¿½Realmente desea modificar los datos de su cuenta?","Modificar datos",
+						JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 				if(respuesta == 0)
 				{
 					modificarCuenta(contentPane);

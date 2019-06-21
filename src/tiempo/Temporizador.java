@@ -15,6 +15,9 @@ import grafica.SuperPanel;
 import personas.Jugador;
 import personas.JugadorPermanente;
 
+/**
+ * Clase que maneja el limite del tiempo de la partida.
+ */
 public class Temporizador
 {
 	private int hour = 0;
@@ -77,7 +80,7 @@ public class Temporizador
 			{
 				if(jugador instanceof JugadorPermanente)
 				{
-					int respuesta = JOptionPane.showConfirmDialog(null,"¿Desea guardar su resultado?","Partida finalizada",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+					int respuesta = JOptionPane.showConfirmDialog(null,"ï¿½Desea guardar su resultado?","Partida finalizada",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 					if(respuesta==0)
 					{
 						JugadorPermanente auxOriginal=(JugadorPermanente)jugador;

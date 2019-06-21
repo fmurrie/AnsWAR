@@ -7,6 +7,9 @@ import javax.swing.JTextField;
 import disciplinas.Pregunta;
 import personas.JugadorPermanente;
 
+/**
+ * Panel en el cual el administrador edita las preguntas
+ */
 public class PanelEditarPreguntas extends SuperPanel
 {
 	private Pregunta preguntaInterferida = new Pregunta();

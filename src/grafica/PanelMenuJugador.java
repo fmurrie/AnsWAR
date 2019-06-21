@@ -21,6 +21,10 @@ import javax.swing.SwingConstants;
 import disciplinas.Pregunta;
 import personas.JugadorPermanente;
 
+/**
+ * Panel grafico donde el jugador puede optar entre jugar, ver la clasificacion,
+ * ir a la configuracion o ver su perfil.
+ */
 public class PanelMenuJugador extends SuperPanel
 {
 
