@@ -1,5 +1,8 @@
 package personas;
 
+/**
+ * Clase administrador que hereda de la clase cuenta.
+ */
 public class Admin extends Cuenta
 {
 	// Atributos:

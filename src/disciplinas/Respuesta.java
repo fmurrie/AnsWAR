@@ -2,6 +2,9 @@ package disciplinas;
 
 import java.io.Serializable;
 
+/**
+ * Esta clase contiene un String con la respuesta, y un booleano que nos dice si es correcta.
+ */
 public class Respuesta implements Serializable
 {
 	private String respuesta;

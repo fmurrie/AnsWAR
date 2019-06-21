@@ -1,7 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="CUSTOM_SCOPE_NAME" value="Module 'AnsWAR-master'" />
+  </component>
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/grafica/PanelParaResponder.java" line="68" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="598c34c6-3275-4df0-bc84-9f3212a4bb06" name="Default Changelist" comment="" />
+    <list default="true" id="598c34c6-3275-4df0-bc84-9f3212a4bb06" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/disciplinas/Pregunta.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/disciplinas/Pregunta.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/disciplinas/Respuesta.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/disciplinas/Respuesta.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/grafica/PanelParaResponder$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/grafica/PanelParaResponder$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/grafica/PanelParaResponder$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/grafica/PanelParaResponder$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/grafica/PanelParaResponder$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/grafica/PanelParaResponder$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/grafica/PanelParaResponder$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/grafica/PanelParaResponder$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/grafica/PanelParaResponder.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/grafica/PanelParaResponder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/informacion/BaseDeDatos.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/informacion/BaseDeDatos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/informacion/Contenedor.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/informacion/Contenedor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jugadores.dat" beforeDir="false" afterPath="$PROJECT_DIR$/jugadores.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/componentes/Ruleta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/componentes/Ruleta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/disciplinas/Pregunta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/disciplinas/Pregunta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/disciplinas/Respuesta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/disciplinas/Respuesta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/grafica/ActualizadorPartida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grafica/ActualizadorPartida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/grafica/ContenidoPartida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grafica/ContenidoPartida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/grafica/IRelacionFrameYPaneles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grafica/IRelacionFrameYPaneles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/grafica/IRelacionPanelesRuletaYResponder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grafica/IRelacionPanelesRuletaYResponder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/grafica/MarcoEjecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grafica/MarcoEjecutor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/grafica/PanelCargarPreguntas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grafica/PanelCargarPreguntas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/grafica/PanelClasificacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grafica/PanelClasificacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/grafica/PanelConfiguracionJugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grafica/PanelConfiguracionJugador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/grafica/PanelEditarJugadoresAdm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grafica/PanelEditarJugadoresAdm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/grafica/PanelEditarPreguntas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grafica/PanelEditarPreguntas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/grafica/PanelExterior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grafica/PanelExterior.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/grafica/PanelInspeccionarJugadores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grafica/PanelInspeccionarJugadores.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/grafica/PanelLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grafica/PanelLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/grafica/PanelMenuADMenunciados.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grafica/PanelMenuADMenunciados.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/grafica/PanelMenuADMjugadores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grafica/PanelMenuADMjugadores.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/grafica/PanelMenuAdministracion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grafica/PanelMenuAdministracion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/grafica/PanelMenuJugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grafica/PanelMenuJugador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/grafica/PanelParaResponder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grafica/PanelParaResponder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/grafica/PanelPartida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grafica/PanelPartida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/grafica/PanelPerfilJugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grafica/PanelPerfilJugador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/grafica/PanelRegistro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grafica/PanelRegistro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/grafica/PanelRuleta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grafica/PanelRuleta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/grafica/PanelVerPreguntas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grafica/PanelVerPreguntas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/grafica/SuperPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grafica/SuperPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/informacion/BaseDeDatos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/informacion/BaseDeDatos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/informacion/Contenedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/informacion/Contenedor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/personas/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/personas/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/personas/Cuenta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/personas/Cuenta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/personas/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/personas/Jugador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/personas/JugadorInvitado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/personas/JugadorInvitado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/personas/JugadorPermanente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/personas/JugadorPermanente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tiempo/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tiempo/Display.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tiempo/Temporizador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tiempo/Temporizador.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -11,30 +68,10 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DefaultGradleProjectSettings">
-    <option name="testRunner" value="GRADLE" />
-    <option name="delegatedBuild" value="true" />
+    <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/grafica/PanelParaResponder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="65" column="57" selection-start-line="65" selection-start-column="57" selection-end-line="65" selection-end-column="57" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/grafica/MarcoEjecutor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="57" column="23" lean-forward="true" selection-start-line="57" selection-start-column="23" selection-end-line="57" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -43,26 +80,62 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/grafica/PanelClasificacion.java" />
-        <option value="$PROJECT_DIR$/src/grafica/PanelParaResponder.java" />
+        <option value="$PROJECT_DIR$/src/disciplinas/Pregunta.java" />
+        <option value="$PROJECT_DIR$/src/disciplinas/Respuesta.java" />
+        <option value="$PROJECT_DIR$/src/informacion/Contenedor.java" />
+        <option value="$PROJECT_DIR$/src/informacion/BaseDeDatos.java" />
         <option value="$PROJECT_DIR$/src/grafica/MarcoEjecutor.java" />
+        <option value="$PROJECT_DIR$/src/grafica/SuperPanel.java" />
+        <option value="$PROJECT_DIR$/src/componentes/Ruleta.java" />
+        <option value="$PROJECT_DIR$/src/personas/Cuenta.java" />
+        <option value="$PROJECT_DIR$/src/personas/Admin.java" />
+        <option value="$PROJECT_DIR$/src/personas/Jugador.java" />
+        <option value="$PROJECT_DIR$/src/personas/JugadorInvitado.java" />
+        <option value="$PROJECT_DIR$/src/personas/JugadorPermanente.java" />
+        <option value="$PROJECT_DIR$/src/grafica/PanelCargarPreguntas.java" />
+        <option value="$PROJECT_DIR$/src/grafica/PanelClasificacion.java" />
+        <option value="$PROJECT_DIR$/src/grafica/PanelConfiguracionJugador.java" />
+        <option value="$PROJECT_DIR$/src/grafica/PanelEditarJugadoresAdm.java" />
+        <option value="$PROJECT_DIR$/src/grafica/PanelEditarPreguntas.java" />
+        <option value="$PROJECT_DIR$/src/grafica/PanelExterior.java" />
+        <option value="$PROJECT_DIR$/src/grafica/PanelInspeccionarJugadores.java" />
+        <option value="$PROJECT_DIR$/src/grafica/PanelLogin.java" />
+        <option value="$PROJECT_DIR$/src/grafica/PanelMenuADMenunciados.java" />
+        <option value="$PROJECT_DIR$/src/grafica/PanelMenuADMjugadores.java" />
+        <option value="$PROJECT_DIR$/src/grafica/PanelMenuAdministracion.java" />
+        <option value="$PROJECT_DIR$/src/grafica/PanelMenuJugador.java" />
+        <option value="$PROJECT_DIR$/src/grafica/PanelPartida.java" />
+        <option value="$PROJECT_DIR$/src/grafica/PanelPerfilJugador.java" />
+        <option value="$PROJECT_DIR$/src/grafica/PanelRegistro.java" />
+        <option value="$PROJECT_DIR$/src/grafica/PanelRuleta.java" />
+        <option value="$PROJECT_DIR$/src/grafica/PanelVerPreguntas.java" />
+        <option value="$PROJECT_DIR$/src/grafica/IRelacionFrameYPaneles.java" />
+        <option value="$PROJECT_DIR$/src/grafica/IRelacionPanelesRuletaYResponder.java" />
+        <option value="$PROJECT_DIR$/src/tiempo/Display.java" />
+        <option value="$PROJECT_DIR$/src/tiempo/Temporizador.java" />
+        <option value="$PROJECT_DIR$/src/grafica/ActualizadorPartida.java" />
+        <option value="$PROJECT_DIR$/src/grafica/ContenidoPartida.java" />
+        <option value="$PROJECT_DIR$/src/grafica/PanelParaResponder.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="317" />
     <option name="width" value="654" />
     <option name="height" value="991" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -86,13 +159,19 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RunDashboard">
@@ -133,18 +212,18 @@
       <option name="presentableId" value="Default" />
       <updated>1561058412407</updated>
       <workItem from="1561058413587" duration="778000" />
-      <workItem from="1561059969760" duration="1827000" />
+      <workItem from="1561059969760" duration="6415000" />
+      <workItem from="1561071037173" duration="5588000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2605000" />
+    <option name="totallyTimeSpent" value="12781000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2540453" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22330096" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -153,7 +232,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3298731" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.12802768" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -179,13 +258,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/grafica/PanelClasificacion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="uml://JAVA/grafica.PanelParaResponder">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -210,7 +282,7 @@
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="0.9294354838709677" x="486.0" y="244.5" />
+          <settings layout="Hierarchic Group" zoom="0.9294354838709677" x="486.0" y="245.0" />
           <SelectedNodes />
           <Categories />
           <SCOPE>All</SCOPE>
@@ -227,26 +299,570 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/grafica/PanelParaResponder.java">
+    <entry file="file://$PROJECT_DIR$/src/disciplinas/Pregunta.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="65" column="57" selection-start-line="65" selection-start-column="57" selection-end-line="65" selection-end-column="57" />
+        <state relative-caret-position="119">
+          <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
+          <folding>
+            <element signature="e#1111#1112#0" expanded="true" />
+            <element signature="e#1134#1135#0" expanded="true" />
+            <element signature="e#1181#1182#0" expanded="true" />
+            <element signature="e#1203#1204#0" expanded="true" />
+            <element signature="e#1230#1231#0" expanded="true" />
+            <element signature="e#1246#1247#0" expanded="true" />
+            <element signature="e#1281#1282#0" expanded="true" />
+            <element signature="e#1305#1306#0" expanded="true" />
+            <element signature="e#1354#1355#0" expanded="true" />
+            <element signature="e#1387#1388#0" expanded="true" />
+            <element signature="e#1448#1449#0" expanded="true" />
+            <element signature="e#1479#1480#0" expanded="true" />
+            <element signature="e#1514#1515#0" expanded="true" />
+            <element signature="e#1533#1534#0" expanded="true" />
+            <element signature="e#1583#1584#0" expanded="true" />
+            <element signature="e#1618#1619#0" expanded="true" />
+            <element signature="e#1852#1853#0" expanded="true" />
+            <element signature="e#1878#1879#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/disciplinas/Respuesta.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="93" selection-start-line="5" selection-start-column="93" selection-end-line="5" selection-end-column="93" />
+          <folding>
+            <element signature="e#366#367#0" expanded="true" />
+            <element signature="e#389#390#0" expanded="true" />
+            <element signature="e#425#426#0" expanded="true" />
+            <element signature="e#449#450#0" expanded="true" />
+            <element signature="e#499#500#0" expanded="true" />
+            <element signature="e#532#533#0" expanded="true" />
+            <element signature="e#583#584#0" expanded="true" />
+            <element signature="e#618#619#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/informacion/Contenedor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1649">
+          <caret line="106" column="4" selection-start-line="106" selection-start-column="4" selection-end-line="106" selection-end-column="4" />
+          <folding>
+            <element signature="e#396#397#0" expanded="true" />
+            <element signature="e#433#434#0" expanded="true" />
+            <element signature="e#763#764#0" expanded="true" />
+            <element signature="e#786#787#0" expanded="true" />
+            <element signature="e#912#913#0" expanded="true" />
+            <element signature="e#947#948#0" expanded="true" />
+            <element signature="e#1069#1070#0" expanded="true" />
+            <element signature="e#1101#1102#0" expanded="true" />
+            <element signature="e#1257#1258#0" expanded="true" />
+            <element signature="e#1292#1293#0" expanded="true" />
+            <element signature="e#2187#2188#0" expanded="true" />
+            <element signature="e#2221#2222#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grafica/PanelParaResponder.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/informacion/BaseDeDatos.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7157">
+          <caret line="440" column="48" selection-start-line="440" selection-start-column="48" selection-end-line="440" selection-end-column="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/grafica/MarcoEjecutor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="57" column="23" lean-forward="true" selection-start-line="57" selection-start-column="23" selection-end-line="57" selection-end-column="23" />
+        <state relative-caret-position="-1012">
+          <caret line="256" column="7" lean-forward="true" selection-start-line="256" selection-start-column="7" selection-end-line="256" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/componentes/Ruleta.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="45" column="40" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
+          <folding>
+            <element signature="e#323#324#0" expanded="true" />
+            <element signature="e#346#347#0" expanded="true" />
+            <element signature="e#403#404#0" expanded="true" />
+            <element signature="e#422#423#0" expanded="true" />
+            <element signature="e#471#472#0" expanded="true" />
+            <element signature="e#504#505#0" expanded="true" />
+            <element signature="e#538#539#0" expanded="true" />
+            <element signature="e#561#562#0" expanded="true" />
+            <element signature="e#772#773#0" expanded="true" />
+            <element signature="e#803#804#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grafica/SuperPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1028">
+          <caret line="148" column="15" selection-start-line="148" selection-start-column="15" selection-end-line="148" selection-end-column="15" />
+          <folding>
+            <element signature="e#1164#1165#0" expanded="true" />
+            <element signature="e#1190#1191#0" expanded="true" />
+            <element signature="e#1224#1225#0" expanded="true" />
+            <element signature="e#1243#1244#0" expanded="true" />
+            <element signature="e#1282#1283#0" expanded="true" />
+            <element signature="e#1306#1307#0" expanded="true" />
+            <element signature="e#1340#1341#0" expanded="true" />
+            <element signature="e#1358#1359#0" expanded="true" />
+            <element signature="e#1402#1403#0" expanded="true" />
+            <element signature="e#1427#1428#0" expanded="true" />
+            <element signature="e#1481#1482#0" expanded="true" />
+            <element signature="e#1516#1517#0" expanded="true" />
+            <element signature="e#1560#1561#0" expanded="true" />
+            <element signature="e#1583#1584#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/personas/Cuenta.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="182" column="76" selection-start-line="182" selection-start-column="76" selection-end-line="182" selection-end-column="76" />
+          <folding>
+            <element signature="e#1167#1168#0" expanded="true" />
+            <element signature="e#1183#1184#0" expanded="true" />
+            <element signature="e#1215#1216#0" expanded="true" />
+            <element signature="e#1236#1237#0" expanded="true" />
+            <element signature="e#1266#1267#0" expanded="true" />
+            <element signature="e#1285#1286#0" expanded="true" />
+            <element signature="e#1313#1314#0" expanded="true" />
+            <element signature="e#1330#1331#0" expanded="true" />
+            <element signature="e#1361#1362#0" expanded="true" />
+            <element signature="e#1381#1382#0" expanded="true" />
+            <element signature="e#1480#1481#0" expanded="true" />
+            <element signature="e#1509#1510#0" expanded="true" />
+            <element signature="e#1550#1551#0" expanded="true" />
+            <element signature="e#1575#1576#0" expanded="true" />
+            <element signature="e#1612#1613#0" expanded="true" />
+            <element signature="e#1633#1634#0" expanded="true" />
+            <element signature="e#1676#1677#0" expanded="true" />
+            <element signature="e#1703#1704#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/personas/Admin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="3" column="53" selection-start-line="3" selection-start-column="53" selection-end-line="3" selection-end-column="53" />
+          <folding>
+            <element signature="e#120#121#0" expanded="true" />
+            <element signature="e#134#135#0" expanded="true" />
+            <element signature="e#181#182#0" expanded="true" />
+            <element signature="e#208#209#0" expanded="true" />
+            <element signature="e#280#281#0" expanded="true" />
+            <element signature="e#318#319#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/personas/Jugador.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="47" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
+          <folding>
+            <element signature="e#1962#1963#0" expanded="true" />
+            <element signature="e#1984#1985#0" expanded="true" />
+            <element signature="e#2014#2015#0" expanded="true" />
+            <element signature="e#2035#2036#0" expanded="true" />
+            <element signature="e#2075#2076#0" expanded="true" />
+            <element signature="e#2107#2108#0" expanded="true" />
+            <element signature="e#2147#2148#0" expanded="true" />
+            <element signature="e#2179#2180#0" expanded="true" />
+            <element signature="e#2222#2223#0" expanded="true" />
+            <element signature="e#2257#2258#0" expanded="true" />
+            <element signature="e#2306#2307#0" expanded="true" />
+            <element signature="e#2337#2338#0" expanded="true" />
+            <element signature="e#2379#2380#0" expanded="true" />
+            <element signature="e#2408#2409#0" expanded="true" />
+            <element signature="e#2471#2472#0" expanded="true" />
+            <element signature="e#2522#2523#0" expanded="true" />
+            <element signature="e#2585#2586#0" expanded="true" />
+            <element signature="e#2636#2637#0" expanded="true" />
+            <element signature="e#2705#2706#0" expanded="true" />
+            <element signature="e#2762#2763#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/personas/JugadorRank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/personas/JugadorInvitado.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+          <folding>
+            <element signature="e#189#190#0" expanded="true" />
+            <element signature="e#246#247#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/personas/JugadorPermanente.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+          <folding>
+            <element signature="e#129#130#0" expanded="true" />
+            <element signature="e#143#144#0" expanded="true" />
+            <element signature="e#762#763#0" expanded="true" />
+            <element signature="e#777#778#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grafica/PanelCargarPreguntas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="26" column="75" selection-start-line="26" selection-start-column="75" selection-end-line="26" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grafica/PanelConfiguracionJugador.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="21" column="47" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
+          <folding>
+            <element signature="e#3305#3306#0" expanded="true" />
+            <element signature="e#3367#3368#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grafica/PanelEditarJugadoresAdm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="20" column="83" selection-start-line="20" selection-start-column="83" selection-end-line="20" selection-end-column="83" />
+          <folding>
+            <element signature="e#4090#4091#0" expanded="true" />
+            <element signature="e#4162#4163#0" expanded="true" />
+            <element signature="e#5294#5295#0" expanded="true" />
+            <element signature="e#5326#5327#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grafica/PanelEditarPreguntas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="10" column="56" selection-start-line="10" selection-start-column="56" selection-end-line="10" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grafica/PanelExterior.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="18" column="107" selection-start-line="18" selection-start-column="107" selection-end-line="18" selection-end-column="107" />
+          <folding>
+            <element signature="e#898#899#0" expanded="true" />
+            <element signature="e#954#955#0" expanded="true" />
+            <element signature="e#1309#1310#0" expanded="true" />
+            <element signature="e#1368#1369#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grafica/PanelLogin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="22" column="74" selection-start-line="22" selection-start-column="74" selection-end-line="22" selection-end-column="74" />
+          <folding>
+            <element signature="e#2891#2892#0" expanded="true" />
+            <element signature="e#2950#2951#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grafica/PanelInspeccionarJugadores.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="24" column="64" selection-start-line="24" selection-start-column="64" selection-end-line="24" selection-end-column="64" />
+          <folding>
+            <element signature="e#2879#2880#0" expanded="true" />
+            <element signature="e#2946#2947#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grafica/PanelMenuADMenunciados.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="15" column="94" selection-start-line="15" selection-start-column="94" selection-end-line="15" selection-end-column="94" />
+          <folding>
+            <element signature="e#896#897#0" expanded="true" />
+            <element signature="e#962#963#0" expanded="true" />
+            <element signature="e#1359#1360#0" expanded="true" />
+            <element signature="e#1422#1423#0" expanded="true" />
+            <element signature="e#1798#1799#0" expanded="true" />
+            <element signature="e#1867#1868#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grafica/PanelClasificacion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="81" selection-start-line="12" selection-start-column="81" selection-end-line="12" selection-end-column="81" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grafica/PanelMenuAdministracion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="14" column="99" selection-start-line="14" selection-start-column="99" selection-end-line="14" selection-end-column="99" />
+          <folding>
+            <element signature="e#888#889#0" expanded="true" />
+            <element signature="e#956#957#0" expanded="true" />
+            <element signature="e#1319#1320#0" expanded="true" />
+            <element signature="e#1386#1387#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grafica/PanelMenuADMjugadores.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="15" column="76" selection-start-line="15" selection-start-column="76" selection-end-line="15" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grafica/PanelMenuJugador.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="24" column="119" selection-start-line="24" selection-start-column="119" selection-end-line="24" selection-end-column="119" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grafica/PanelPartida.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="36" column="56" selection-start-line="36" selection-start-column="56" selection-end-line="36" selection-end-column="56" />
+          <folding>
+            <element signature="e#5911#5912#0" expanded="true" />
+            <element signature="e#5940#5941#0" expanded="true" />
+            <element signature="e#5985#5986#0" expanded="true" />
+            <element signature="e#6016#6017#0" expanded="true" />
+            <element signature="e#6059#6060#0" expanded="true" />
+            <element signature="e#6087#6088#0" expanded="true" />
+            <element signature="e#6383#6384#0" expanded="true" />
+            <element signature="e#6456#6457#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grafica/PanelPerfilJugador.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="20" column="67" selection-start-line="20" selection-start-column="67" selection-end-line="20" selection-end-column="67" />
+          <folding>
+            <element signature="e#2788#2789#0" expanded="true" />
+            <element signature="e#2851#2852#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grafica/PanelRegistro.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="20" column="77" selection-start-line="20" selection-start-column="77" selection-end-line="20" selection-end-column="77" />
+          <folding>
+            <element signature="e#4043#4044#0" expanded="true" />
+            <element signature="e#4082#4083#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grafica/PanelRuleta.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="28" column="76" selection-start-line="28" selection-start-column="76" selection-end-line="28" selection-end-column="76" />
+          <folding>
+            <element signature="e#8922#8923#0" expanded="true" />
+            <element signature="e#8979#8980#0" expanded="true" />
+            <element signature="e#9423#9424#0" expanded="true" />
+            <element signature="e#9456#9457#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grafica/PanelVerPreguntas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-425">
+          <caret line="25" column="103" selection-start-line="25" selection-start-column="103" selection-end-line="25" selection-end-column="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grafica/IRelacionFrameYPaneles.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="7" column="51" selection-start-line="7" selection-start-column="51" selection-end-line="7" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grafica/IRelacionPanelesRuletaYResponder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="68" selection-start-line="5" selection-start-column="68" selection-end-line="5" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tiempo/Display.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tiempo/Temporizador.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
+          <folding>
+            <element signature="e#1024#2543#0" expanded="true" />
+            <element signature="e#2542#2543#0" expanded="true" />
+            <element signature="e#2610#2611#0" expanded="true" />
+            <element signature="e#2654#2655#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grafica/PanelParaResponder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="22" column="71" selection-start-line="22" selection-start-column="71" selection-end-line="22" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grafica/ContenidoPartida.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="49" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
+          <folding>
+            <element signature="e#199#200#0" expanded="true" />
+            <element signature="e#228#229#0" expanded="true" />
+            <element signature="e#276#277#0" expanded="true" />
+            <element signature="e#317#318#0" expanded="true" />
+            <element signature="e#374#375#0" expanded="true" />
+            <element signature="e#419#420#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grafica/ActualizadorPartida.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="57" selection-start-line="5" selection-start-column="57" selection-end-line="5" selection-end-column="57" />
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>12</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
           <splitter-proportions>
             <option name="proportions">
               <list>

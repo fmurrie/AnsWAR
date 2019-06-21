@@ -18,6 +18,10 @@ import personas.Jugador;
 import personas.JugadorInvitado;
 import personas.JugadorPermanente;
 
+/**
+ * Clase que define el comportamiento de los paneles hijos. Implementa la interfaz IRelacionFrameYPaneles
+ * @param <T>
+ */
 public class SuperPanel<T extends Cuenta> extends JPanel implements IRelacionFrameYPaneles
 {
 
@@ -83,6 +87,11 @@ public class SuperPanel<T extends Cuenta> extends JPanel implements IRelacionFra
 
 	// Metodos varios:
 
+	/**
+	 * Metodo que desplaza a otro panel grafico.
+	 * @param contentPane recibe el Panel que contiene todos los paneles
+	 * @param panelAmostrar Recibe el panel a mostrar
+	 */
 	public void desplazarAotroPanel(SuperPanel contentPane, String panelAmostrar)
 	{
 		boolean busqueda = false;
@@ -106,7 +115,14 @@ public class SuperPanel<T extends Cuenta> extends JPanel implements IRelacionFra
 
 	}
 
+
+	/**
+	 * Metodo implementado de la interfaz IRelacionFrameYPaneles
+	 * @param contentPane recibe el Panel que contiene todos los paneles
+	 * @param panelAmostrar Recibe el panel a mostrar
+	 */
 	@Override
+
 	public void desplazarAotroPanelDentroDeUnaPartida(SuperPanel contentPane, String panelAmostrar)
 	{
 		boolean busqueda = false;
@@ -128,6 +144,10 @@ public class SuperPanel<T extends Cuenta> extends JPanel implements IRelacionFra
 		restaurarValoresPanelPartida(contentPane);
 	}
 
+	/**
+	 * Metodo para restaurar los valores de la ruleta donde se encuentran las categorias
+	 * @param contentPane recibe el Panel que contiene todos los paneles
+	 */
 	public void restaurarValoresRuleta(SuperPanel contentPane)
 	{
 		if(contentPane.getComponent(0).getName().equalsIgnoreCase("panelRuleta"))
@@ -139,6 +159,10 @@ public class SuperPanel<T extends Cuenta> extends JPanel implements IRelacionFra
 		}
 	}
 
+	/**
+	 * Metodo para restaurar valores en el panel para responder.
+	 * @param contentPane recibe el Panel que contiene todos los paneles
+	 */
 	public void restaurarValoresPanelParaResponder(SuperPanel contentPane)
 	{
 		if(contentPane.getComponent(0).getName().equalsIgnoreCase("panelParaResponder"))
@@ -150,6 +174,10 @@ public class SuperPanel<T extends Cuenta> extends JPanel implements IRelacionFra
 		}
 	}
 
+	/**
+	 * Metodo para restaurar valores en el panel partida
+	 * @param contentPane recibe el Panel que contiene todos los paneles
+	 */
 	public void restaurarValoresPanelPartida(SuperPanel contentPane)
 	{
 		if(contentPane.getComponent(0).getName().equalsIgnoreCase("panelPartida"))
@@ -161,6 +189,12 @@ public class SuperPanel<T extends Cuenta> extends JPanel implements IRelacionFra
 		}
 	}
 
+	/**
+	 * Metodo para buscar un panel por nombre y devolver la posicion del mismo.
+	 * @param contentPane recibe el Panel que contiene todos los paneles.
+	 * @param nombrePanel recibe el nombre del panel a buscar.
+	 * @return retorna la posicion del panel buscado.
+	 */
 	public int buscarPanelPorNombreYdevolverPos(SuperPanel contentPane, String nombrePanel)
 	{
 		boolean encontro = false;

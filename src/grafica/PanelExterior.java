@@ -15,6 +15,9 @@ import personas.JugadorInvitado;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * Panel grafico en el cual el usuario puede elegir entre iniciar sesion, registrarse o jugar como invitado
+ */
 public class PanelExterior extends SuperPanel
 {
 

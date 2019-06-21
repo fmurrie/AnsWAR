@@ -17,6 +17,9 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 
+/**
+ * Panel grafico donde el jugador puede ver los datos de su perfil.
+ */
 public class PanelPerfilJugador extends SuperPanel
 {
 	private JTextField txtFieldNickName;

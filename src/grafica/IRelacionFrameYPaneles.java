@@ -4,6 +4,9 @@ import java.awt.Component;
 
 import javax.swing.JPanel;
 
+/**
+ * Interfaz para desplazarse entre un panel y otro.
+ */
 public interface IRelacionFrameYPaneles
 {
 	public abstract void desplazarAotroPanel(SuperPanel contentPane, String panelAmostrar);

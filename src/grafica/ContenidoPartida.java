@@ -1,5 +1,8 @@
 package grafica;
 
+/**
+ * Contiene los componentes de la partida actual.
+ */
 public class ContenidoPartida extends SuperPanel
 {
 	private long puntosDePartida = 0;

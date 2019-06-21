@@ -9,6 +9,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Panel grafico donde se muetra la clasificacion de los jugadores segun puntaje.
+ */
 public class PanelClasificacion extends SuperPanel
 {
 	private JList list = new JList();

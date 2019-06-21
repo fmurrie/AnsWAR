@@ -17,6 +17,9 @@ import personas.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * Panel grafico para que un jugador nuevo realice su registro en el sistema.
+ */
 public class PanelRegistro extends SuperPanel
 {
 	private JTextField usuarioField = new JTextField();

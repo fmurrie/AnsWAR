@@ -21,6 +21,9 @@ import javax.swing.ListSelectionModel;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 
+/**
+ * Panel grafico en el cual se listan los jugadores registrados.
+ */
 public class PanelInspeccionarJugadores extends SuperPanel
 {
 	private JList list = new JList();

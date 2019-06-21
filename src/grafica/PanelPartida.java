@@ -33,6 +33,10 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JTextField;
 
+/**
+ * Panel grafico donde el jugador puede iniciar partida.
+ * @param <T>
+ */
 public class PanelPartida<T extends Jugador> extends SuperPanel
 {
 	private ContenidoPartida contenidoPartida = new ContenidoPartida();
@@ -173,7 +177,7 @@ public class PanelPartida<T extends Jugador> extends SuperPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				int respuesta = JOptionPane.showConfirmDialog(null,"¿Realmente desea abandonar la partida?",
+				int respuesta = JOptionPane.showConfirmDialog(null,"ï¿½Realmente desea abandonar la partida?",
 						"Abandonar partida",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 				if(respuesta == 0)
 				{

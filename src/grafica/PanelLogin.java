@@ -19,6 +19,9 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * Panel grafico donde se inicia sesion, ingresando usuario y constraseña.
+ */
 public class PanelLogin extends SuperPanel
 {
 	private JTextField usuarioField;

@@ -35,6 +35,9 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
 
+/**
+ * Ventana del programa
+ */
 public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 {
 
@@ -221,6 +224,11 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 
 	}
 
+	/**
+	 * Metodo para cambiar de un panel a otro.
+	 * @param contentPane recibe el Panel que contiene todos los paneles
+	 * @param panelAmostrar El panel al que se va a desplazar.
+	 */
 	public void desplazarAotroPanel(SuperPanel contentPane, String panelAmostrar)
 	{
 		boolean busqueda = false;
@@ -242,6 +250,11 @@ public class MarcoEjecutor extends JFrame implements IRelacionFrameYPaneles
 		restaurarValoresPanelPartida(contentPane);
 	}
 
+	/**
+	 * Metodo implementado de la interfaz IRelacionFrameYPaneles
+	 * @param contentPane recibe el Panel que contiene todos los paneles
+	 * @param panelAmostrar Recibe el panel a mostrar
+	 */
 	@Override
 	public void desplazarAotroPanelDentroDeUnaPartida(SuperPanel contentPane, String panelAmostrar)
 	{

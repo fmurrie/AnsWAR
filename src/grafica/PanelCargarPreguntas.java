@@ -23,6 +23,9 @@ import javax.swing.JToggleButton;
 import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JCheckBox;
 
+/**
+ * Panel grafico donde se cargan las preguntas nuevas y se crean enunciados
+ */
 public class PanelCargarPreguntas extends SuperPanel
 {
 	private ButtonGroup grupoRdionBotomns = new ButtonGroup();

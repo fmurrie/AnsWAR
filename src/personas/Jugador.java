@@ -1,5 +1,8 @@
 package personas;
 
+/**
+ * Clase abstracta jugador que hereda de cuenta
+ */
 public abstract class Jugador extends Cuenta
 {
 	// Atributos:

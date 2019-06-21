@@ -19,6 +19,9 @@ import tiempo.Temporizador;
 
 import javax.swing.ImageIcon;
 
+/**
+ * Panel grafico que muestra el enunciado con sus respectivas opciones.
+ */
 public class PanelParaResponder extends SuperPanel implements IRelacionPanelesRuletaYResponder
 {
 	private Pregunta preguntaActual= new Pregunta();

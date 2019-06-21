@@ -11,6 +11,11 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import personas.JugadorPermanente;
 
+/**
+ * Esta clase almacena el enunciado, un ArrayList del tipo respuesta, la disciplina a la que pertenece la pregunta
+ * y un id aleatorio.
+ * Implementa la interfaz Serializable.
+ */
 public class Pregunta implements Serializable
 {
 	// Atributos:
@@ -91,6 +96,10 @@ public class Pregunta implements Serializable
 
 	// Metodos varios:
 
+	/**
+	 * Metodo que agrega una respuesta al arreglo de opciones. El cual contiene 4 respuestas.
+	 * @param nueva Recibe por parametro la respuesta a agregar
+	 */
 	public void agregarRespuesta(Respuesta nueva)
 	{
 		opciones.add(nueva);
@@ -107,6 +116,13 @@ public class Pregunta implements Serializable
 		return dato;
 	}
 
+	/**
+	 * Metodo para generar el id del enunciado aleatoriamente. Verifica que el id no este en uso.
+	 *
+	 * @param min Recibe un long que es el numero minimo que puede arrojar aleatoriamente.
+	 * @param max Recibe un long que es el numero maximo que puede arrojar aleatoriamente.
+	 * @return
+	 */
 	private String generarIdRandom(long min, long max)
 	{
 		boolean esta = true;
@@ -122,6 +138,12 @@ public class Pregunta implements Serializable
 		return idString;
 	}
 
+	/**
+	 * Metodo que verifica en el archivo donde se encuentran las preguntas que un id especifico no se encuentre en uso.
+	 * @param nombreArchivo direccion del archivo donde se encuentran las preguntas
+	 * @param idNueva id a verificar que no exista.
+	 * @return retorna un booleano: false si no existe el id, true si el id ya existe.
+	 */
 	private boolean verificarQueElIDnoExista(String nombreArchivo, String idNueva)
 	{
 		File archiP = new File(nombreArchivo);

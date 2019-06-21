@@ -5,6 +5,9 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import informacion.Contenedor;
 
+/**
+ * Clase abstracta que cuenta con informacion del usuario.
+ */
 public abstract class Cuenta implements Serializable
 {
 	// Atributos:
@@ -152,6 +155,12 @@ public abstract class Cuenta implements Serializable
 		return respuesta;
 	}
 
+	/**
+	 * Metodo que genera un id aleatorio para la cuenta.
+	 * @param min
+	 * @param max
+	 * @return
+	 */
 	private String generarIdRandom(long min, long max)
 	{
 		boolean esta=true;
@@ -167,6 +176,12 @@ public abstract class Cuenta implements Serializable
 		return idString;
 	}
 
+	/**
+	 * Metodo que verifica que la cuenta no exista
+	 * @param nombreArchivo Recibe el nombre del archivo donde se encuentran las cuentas
+	 * @param idNueva recibe el id nuevo
+	 * @return devuelve true si el id no existe, y false si el id ya existe.
+	 */
 	private boolean verificarQueElIDnoExista(String nombreArchivo, String idNueva)
 	{
 		File archiC = new File(nombreArchivo);

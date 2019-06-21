@@ -2,7 +2,9 @@ package grafica;
 
 import javax.swing.JTextField;
 
-
+/**
+ * Proceso para actualizar los textFile del panel partida
+ */
 public class ActualizadorPartida extends Thread
 {
 	private JTextField textFieldPuntaje;

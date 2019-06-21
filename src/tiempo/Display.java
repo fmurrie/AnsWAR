@@ -2,6 +2,9 @@ package tiempo;
 
 import javax.swing.JTextField;
 
+/**
+ * Clase que maneja el paso del tiempo.
+ */
 public class Display
 {
 	public void printTime(int hour, int minute, int second, JTextField componente)

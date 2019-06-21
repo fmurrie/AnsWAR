@@ -2,6 +2,10 @@ package personas;
 
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * Clase jugador invitado que hereda de jugador. Esta clase es para los jugadores que no estan registrados.
+ * Tienen un nickname aleatorio.
+ */
 public class JugadorInvitado extends Jugador
 {
 	// Atributos:
